@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDC — Monitoring & Evaluasi Sertifikasi Tenaga Kerja Pariwisata</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js">
+
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:       #132B50;
+  --navy-deep:  #0c1f3a;
+  --navy-mid:   #1e3d6e;
+  --navy-light: #2a5298;
+  --gold:       #A49063;
+  --gold-light: #c8b07a;
+  --gold-pale:  #e8dcc4;
+  --bg:         #F5F5F3;
+  --surface:    #FFFFFF;
+  --text-main:  #132B50;
+  --text-muted: #6b7a8d;
+  --border:     #dde3ec;
+  --row-alt:    #f8f7f4;
+  --green:      #2d7a4f;
+  --red:        #b53b3b;
+  --amber:      #c97c1a;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', Arial, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg);color:var(--text-main);min-height:100vh;overflow-x:hidden}
+
+/* ── SIDEBAR ───────────────────────────────────────── */
+#sidebar{position:fixed;top:0;left:0;width:240px;height:100vh;background:var(--navy-deep);display:flex;flex-direction:column;z-index:100;border-right:1px solid rgba(164,144,99,.25)}
+.sidebar-brand{padding:28px 24px 20px;border-bottom:1px solid rgba(164,144,99,.2)}
+.brand-title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--gold-light);letter-spacing:.02em;line-height:1.15}
+.brand-sub{font-size:9.5px;color:rgba(200,176,122,.55);letter-spacing:.12em;text-transform:uppercase;margin-top:5px}
+.sidebar-kq{margin:16px 24px;padding:11px 14px;background:rgba(164,144,99,.1);border-left:3px solid var(--gold);border-radius:0 3px 3px 0}
+.sidebar-kq-label{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500}
+.sidebar-kq-text{font-size:10.5px;color:rgba(232,220,196,.8);line-height:1.5;margin-top:4px}
+nav{flex:1;padding:8px 0;overflow-y:auto}
+nav a{display:flex;align-items:center;gap:12px;padding:11px 24px;font-size:12.5px;color:rgba(200,192,176,.75);text-decoration:none;cursor:pointer;transition:all .18s;border-left:3px solid transparent}
+nav a:hover{background:rgba(164,144,99,.08);color:var(--gold-pale);border-left-color:rgba(164,144,99,.4)}
+nav a.active{background:rgba(164,144,99,.14);color:var(--gold-light);border-left-color:var(--gold);font-weight:500}
+.nav-icon{width:16px;height:16px;opacity:.8;flex-shrink:0}
+.sidebar-footer{padding:16px 24px;border-top:1px solid rgba(164,144,99,.15);font-size:9px;color:rgba(164,144,99,.4);letter-spacing:.08em;text-transform:uppercase}
+
+/* ── MAIN ──────────────────────────────────────────── */
+#main{margin-left:240px;min-height:100vh}
+
+/* ── TOPBAR ────────────────────────────────────────── */
+.topbar{background:var(--surface);border-bottom:1px solid var(--border);padding:0 36px;height:60px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.topbar-section{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--navy)}
+.topbar-divider{width:1px;height:18px;background:var(--border)}
+.topbar-sub{font-size:11.5px;color:var(--text-muted)}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.filter-group{display:flex;align-items:center;gap:8px}
+.filter-label{font-size:11px;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase}
+select.filter-select{font-family:var(--font-body);font-size:12px;padding:6px 28px 6px 10px;border:1px solid var(--border);border-radius:4px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23132B50'/%3E%3C/svg%3E") no-repeat right 10px center;-webkit-appearance:none;color:var(--text-main);cursor:pointer}
+select.filter-select:focus{outline:none;border-color:var(--gold)}
+
+/* ── CONTENT ───────────────────────────────────────── */
+.content{padding:32px 36px 48px}
+.view{display:none}
+.view.active{display:block}
+
+/* ── PAGE HEADER ───────────────────────────────────── */
+.page-header{margin-bottom:28px}
+.page-header h1{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--navy);line-height:1.15}
+.page-header p{font-size:12.5px;color:var(--text-muted);margin-top:5px}
+.gold-rule{width:48px;height:2px;background:var(--gold);margin-top:10px}
+
+/* ── KPI CARDS ─────────────────────────────────────── */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:32px}
+.kpi-card{background:var(--surface);border:1px solid var(--border);padding:22px 22px 18px;position:relative;overflow:hidden}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--navy),var(--gold))}
+.kpi-label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);font-weight:500}
+.kpi-value{font-family:var(--font-display);font-size:40px;font-weight:700;color:var(--navy);line-height:1.1;margin-top:6px}
+.kpi-value .unit{font-size:18px;font-weight:500;color:var(--gold)}
+.kpi-note{font-size:11px;color:var(--text-muted);margin-top:6px}
+.kpi-note .up{color:var(--green);font-weight:500}
+.kpi-note .flag{color:var(--red);font-weight:500}
+
+/* ── CHART CARDS ───────────────────────────────────── */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.chart-card{background:var(--surface);border:1px solid var(--border);padding:24px}
+.chart-card.full{grid-column:1/-1}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:20px}
+.card-title{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--navy)}
+.card-sub{font-size:11px;color:var(--text-muted);margin-top:3px}
+.legend-row{display:flex;gap:14px;font-size:11px;color:var(--text-muted);align-items:center;flex-wrap:wrap}
+.legend-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.chart-wrap{position:relative;height:clamp(180px,28vw,260px)}
+.chart-wrap.h300{height:clamp(200px,30vw,300px)}
+.chart-wrap.h340{height:clamp(200px,32vw,340px)}
+
+/* ── TABLES ────────────────────────────────────────── */
+.table-card{background:var(--surface);border:1px solid var(--border);margin-bottom:24px}
+.table-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:1px solid var(--border)}
+.table-title{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--navy)}
+.table-meta{font-size:11px;color:var(--text-muted)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead th{background:var(--navy);color:var(--gold-pale);font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:11px 16px;text-align:left;border-right:1px solid rgba(164,144,99,.15)}
+thead th:last-child{border-right:none}
+tbody tr:nth-child(even){background:var(--row-alt)}
+tbody tr:hover{background:#eef1f7;transition:background .12s}
+tbody td{padding:11px 16px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);vertical-align:middle}
+tbody td:last-child{border-right:none}
+td.mono{font-family:var(--font-mono);font-size:12px;font-weight:500}
+
+/* ── RANK BADGE ────────────────────────────────────── */
+.rank-badge{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-size:11px;font-weight:700;font-family:var(--font-mono)}
+.rank-top{background:var(--navy);color:var(--gold-light)}
+.rank-bot{background:#f3e8e8;color:var(--red)}
+
+/* ── BADGES ────────────────────────────────────────── */
+.badge{display:inline-block;padding:3px 9px;border-radius:2px;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.badge-aktif{background:#d4edda;color:#1a6632}
+.badge-belum{background:#fff3cd;color:#7a4e0d}
+.badge-expired{background:#fde8e8;color:#8b1a1a}
+.badge-siap{background:#d4edda;color:#1a6632}
+.badge-remedial{background:#fde8e8;color:#8b1a1a}
+.badge-stagnan{background:#fff3cd;color:#7a4e0d}
+.badge-monitor{background:#e8f0fe;color:#1a3c8b}
+.delta-up{color:var(--green);font-weight:600;font-family:var(--font-mono)}
+.delta-low{color:var(--amber);font-weight:600;font-family:var(--font-mono)}
+.delta-neg{color:var(--red);font-weight:600;font-family:var(--font-mono)}
+
+/* ── RANK TOGGLE TABS ──────────────────────────────── */
+.rank-tabs{display:flex;gap:0;margin-bottom:0;border-bottom:2px solid var(--border)}
+.rank-tab{padding:10px 22px;font-size:12px;font-weight:500;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .18s;letter-spacing:.02em}
+.rank-tab.active{color:var(--navy);border-bottom-color:var(--gold);font-weight:600}
+.rank-tab:hover:not(.active){color:var(--navy);background:var(--row-alt)}
+.rank-panel{display:none}
+.rank-panel.active{display:block}
+
+/* ── INTERP TILES ──────────────────────────────────── */
+.interp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.interp-tile{background:var(--surface);border:1px solid var(--border);padding:18px 18px 14px;border-top:3px solid transparent}
+.interp-tile.siap{border-top-color:var(--green)}
+.interp-tile.remedial{border-top-color:var(--red)}
+.interp-tile.stagnan{border-top-color:var(--amber)}
+.interp-tile.monitor{border-top-color:var(--navy-light)}
+.interp-count{font-family:var(--font-display);font-size:36px;font-weight:700;color:var(--navy)}
+.interp-label{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:4px}
+.interp-desc{font-size:10.5px;color:var(--text-muted);margin-top:5px}
+
+/* ── TREN ──────────────────────────────────────────── */
+.select-employee{font-family:var(--font-body);font-size:12px;padding:6px 28px 6px 10px;border:1px solid var(--border);border-radius:4px;background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23132B50'/%3E%3C/svg%3E") no-repeat right 10px center;-webkit-appearance:none;color:var(--text-main);cursor:pointer;min-width:210px}
+.select-employee:focus{outline:none;border-color:var(--gold)}
+.training-note{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-muted);margin-top:12px}
+.training-line-sample{width:24px;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0,var(--gold) 6px,transparent 6px,transparent 10px)}
+
+/* ── SECTION DIVIDER ───────────────────────────────── */
+.section-label{font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:0 24px 10px;display:block}
+
+/* ── ANIMATIONS ────────────────────────────────────── */
+.view.active .kpi-card,.view.active .chart-card,.view.active .table-card,.view.active .interp-tile{animation:fadeUp .28s ease both}
+.view.active .kpi-card:nth-child(2){animation-delay:.05s}
+.view.active .kpi-card:nth-child(3){animation-delay:.1s}
+.view.active .kpi-card:nth-child(4){animation-delay:.15s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+
+/* ── ROLE TOGGLE ───────────────────────────────────── */
+.role-toggle-wrap{padding:16px 24px 12px;border-bottom:1px solid rgba(164,144,99,.2)}
+.role-toggle-label{font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(164,144,99,.6);margin-bottom:7px}
+.role-toggle{display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(164,144,99,.25);border-radius:4px;overflow:hidden}
+.role-btn{flex:1;padding:7px 10px;font-size:11px;font-family:var(--font-body);color:rgba(200,192,176,.6);cursor:pointer;border:none;background:transparent;transition:all .18s;letter-spacing:.03em;text-align:center}
+.role-btn.active{background:var(--gold);color:var(--navy-deep);font-weight:600}
+.role-btn:not(.active):hover{background:rgba(164,144,99,.12);color:var(--gold-pale)}
+/* ── EMPLOYEE SIDEBAR PROFILE ──────────────────────── */
+.emp-profile{margin:10px 24px 4px;padding:12px 14px;background:rgba(164,144,99,.08);border:1px solid rgba(164,144,99,.2);border-radius:3px}
+.emp-profile-name{font-family:var(--font-display);font-size:14px;font-weight:600;color:var(--gold-light)}
+.emp-profile-role{font-size:10px;color:rgba(200,192,176,.65);margin-top:2px}
+.emp-profile-select{width:100%;margin-top:8px;font-family:var(--font-body);font-size:11px;padding:5px 8px;border:1px solid rgba(164,144,99,.3);border-radius:3px;background:rgba(255,255,255,.06);color:var(--gold-pale);cursor:pointer}
+.emp-profile-select:focus{outline:none;border-color:var(--gold)}
+.emp-profile-select option{background:var(--navy-deep);color:var(--gold-pale)}
+/* ── NAV SECTION TITLE ─────────────────────────────── */
+nav .nav-section-title{font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(164,144,99,.4);padding:12px 24px 5px;display:block}
+/* ── TOPBAR ROLE BADGE ─────────────────────────────── */
+.role-badge-topbar{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:3px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.role-badge-manager{background:rgba(19,43,80,.1);color:var(--navy);border:1px solid rgba(19,43,80,.2)}
+.role-badge-pegawai{background:rgba(164,144,99,.15);color:#6b4500;border:1px solid rgba(164,144,99,.35)}
+/* ── PROGRESS HERO ─────────────────────────────────── */
+.progress-hero{background:var(--surface);border:1px solid var(--border);padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+.progress-hero::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--gold-light))}
+.progress-hero-name{font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--navy)}
+.progress-hero-role{font-size:13px;color:var(--text-muted);margin-top:4px}
+.progress-hero-divisi{display:inline-block;margin-top:8px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;background:rgba(19,43,80,.07);color:var(--navy);padding:3px 10px;border-radius:2px}
+.progress-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);margin-top:24px;border:1px solid var(--border)}
+.progress-stat{background:var(--surface);padding:16px 20px}
+.progress-stat-label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.progress-stat-value{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--navy);margin-top:4px}
+.progress-stat-note{font-size:10.5px;color:var(--text-muted);margin-top:3px}
+/* ── KPI 3-GRID ────────────────────────────────────── */
+.kpi-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px}
+.kpi-card.kpi-accent::before{background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.kpi-card.kpi-green::before{background:linear-gradient(90deg,var(--green),#5aaa7a)}
+.kpi-card.kpi-warn::before{background:linear-gradient(90deg,var(--amber),#e6a040)}
+/* ── SERTIFIKAT CARD ───────────────────────────────── */
+.cert-card{background:var(--surface);border:1px solid var(--border);padding:24px;margin-bottom:20px;position:relative}
+.cert-card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.cert-name{font-family:var(--font-display);font-size:20px;font-weight:600;color:var(--navy)}
+.cert-meta{font-size:11px;color:var(--text-muted);margin-top:4px}
+.cert-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:16px;background:var(--row-alt);border:1px solid var(--border);margin-top:12px}
+.cert-detail-item .cert-detail-label{color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;font-size:9.5px}
+.cert-detail-item .cert-detail-value{color:var(--text-main);font-weight:500;margin-top:3px;font-size:12px}
+.cert-score-row{display:flex;align-items:center;gap:12px;margin-top:8px}
+.cert-score-bar-wrap{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.cert-score-bar{height:100%;border-radius:4px}
+.cert-score-bar.bar-navy{background:var(--navy)}
+.cert-score-bar.bar-gold{background:var(--gold)}
+.cert-score-label{font-size:10.5px;color:var(--text-muted);min-width:70px}
+.cert-score-val{font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--text-main);min-width:30px;text-align:right}
+/* ── PENILAIAN BREAKDOWN ───────────────────────────── */
+.penilaian-breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.penilaian-aspect{background:var(--surface);border:1px solid var(--border);padding:18px}
+.penilaian-aspect-label{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
+.penilaian-aspect-score{font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--navy);margin-top:6px}
+.penilaian-aspect-score .unit{font-size:15px;color:var(--gold)}
+.penilaian-bar{margin-top:8px;height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.penilaian-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--navy),var(--gold))}
+/* ── COURSE CARD ───────────────────────────────────── */
+.course-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.course-card{background:var(--surface);border:1px solid var(--border);padding:20px;border-top:3px solid var(--border)}
+.course-card.course-priority{border-top-color:var(--red)}
+.course-card.course-recommended{border-top-color:var(--gold)}
+.course-card.course-optional{border-top-color:var(--navy-light)}
+.course-title{font-family:var(--font-display);font-size:16px;font-weight:600;color:var(--navy);margin:8px 0 4px}
+.course-provider{font-size:10.5px;color:var(--text-muted);margin-bottom:10px}
+.course-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.course-tag{font-size:9.5px;padding:2px 8px;border-radius:2px;font-weight:500;letter-spacing:.05em;background:var(--row-alt);color:var(--text-muted);border:1px solid var(--border)}
+.course-reason{font-size:11.5px;color:var(--text-muted);line-height:1.6;padding:10px 12px;background:rgba(164,144,99,.05);border-left:2px solid var(--gold);margin-top:8px}
+.course-meta{display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--text-muted)}
+/* ── EXTRA BADGES ──────────────────────────────────── */
+.badge-recommended{background:rgba(164,144,99,.15);color:#6b4500}
+.badge-priority{background:rgba(180,60,60,.1);color:#8b1a1a}
+
+.doc-watermark{text-align:center;padding:24px;font-size:10px;letter-spacing:.1em;color:rgba(19,43,80,.2);text-transform:uppercase;border-top:1px solid var(--border);margin-top:20px}
+
+/* ── RESPONSIVE TABLE ──────────────────────────────── */
+.table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.table-responsive table{min-width:640px}
+
+/* ── HAMBURGER BUTTON ──────────────────────────────── */
+#sidebar-toggle{display:none;position:fixed;top:14px;left:14px;z-index:200;background:var(--navy-deep);border:1px solid rgba(164,144,99,.35);border-radius:4px;padding:7px 9px;cursor:pointer;flex-direction:column;gap:4px}
+#sidebar-toggle span{display:block;width:18px;height:2px;background:var(--gold-light);border-radius:2px}
+#sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:99}
+
+/* ── TABLET (max 1024px) ───────────────────────────── */
+@media(max-width:1024px){
+  #sidebar{width:200px}
+  #main{margin-left:200px}
+  .topbar{padding:0 20px}
+  .content{padding:24px 20px 40px}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi-grid-3{grid-template-columns:repeat(2,1fr)}
+  .interp-grid{grid-template-columns:repeat(2,1fr)}
+  .penilaian-breakdown{grid-template-columns:repeat(2,1fr)}
+  .progress-stats{grid-template-columns:repeat(2,1fr)}
+  .cert-detail-grid{grid-template-columns:repeat(2,1fr)}
+  .chart-grid{grid-template-columns:1fr}
+  .course-grid{grid-template-columns:1fr}
+}
+
+/* ── MOBILE (max 768px) ────────────────────────────── */
+@media(max-width:768px){
+  #sidebar{transform:translateX(-100%);transition:transform .25s ease;width:240px;position:fixed}
+  #sidebar.open{transform:translateX(0)}
+  #sidebar-overlay.open{display:block}
+  #sidebar-toggle{display:flex}
+  #main{margin-left:0}
+  .topbar{padding:0 14px 0 54px;min-height:54px;height:auto;flex-wrap:wrap;padding-bottom:6px}
+  .topbar-left{gap:8px;flex:1;min-width:0}
+  .topbar-section{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .topbar-sub,.topbar-divider{display:none}
+  .topbar-right{gap:8px;flex-wrap:wrap;padding:4px 0}
+  #mgr-filters{flex-wrap:wrap;gap:8px !important}
+  .filter-label{display:none}
+  select.filter-select{font-size:11px;padding:5px 22px 5px 8px}
+  .role-badge-topbar{font-size:9px;padding:3px 8px}
+  .content{padding:16px 14px 40px}
+  .page-header h1{font-size:22px}
+  .kpi-grid{grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+  .kpi-grid-3{grid-template-columns:1fr 1fr}
+  .kpi-value{font-size:30px}
+  .chart-grid{grid-template-columns:1fr}
+  .interp-grid{grid-template-columns:1fr 1fr}
+  .penilaian-breakdown{grid-template-columns:1fr 1fr}
+  .progress-stats{grid-template-columns:1fr 1fr}
+  .cert-detail-grid{grid-template-columns:1fr 1fr}
+  .course-grid{grid-template-columns:1fr}
+  .chart-card{padding:16px}
+  .kpi-card{padding:16px 14px 12px}
+  .progress-hero{padding:20px 18px}
+  .progress-hero-name{font-size:22px}
+  .table-header{padding:14px 16px 12px;flex-wrap:wrap;gap:6px}
+  .table-title{font-size:15px}
+  .rank-tab{padding:8px 14px;font-size:11.5px}
+}
+
+/* ── SMALL MOBILE (max 480px) ──────────────────────── */
+@media(max-width:480px){
+  .kpi-grid{grid-template-columns:1fr}
+  .kpi-grid-3{grid-template-columns:1fr}
+  .penilaian-breakdown{grid-template-columns:1fr}
+  .cert-detail-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<button id="sidebar-toggle" onclick="toggleSidebar()" aria-label="Toggle menu">
+  <span></span><span></span><span></span>
+</button>
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<!-- ══ SIDEBAR ══════════════════════════════════════ -->
+<aside id="sidebar">
+  <div class="sidebar-brand">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+      <a href="https://imgbb.com/">
+        <img src="https://i.ibb.co.com/7dGX4D40/images-removebg-preview.png" 
+        border="0"
+        alt="Logo Kemenpar"
+        style="width:38px;height:38px;object-fit:contain;flex-shrink:0"
+        onerror="this.style.display='none'">
+      </a>
+      <div>
+        <div class="brand-title">SDC Monitor</div>
+        <div class="brand-sub">Sertifikasi Tenaga Kerja Pariwisata</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROLE TOGGLE -->
+  <div class="role-toggle-wrap">
+    <div class="role-toggle-label">Tampilan Akun</div>
+    <div class="role-toggle">
+      <button class="role-btn active" id="btn-mgr" onclick="setRole('manager')">Manajer</button>
+      <button class="role-btn" id="btn-emp" onclick="setRole('pegawai')">Pegawai</button>
+    </div>
+  </div>
+
+  <!-- Employee profile (pegawai mode) -->
+  <div id="emp-profile-block" style="display:none">
+    <div class="emp-profile">
+      <div class="emp-profile-name" id="sidebar-emp-name">—</div>
+      <div class="emp-profile-role" id="sidebar-emp-role">—</div>
+      <select class="emp-profile-select" id="selectEmpProfile" onchange="changeEmpProfile()"></select>
+    </div>
+  </div>
+
+  <div id="sidebar-kq-block">
+  <div class="sidebar-kq">
+    <div class="sidebar-kq-label">Key Question 3</div>
+    <div class="sidebar-kq-text">Mengukur perubahan kinerja sebelum &amp; sesudah pelatihan dan sertifikasi</div>
+  </div>
+  </div><!-- /sidebar-kq-block -->
+
+  <!-- Manager nav -->
+  <nav id="nav-manager">
+    <span class="nav-section-title">Menu Manajer</span>
+    <a class="active" onclick="showView('dashboard')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="1" width="6" height="6" rx=".5"/><rect x="9" y="1" width="6" height="6" rx=".5"/>
+        <rect x="1" y="9" width="6" height="6" rx=".5"/><rect x="9" y="9" width="6" height="6" rx=".5"/>
+      </svg>Dashboard Utama
+    </a>
+    <a onclick="showView('pegawai')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="8" cy="5" r="3"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+      </svg>Tabel Pegawai
+    </a>
+    <a onclick="showView('prepost')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="10" width="3" height="5"/><rect x="5.5" y="6" width="3" height="9"/><rect x="10" y="3" width="3" height="12"/>
+        <path d="M1 8L6 5L10 7L14 2" stroke-linecap="round"/>
+      </svg>Perbandingan Nilai
+    </a>
+    <a onclick="showView('tren')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 12L4 8L7 9L10 4L13 6L15 2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="1" y1="15" x2="15" y2="15"/>
+      </svg>Tren Kinerja
+    </a>
+    <a onclick="showView('interpretasi')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M2 4h12M2 8h8M2 12h10"/><circle cx="13" cy="11" r="2.5"/>
+        <line x1="14.8" y1="12.8" x2="16" y2="14" stroke-linecap="round"/>
+      </svg>Interpretasi &amp; Flagging
+    </a>
+  </nav><!-- /nav-manager -->
+
+  <!-- Pegawai nav -->
+  <nav id="nav-pegawai" style="display:none">
+    <span class="nav-section-title">Menu Pegawai</span>
+    <a class="active" onclick="showView('emp-progress')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="8" cy="8" r="6.5"/><path d="M8 4v4l3 2" stroke-linecap="round"/>
+      </svg>Progress Saya
+    </a>
+    <a onclick="showView('emp-sertifikat')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1.5" y="3" width="13" height="10" rx="1"/><path d="M5 8h6M5 11h4"/>
+        <circle cx="8" cy="6" r="1.5"/>
+      </svg>Sertifikat Saya
+    </a>
+    <a onclick="showView('emp-penilaian')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 12L4 8L7 9L10 4L13 6L15 2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="1" y1="15" x2="15" y2="15"/>
+      </svg>Hasil Penilaian
+    </a>
+    <a onclick="showView('emp-tren')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="1" y="10" width="3" height="5"/><rect x="5.5" y="6" width="3" height="9"/><rect x="10" y="3" width="3" height="12"/>
+      </svg>Tren Kinerja
+    </a>
+    <a onclick="showView('emp-rekomendasi')">
+      <svg class="nav-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 1l1.8 3.6L14 5.4l-3 2.9.7 4.1L8 10.4l-3.7 2 .7-4.1L2 5.4l4.2-.8z"/>
+      </svg>Rekomendasi Course
+    </a>
+  </nav><!-- /nav-pegawai -->
+
+  <div class="sidebar-footer">SDC Project &mdash; Konfidensial</div>
+</aside>
+
+<!-- ══ MAIN ═════════════════════════════════════════ -->
+<div id="main">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <span class="topbar-section" id="topbar-title">Dashboard Utama</span>
+      <div class="topbar-divider"></div>
+      <span class="topbar-sub" id="topbar-sub">Evaluasi Pelatihan &amp; Sertifikasi 2024–2025</span>
+    </div>
+    <div class="topbar-right">
+      <div id="mgr-filters" style="display:flex;align-items:center;gap:16px">
+        <div class="filter-group">
+          <span class="filter-label">Divisi</span>
+          <select class="filter-select" id="filterDivisi" onchange="applyFilter()">
+            <option value="all">Semua Divisi</option>
+            <option value="Akomodasi">Akomodasi</option>
+            <option value="F&B">Food &amp; Beverage</option>
+            <option value="Tur & Perjalanan">Tur &amp; Perjalanan</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="filter-label">Tahun</span>
+          <select class="filter-select" id="filterTahun" onchange="applyFilter()">
+            <option value="all">2024 &amp; 2025</option>
+            <option value="2024">2024 (Pre-Training)</option>
+            <option value="2025">2025 (Post-Training)</option>
+          </select>
+        </div>
+      </div>
+      <span class="role-badge-topbar role-badge-manager" id="topbar-role-badge">Manajer</span>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══ DASHBOARD ════════════════════════════════ -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <h1>Dashboard Utama</h1>
+        <p>Ringkasan KPI program sertifikasi tenaga kerja pariwisata</p>
+        <div class="gold-rule"></div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Pegawai</div>
+          <div class="kpi-value" id="kpi-total">20</div>
+          <div class="kpi-note">aktif dalam program evaluasi</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Bersertifikat</div>
+          <div class="kpi-value"><span id="kpi-pct">65</span><span class="unit">%</span></div>
+          <div class="kpi-note"><span class="up" id="kpi-pct-n">13</span> dari <span id="kpi-pct-total">20</span> pegawai</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Rata-rata Kenaikan Nilai</div>
+          <div class="kpi-value">+<span id="kpi-delta">22</span></div>
+          <div class="kpi-note"><span class="up">↑</span> poin dari sebelum ke sesudah pelatihan</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Perlu Tindak Lanjut</div>
+          <div class="kpi-value" id="kpi-flagged">4</div>
+          <div class="kpi-note"><span class="flag" id="kpi-flag-detail">2 remedial, 2 stagnan</span></div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Skor Pre/Post Test</div>
+              <div class="card-sub">Nilai sebelum dan sesudah pelatihan, per pegawai</div>
+            </div>
+            <div class="legend-row">
+              <span><span class="legend-dot" style="background:#132B50"></span>Nilai Awal</span>
+              <span><span class="legend-dot" style="background:#A49063"></span>Nilai Akhir</span>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartPrePost"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Status Sertifikasi</div>
+              <div class="card-sub">Proporsi status sertifikat seluruh pegawai</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartDonut"></canvas></div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card full">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Tren Kinerja Tim per Divisi</div>
+              <div class="card-sub">Rata-rata skor kinerja sepanjang periode evaluasi</div>
+            </div>
+            <div class="legend-row" id="tren-legend-dash"></div>
+          </div>
+          <div class="chart-wrap h300"><canvas id="chartTrenDash"></canvas></div>
+          <div class="training-note">
+            <div class="training-line-sample"></div>
+            <span>Garis putus-putus menandai periode pelaksanaan pelatihan (Q3 2024)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TABEL PEGAWAI ═════════════════════════════ -->
+    <div class="view" id="view-pegawai">
+      <div class="page-header">
+        <h1>Tabel Pegawai</h1>
+        <p>Peringkat kinerja individu berdasarkan rata-rata skor dan seberapa besar nilai mereka naik setelah pelatihan</p>
+        <div class="gold-rule"></div>
+      </div>
+
+      <!-- Tab Toggle -->
+      <div class="table-card">
+        <div style="padding:20px 24px 0">
+          <div class="rank-tabs">
+            <div class="rank-tab active" onclick="switchRankTab('top')">⬆ Top 5 Tertinggi</div>
+            <div class="rank-tab" onclick="switchRankTab('bot')">⬇ Top 5 Terendah</div>
+          </div>
+        </div>
+
+        <!-- TOP 5 -->
+        <div class="rank-panel active" id="panel-top">
+          <div class="table-header" style="border-top:none">
+            <div class="table-title">5 Pegawai Kinerja Tertinggi</div>
+            <div class="table-meta" id="meta-top">Berdasarkan rata-rata skor kinerja Q4 2024 – Q2 2025</div>
+          </div>
+          <div class="table-responsive">
+          <table >
+            <thead>
+              <tr>
+                <th style="width:42px">No.</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Divisi</th>
+                <th>Status</th>
+                <th>Nilai Awal</th>
+                <th>Nilai Akhir</th>
+                <th>Kenaikan</th>
+                <th>Rata-rata Kinerja</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-top"></tbody>
+          </table>
+          </div>
+        </div>
+
+        <!-- BOT 5 -->
+        <div class="rank-panel" id="panel-bot">
+          <div class="table-header" style="border-top:none">
+            <div class="table-title">5 Pegawai Kinerja Terendah</div>
+            <div class="table-meta" id="meta-bot">Berdasarkan rata-rata skor kinerja Q4 2024 – Q2 2025</div>
+          </div>
+          <div class="table-responsive">
+          <table >
+            <thead>
+              <tr>
+                <th style="width:42px">No.</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Divisi</th>
+                <th>Status</th>
+                <th>Nilai Awal</th>
+                <th>Nilai Akhir</th>
+                <th>Kenaikan</th>
+                <th>Rata-rata Kinerja</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-bot"></tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full table below -->
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Semua Pegawai</div>
+          <div class="table-meta" id="tabel-meta">Menampilkan 20 pegawai</div>
+        </div>
+        <div class="table-responsive">
+        <table >
+          <thead>
+            <tr>
+              <th>ID</th><th>Nama</th><th>Jabatan</th><th>Divisi</th>
+              <th>Sertifikat</th><th>Status</th><th>Nilai Awal</th><th>Nilai Akhir</th><th>Kenaikan</th><th>Rata-rata Kinerja</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-pegawai-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ BEFORE VS AFTER ════════════════════════════ -->
+    <div class="view" id="view-prepost">
+      <div class="page-header">
+        <h1>Perbandingan Nilai</h1>
+        <p>Seberapa jauh nilai pengetahuan pegawai berubah setelah mengikuti pelatihan</p>
+        <div class="gold-rule"></div>
+      </div>
+
+      <div class="chart-card" style="margin-bottom:24px">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Perbandingan Nilai Awal vs Nilai Akhir</div>
+            <div class="card-sub">Nilai sebelum pelatihan (Awal) dan sesudah pelatihan (Akhir)</div>
+          </div>
+          <div class="legend-row">
+            <span><span class="legend-dot" style="background:#132B50"></span>Nilai Awal</span>
+            <span><span class="legend-dot" style="background:#A49063"></span>Nilai Akhir</span>
+          </div>
+        </div>
+        <div class="chart-wrap h340"><canvas id="chartPrePostFull"></canvas></div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Rata-rata per Divisi</div>
+              <div class="card-sub">Perbandingan sebelum &amp; sesudah per kelompok</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartDivisi"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sebaran Kenaikan Nilai</div>
+              <div class="card-sub">Posisi tiap pegawai: nilai awal vs nilai akhir</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartScatter"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ TREN KINERJA ══════════════════════════════ -->
+    <div class="view" id="view-tren">
+      <div class="page-header">
+        <h1>Tren Kinerja</h1>
+        <p>Perubahan kinerja berkala sebelum dan sesudah pelatihan per individu</p>
+        <div class="gold-rule"></div>
+      </div>
+
+      <div class="chart-card" style="margin-bottom:24px">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Kinerja Individu Sepanjang Periode</div>
+            <div class="card-sub">Pilih pegawai untuk menampilkan tren spesifik</div>
+          </div>
+          <select class="select-employee" id="selectEmp" onchange="updateTrenChart()">
+            <option value="all">Semua (Rata-rata)</option>
+          </select>
+        </div>
+        <div class="chart-wrap" style="height:320px"><canvas id="chartTren"></canvas></div>
+        <div class="training-note">
+          <div class="training-line-sample"></div>
+          <span>Garis putus-putus emas menandai periode pelatihan &amp; sertifikasi (Q3 2024)</span>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Data Kinerja Periodik</div>
+          <div class="table-meta">6 titik pengukuran per pegawai — Q1 2024 s.d. Q2 2025</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Q1 '24</th><th>Q2 '24</th><th>Q3 '24 ✦</th><th>Q4 '24</th>
+              <th>Q1 '25</th><th>Q2 '25</th><th>Perubahan</th><th>Tren</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-kinerja-body"></tbody>
+        </table>
+        <div style="padding:10px 24px 14px;font-size:10.5px;color:var(--text-muted)">✦ Q3 2024: Periode pelaksanaan pelatihan dan ujian sertifikasi</div>
+      </div>
+    </div>
+
+    <!-- ══ INTERPRETASI ══════════════════════════════ -->
+    <div class="view" id="view-interpretasi">
+      <div class="page-header">
+        <h1>Interpretasi &amp; Flagging</h1>
+        <p>Setiap pegawai dikelompokkan berdasarkan seberapa besar nilai dan kinerjanya berubah setelah pelatihan</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="interp-grid" id="interp-tiles"></div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Rekomendasi Tindak Lanjut</div>
+          <div class="table-meta">Analisis otomatis berdasarkan before-after skor dan kinerja</div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th><th>Kenaikan Nilai</th><th>Tren Kinerja</th><th>Status</th><th>Rekomendasi</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-interpretasi-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- PEGAWAI VIEWS                                -->
+    <!-- ════════════════════════════════════════════ -->
+
+    <!-- ══ EMP: PROGRESS ════════════════════════════ -->
+    <div class="view" id="view-emp-progress">
+      <div class="page-header">
+        <h1>Progress Saya</h1>
+        <p>Ringkasan pencapaian, status sertifikasi, dan perkembangan kinerja pribadi</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="progress-hero">
+        <div class="progress-hero-name" id="emp-hero-name">—</div>
+        <div class="progress-hero-role" id="emp-hero-role">—</div>
+        <span class="progress-hero-divisi" id="emp-hero-divisi">—</span>
+        <div class="progress-stats">
+          <div class="progress-stat">
+            <div class="progress-stat-label">Nilai Pre-Test</div>
+            <div class="progress-stat-value" id="emp-stat-pre">—</div>
+            <div class="progress-stat-note">sebelum pelatihan</div>
+          </div>
+          <div class="progress-stat">
+            <div class="progress-stat-label">Nilai Post-Test</div>
+            <div class="progress-stat-value" id="emp-stat-post">—</div>
+            <div class="progress-stat-note">sesudah pelatihan</div>
+          </div>
+          <div class="progress-stat">
+            <div class="progress-stat-label">Kenaikan Nilai</div>
+            <div class="progress-stat-value" id="emp-stat-delta">—</div>
+            <div class="progress-stat-note">total peningkatan</div>
+          </div>
+          <div class="progress-stat">
+            <div class="progress-stat-label">Rata-rata Kinerja</div>
+            <div class="progress-stat-value" id="emp-stat-kin">—</div>
+            <div class="progress-stat-note">dari skala 5.0</div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Perbandingan Nilai Tes</div>
+              <div class="card-sub">Pre-test vs post-test dibandingkan rata-rata divisi</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartEmpPrePost"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Status Sertifikat</div>
+              <div class="card-sub">Kelengkapan dan validitas sertifikasi</div>
+            </div>
+          </div>
+          <div id="emp-cert-summary-content" style="padding:8px 0"></div>
+        </div>
+      </div>
+      <div class="chart-card full" style="margin-bottom:0">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Tren Kinerja Pribadi</div>
+            <div class="card-sub">Perkembangan skor kinerja sepanjang periode evaluasi</div>
+          </div>
+          <div class="legend-row">
+            <span><span class="legend-dot" style="background:#132B50"></span>Kinerja Saya</span>
+            <span><span class="legend-dot" style="background:#A49063"></span>Rata-rata Divisi</span>
+          </div>
+        </div>
+        <div class="chart-wrap h300"><canvas id="chartEmpTrenSummary"></canvas></div>
+        <div class="training-note">
+          <div class="training-line-sample"></div>
+          <span>Garis putus-putus menandai periode pelatihan &amp; sertifikasi (Q3 2024)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ EMP: SERTIFIKAT ═══════════════════════════ -->
+    <div class="view" id="view-emp-sertifikat">
+      <div class="page-header">
+        <h1>Sertifikat Saya</h1>
+        <p>Status dan rincian sertifikasi yang telah Anda tempuh</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div id="emp-cert-cards-container"></div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Riwayat Tes</div>
+          <div class="table-meta">Catatan nilai pre-test dan post-test</div>
+        </div>
+        <table>
+          <thead><tr>
+            <th>Program Pelatihan</th><th>Nilai Pre-Test</th><th>Nilai Post-Test</th>
+            <th>Kenaikan</th><th>Tanggal</th><th>Hasil</th>
+          </tr></thead>
+          <tbody id="emp-test-history-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══ EMP: PENILAIAN ════════════════════════════ -->
+    <div class="view" id="view-emp-penilaian">
+      <div class="page-header">
+        <h1>Hasil Penilaian</h1>
+        <p>Rincian penilaian kinerja Anda per aspek dan per periode</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="penilaian-breakdown" id="emp-penilaian-breakdown"></div>
+      <div class="chart-grid" style="margin-bottom:24px">
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Skor per Aspek Kinerja</div>
+              <div class="card-sub">Nilai Anda dibandingkan standar minimum</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartEmpAspek"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Posisi Relatif dalam Tim</div>
+              <div class="card-sub">Perbandingan kinerja Anda vs divisi</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="chartEmpRank"></canvas></div>
+        </div>
+      </div>
+      <div class="table-card">
+        <div class="table-header">
+          <div class="table-title">Riwayat Penilaian Periodik</div>
+          <div class="table-meta">Semua periode Q1 2024 – Q2 2025</div>
+        </div>
+        <table>
+          <thead><tr>
+            <th>Periode</th><th>Kualitas Layanan</th><th>Kepatuhan SOP</th>
+            <th>Inisiatif</th><th>Kerja Tim</th><th>Rata-rata</th><th>Fase</th>
+          </tr></thead>
+          <tbody id="emp-penilaian-history"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ══ EMP: TREN KINERJA ═════════════════════════ -->
+    <div class="view" id="view-emp-tren">
+      <div class="page-header">
+        <h1>Tren Kinerja</h1>
+        <p>Perkembangan kinerja Anda sebelum dan sesudah mengikuti pelatihan</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div class="kpi-grid-3" id="emp-tren-kpi"></div>
+      <div class="chart-card full" style="margin-bottom:24px">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Grafik Tren Kinerja Lengkap</div>
+            <div class="card-sub">Dibandingkan dengan rata-rata divisi dan seluruh program</div>
+          </div>
+          <div class="legend-row">
+            <span><span class="legend-dot" style="background:#132B50"></span>Kinerja Saya</span>
+            <span><span class="legend-dot" style="background:#A49063"></span>Rata-rata Divisi</span>
+            <span><span class="legend-dot" style="background:#9ab4d4"></span>Rata-rata Program</span>
+          </div>
+        </div>
+        <div class="chart-wrap h340"><canvas id="chartEmpTrenFull"></canvas></div>
+        <div class="training-note">
+          <div class="training-line-sample"></div>
+          <span>Garis putus-putus emas: periode pelatihan &amp; sertifikasi (Q3 2024)</span>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Before vs After: Ringkasan Dampak Pelatihan</div>
+            <div class="card-sub">Rata-rata kinerja sebelum (Q1–Q3 2024) vs sesudah (Q4 2024–Q2 2025)</div>
+          </div>
+        </div>
+        <div class="chart-wrap" style="height:200px"><canvas id="chartEmpBeforeAfter"></canvas></div>
+      </div>
+    </div>
+
+    <!-- ══ EMP: REKOMENDASI COURSE ═══════════════════ -->
+    <div class="view" id="view-emp-rekomendasi">
+      <div class="page-header">
+        <h1>Rekomendasi Course</h1>
+        <p>Kursus dan sertifikasi yang direkomendasikan berdasarkan jabatan dan hasil evaluasi Anda</p>
+        <div class="gold-rule"></div>
+      </div>
+      <div id="emp-rekomen-banner" style="margin-bottom:24px"></div>
+      <div class="course-grid" id="emp-course-grid"></div>
+      <div class="table-card" style="margin-top:8px">
+        <div class="table-header">
+          <div class="table-title">Jalur Pengembangan Karir</div>
+          <div class="table-meta">Rekomendasi bertahap untuk peningkatan kompetensi</div>
+        </div>
+        <table>
+          <thead><tr>
+            <th>Tahap</th><th>Kompetensi Target</th><th>Program / Lembaga</th><th>Durasi</th><th>Prioritas</th>
+          </tr></thead>
+          <tbody id="emp-career-path-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /content -->
+  <div class="doc-watermark">SDC Project — Dokumen Konfidensial — Referensi Internal Pembuatan Prototype — 2 Juni 2026</div>
+</div><!-- /main -->
+
+<script>
+// ══════════════════════════════════════════════════════
+//  DATA — 20 pegawai, 3 divisi, konteks pariwisata Indonesia
+// ══════════════════════════════════════════════════════
+const SEMUA_PEGAWAI = [
+  // ── Akomodasi (7 orang) ───────────────────────────
+  { id:'EMP001', nama:'Budi Santoso',     jabatan:'Front Desk Officer',      divisi:'Akomodasi',
+    sertifikat:'Sertifikat Kantor Depan', status:'Aktif',    tanggal:'2025-03-15',
+    preScore:55, postScore:82, kinerja:[3.2,3.4,3.5,4.0,4.2,4.3] },
+  { id:'EMP002', nama:'Dewi Rahayu',      jabatan:'Housekeeping Supervisor', divisi:'Akomodasi',
+    sertifikat:'Sertifikat Tata Graha',   status:'Aktif',    tanggal:'2025-01-20',
+    preScore:68, postScore:91, kinerja:[3.7,3.8,3.9,4.5,4.6,4.7] },
+  { id:'EMP003', nama:'Reza Firmansyah',  jabatan:'Front Desk Officer',      divisi:'Akomodasi',
+    sertifikat:'Sertifikat Kantor Depan', status:'Belum',    tanggal:null,
+    preScore:48, postScore:63, kinerja:[2.9,3.0,3.0,3.2,3.1,3.3] },
+  { id:'EMP004', nama:'Sari Wulandari',   jabatan:'Guest Relations Officer', divisi:'Akomodasi',
+    sertifikat:'Sertifikat GRO',          status:'Kadaluarsa',tanggal:'2023-06-10',
+    preScore:70, postScore:84, kinerja:[3.9,4.0,4.0,4.1,3.9,3.8] },
+  { id:'EMP005', nama:'Hendri Kusuma',    jabatan:'Concierge',               divisi:'Akomodasi',
+    sertifikat:'Sertifikat Concierge',    status:'Aktif',    tanggal:'2025-04-02',
+    preScore:62, postScore:87, kinerja:[3.4,3.5,3.6,4.2,4.3,4.4] },
+  { id:'EMP006', nama:'Lestari Ningtyas', jabatan:'Housekeeping Attendant',  divisi:'Akomodasi',
+    sertifikat:'Sertifikat Tata Graha',   status:'Aktif',    tanggal:'2025-02-10',
+    preScore:58, postScore:79, kinerja:[3.1,3.2,3.3,3.8,3.9,4.0] },
+  { id:'EMP007', nama:'Agus Prasetyo',    jabatan:'Front Desk Officer',      divisi:'Akomodasi',
+    sertifikat:'Sertifikat Kantor Depan', status:'Belum',    tanggal:null,
+    preScore:44, postScore:57, kinerja:[2.7,2.8,2.7,2.9,2.8,2.9] },
+
+  // ── Food & Beverage (7 orang) ─────────────────────
+  { id:'EMP008', nama:'Ahmad Fauzi',      jabatan:'F&B Attendant',           divisi:'F&B',
+    sertifikat:'Sertifikat F&B Service',  status:'Aktif',    tanggal:'2025-02-28',
+    preScore:60, postScore:85, kinerja:[3.3,3.4,3.6,4.1,4.2,4.3] },
+  { id:'EMP009', nama:'Putri Maharani',   jabatan:'F&B Attendant',           divisi:'F&B',
+    sertifikat:'Sertifikat F&B Service',  status:'Aktif',    tanggal:'2025-02-28',
+    preScore:65, postScore:88, kinerja:[3.5,3.6,3.7,4.3,4.4,4.5] },
+  { id:'EMP010', nama:'Hendra Wijaya',    jabatan:'F&B Attendant',           divisi:'F&B',
+    sertifikat:'Sertifikat F&B Service',  status:'Belum',    tanggal:null,
+    preScore:43, postScore:56, kinerja:[2.6,2.7,2.6,2.8,2.7,2.8] },
+  { id:'EMP011', nama:'Yuni Astuti',      jabatan:'Bartender',               divisi:'F&B',
+    sertifikat:'Sertifikat Bartending',   status:'Aktif',    tanggal:'2025-03-05',
+    preScore:72, postScore:93, kinerja:[3.9,4.0,4.1,4.6,4.7,4.8] },
+  { id:'EMP012', nama:'Suryo Wibowo',     jabatan:'Chef de Partie',          divisi:'F&B',
+    sertifikat:'Sertifikat Culinary',     status:'Aktif',    tanggal:'2024-12-20',
+    preScore:74, postScore:92, kinerja:[4.0,4.1,4.2,4.7,4.8,4.9] },
+  { id:'EMP013', nama:'Mega Puspita',     jabatan:'Barista',                 divisi:'F&B',
+    sertifikat:'Sertifikat Barista',      status:'Kadaluarsa',tanggal:'2023-08-15',
+    preScore:51, postScore:66, kinerja:[3.0,3.0,3.1,3.3,3.2,3.2] },
+  { id:'EMP014', nama:'Danu Setiawan',    jabatan:'F&B Supervisor',          divisi:'F&B',
+    sertifikat:'Sertifikat F&B Service',  status:'Aktif',    tanggal:'2025-01-08',
+    preScore:66, postScore:89, kinerja:[3.6,3.7,3.8,4.3,4.4,4.5] },
+
+  // ── Tur & Perjalanan (6 orang) ────────────────────
+  { id:'EMP015', nama:'Maya Kusuma',      jabatan:'Tour Guide',              divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Pemandu Wisata',status:'Aktif',   tanggal:'2024-12-05',
+    preScore:73, postScore:94, kinerja:[3.9,4.1,4.2,4.6,4.7,4.8] },
+  { id:'EMP016', nama:'Dimas Prakoso',    jabatan:'Travel Consultant',       divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Agen Perjalanan',status:'Aktif',  tanggal:'2025-01-15',
+    preScore:67, postScore:88, kinerja:[3.6,3.7,3.9,4.3,4.4,4.5] },
+  { id:'EMP017', nama:'Rina Agustina',    jabatan:'Tour Guide',              divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Pemandu Wisata',status:'Kadaluarsa',tanggal:'2022-11-20',
+    preScore:50, postScore:65, kinerja:[2.9,3.0,3.1,3.3,3.2,3.3] },
+  { id:'EMP018', nama:'Bayu Anggara',     jabatan:'Tour Leader',             divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Pemandu Wisata',status:'Aktif',   tanggal:'2025-03-22',
+    preScore:64, postScore:86, kinerja:[3.5,3.6,3.7,4.2,4.3,4.4] },
+  { id:'EMP019', nama:'Nita Permata',     jabatan:'Travel Consultant',       divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Agen Perjalanan',status:'Aktif',  tanggal:'2024-11-30',
+    preScore:69, postScore:90, kinerja:[3.7,3.8,3.9,4.4,4.5,4.6] },
+  { id:'EMP020', nama:'Fajar Nugroho',    jabatan:'Tour Guide',              divisi:'Tur & Perjalanan',
+    sertifikat:'Sertifikat Pemandu Wisata',status:'Belum',   tanggal:null,
+    preScore:46, postScore:60, kinerja:[2.8,2.9,2.8,3.0,2.9,3.0] }
+];
+
+// Periode labels — index 0-2 = 2024, index 3-5 = 2025
+const PERIODE_LABELS_ALL  = ['Q1 2024','Q2 2024','Q3 2024','Q4 2024','Q1 2025','Q2 2025'];
+const PERIODE_LABELS_2024 = ['Q1 2024','Q2 2024','Q3 2024'];
+const PERIODE_LABELS_2025 = ['Q4 2024','Q1 2025','Q2 2025'];
+const TRAINING_IDX = 2; // Q3 2024
+
+const NAVY  = '#132B50';
+const GOLD  = '#A49063';
+const NAVY_L = '#2a5298';
+const empColors = [NAVY,GOLD,NAVY_L,'#4a7c59','#8b6914','#5b7fa6','#a05c5c','#6b5ba6','#5ba69b','#a0845c',
+                   '#7a5a3a','#3a7a6a','#7a3a5a','#3a5a7a','#6a7a3a','#7a6a3a','#3a7a3a','#7a3a3a','#5a3a7a','#3a5a3a'];
+
+Chart.defaults.font.family = "'DM Sans', Arial, sans-serif";
+Chart.defaults.color = '#6b7a8d';
+
+// ══════════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════════
+let filteredPegawai = [...SEMUA_PEGAWAI];
+let activePeriodeLabels = PERIODE_LABELS_ALL;
+let activePeriodeIndices = [0,1,2,3,4,5];
+
+function avg(arr){ return arr.reduce((a,b)=>a+b,0)/arr.length; }
+
+function applyFilter(){
+  const div   = document.getElementById('filterDivisi').value;
+  const tahun = document.getElementById('filterTahun').value;
+
+  filteredPegawai = SEMUA_PEGAWAI.filter(p => div === 'all' || p.divisi === div);
+
+  if(tahun === '2024'){
+    activePeriodeLabels  = PERIODE_LABELS_2024;
+    activePeriodeIndices = [0,1,2];
+  } else if(tahun === '2025'){
+    activePeriodeLabels  = PERIODE_LABELS_2025;
+    activePeriodeIndices = [3,4,5];
+  } else {
+    activePeriodeLabels  = PERIODE_LABELS_ALL;
+    activePeriodeIndices = [0,1,2,3,4,5];
+  }
+
+  renderMgrAll();
+}
+
+// ══════════════════════════════════════════════════════
+//  RENDER ALL (manager)
+// ══════════════════════════════════════════════════════
+function renderAll(){ renderMgrAll(); }
+function renderMgrAll(){
+  updateKPI();
+  renderTabelPegawai();
+  renderRankTables();
+  renderTabelKinerja();
+  renderTabelInterpretasi();
+  destroyAndRebuildCharts();
+}
+
+// ══════════════════════════════════════════════════════
+//  KPI
+// ══════════════════════════════════════════════════════
+function updateKPI(){
+  const fp = filteredPegawai;
+  const total   = fp.length;
+  const aktif   = fp.filter(p=>p.status==='Aktif').length;
+  const pct     = total ? Math.round(aktif/total*100) : 0;
+  const rataKenaikan= total ? Math.round(fp.reduce((a,p)=>a+(p.postScore-p.preScore),0)/total) : 0;
+  const remedial= fp.filter(p=>(p.postScore-p.preScore)<15).length;
+  const stagnan = fp.filter(p=>{
+    const ki=p.kinerja; const pre=avg(ki.slice(0,3)); const post=avg(ki.slice(3));
+    return Math.abs(post-pre)<0.2;
+  }).length;
+  el('kpi-total').textContent    = total;
+  el('kpi-pct').textContent      = pct;
+  el('kpi-pct-n').textContent    = aktif;
+  el('kpi-pct-total').textContent= total;
+  el('kpi-delta').textContent    = rataKenaikan;
+  el('kpi-flagged').textContent  = remedial+stagnan;
+  el('kpi-flag-detail').textContent = remedial+' remedial, '+stagnan+' stagnan';
+}
+
+// ══════════════════════════════════════════════════════
+//  RANK TABLES (Top 5 / Bot 5)
+// ══════════════════════════════════════════════════════
+let activeRankTab = 'top';
+
+function switchRankTab(tab){
+  activeRankTab = tab;
+  document.querySelectorAll('.rank-tab').forEach((t,i)=>{
+    t.classList.toggle('active', (i===0&&tab==='top')||(i===1&&tab==='bot'));
+  });
+  document.querySelectorAll('.rank-panel').forEach((p,i)=>{
+    p.classList.toggle('active', (i===0&&tab==='top')||(i===1&&tab==='bot'));
+  });
+}
+
+function renderRankTables(){
+  const fp = [...filteredPegawai];
+  // sort by post-training avg kinerja descending
+  const withAvg = fp.map(p=>({ ...p, avgKin: avg(p.kinerja.slice(3)) }));
+  withAvg.sort((a,b)=>b.avgKin-a.avgKin);
+
+  const top5 = withAvg.slice(0,5);
+  const bot5 = [...withAvg].reverse().slice(0,5);
+
+  el('tbody-top').innerHTML = top5.map((p,i)=>rankRow(p,i+1,'top')).join('');
+  el('tbody-bot').innerHTML = bot5.map((p,i)=>rankRow(p,i+1,'bot')).join('');
+  el('meta-top').textContent = 'Berdasarkan rata-rata skor kinerja Q4 2024 – Q2 2025';
+  el('meta-bot').textContent = 'Berdasarkan rata-rata skor kinerja Q4 2024 – Q2 2025';
+}
+
+function rankRow(p, rank, type){
+  const kenaikan = p.postScore - p.preScore;
+  const dcls  = kenaikan>=20?'delta-up':kenaikan>=10?'delta-low':'delta-neg';
+  const stBadge = p.status==='Aktif'?'badge-aktif':p.status==='Belum'?'badge-belum':'badge-expired';
+  const badgeCls = type==='top'?'rank-top':'rank-bot';
+  return `<tr>
+    <td data-label="No." style="text-align:center"><span class="rank-badge ${badgeCls}">${rank}</span></td>
+    <td data-label="Nama"><strong>${p.nama}</strong></td>
+    <td data-label="Jabatan" style="font-size:11.5px">${p.jabatan}</td>
+    <td data-label="Divisi">${p.divisi}</td>
+    <td data-label="Status"><span class="badge ${stBadge}">${p.status}</span></td>
+    <td data-label="Nilai Awal" class="mono" style="text-align:center">${p.preScore}</td>
+    <td data-label="Nilai Akhir" class="mono" style="text-align:center">${p.postScore}</td>
+    <td data-label="Kenaikan" class="mono ${dcls}" style="text-align:center">${kenaikan>0?'+':''}${kenaikan}</td>
+    <td data-label="Rata-rata Kinerja" class="mono" style="text-align:center;font-weight:600;color:var(--navy)">${p.avgKin.toFixed(2)}</td>
+  </tr>`;
+}
+
+// ══════════════════════════════════════════════════════
+//  TABEL FULL PEGAWAI
+// ══════════════════════════════════════════════════════
+function renderTabelPegawai(){
+  const fp = filteredPegawai;
+  el('tabel-meta').textContent = 'Menampilkan '+fp.length+' pegawai';
+  el('tabel-pegawai-body').innerHTML = fp.map(p=>{
+    const kenaikan = p.postScore - p.preScore;
+    const dcls  = kenaikan>=20?'delta-up':kenaikan>=10?'delta-low':'delta-neg';
+    const stBadge = p.status==='Aktif'?'badge-aktif':p.status==='Belum'?'badge-belum':'badge-expired';
+    const avgKin  = avg(p.kinerja).toFixed(2);
+    return `<tr>
+      <td data-label="ID" class="mono" style="color:var(--text-muted);font-size:11px">${p.id}</td>
+      <td data-label="Nama"><strong>${p.nama}</strong></td>
+      <td data-label="Jabatan" style="font-size:11.5px">${p.jabatan}</td>
+      <td data-label="Divisi">${p.divisi}</td>
+      <td data-label="Sertifikat" style="font-size:11px">${p.sertifikat}</td>
+      <td data-label="Status"><span class="badge ${stBadge}">${p.status}</span></td>
+      <td data-label="Nilai Awal" class="mono" style="text-align:center">${p.preScore}</td>
+      <td data-label="Nilai Akhir" class="mono" style="text-align:center">${p.postScore}</td>
+      <td data-label="Kenaikan" class="mono ${dcls}" style="text-align:center">${kenaikan>0?'+':''}${kenaikan}</td>
+      <td data-label="Rata-rata Kinerja" class="mono" style="text-align:center">${avgKin}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  TABEL KINERJA
+// ══════════════════════════════════════════════════════
+function renderTabelKinerja(){
+  const fp = filteredPegawai;
+  const idx = activePeriodeIndices;
+  el('tabel-kinerja-body').innerHTML = fp.map(p=>{
+    const k = p.kinerja;
+    const preAvg  = avg(k.slice(0,3));
+    const postAvg = avg(k.slice(3));
+    const naik    = postAvg - preAvg;
+    const dcls    = naik>=0.4?'delta-up':naik>=0.1?'delta-low':'delta-neg';
+    const tren    = naik>=0.4?'↑ Membaik':naik>=0.1?'↗ Sedikit naik':naik<0?'↓ Menurun':'→ Tidak berubah';
+    const cells   = idx.map((qi,ci)=>`<td class="mono" style="text-align:center;${qi===2?'background:rgba(164,144,99,.07);font-weight:600':''}">${k[qi].toFixed(1)}</td>`).join('');
+    return `<tr>
+      <td><strong>${p.nama}</strong><br><span style="font-size:10.5px;color:var(--text-muted)">${p.jabatan}</span></td>
+      ${cells}
+      <td class="mono ${dcls}" style="text-align:center">${naik>0?'+':''}${naik.toFixed(2)}</td>
+      <td style="font-size:11.5px;color:var(--text-muted)">${tren}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  FLAGGING
+// ══════════════════════════════════════════════════════
+function getFlag(p){
+  const kenaikan = p.postScore - p.preScore;
+  const kinNaik = avg(p.kinerja.slice(3)) - avg(p.kinerja.slice(0,3));
+  if(kenaikan>=20 && kinNaik>=0.4 && p.status==='Aktif') return 'siap';
+  if(kenaikan<15 || kinNaik<0) return 'remedial';
+  if(Math.abs(kinNaik)<0.2) return 'stagnan';
+  return 'monitor';
+}
+function getRekomen(p){
+  const f = getFlag(p);
+  if(f==='siap')     return 'Daftarkan ke LSP Pariwisata; kandidat sertifikasi lanjutan';
+  if(f==='remedial') return 'Ikutkan pelatihan ulang; jadwalkan bimbingan intensif';
+  if(f==='stagnan')  return 'Evaluasi faktor eksternal; konsultasi dengan supervisor';
+  return 'Pantau 1 kuartal ke depan; pertimbangkan coaching';
+}
+
+function renderTabelInterpretasi(){
+  const fp = filteredPegawai;
+  const counts = {siap:0,remedial:0,stagnan:0,monitor:0};
+  fp.forEach(p=>counts[getFlag(p)]++);
+
+  el('interp-tiles').innerHTML = [
+    {k:'siap',    label:'Siap Sertifikasi',  desc:'Nilai naik signifikan & kinerja membaik'},
+    {k:'remedial',label:'Perlu Remedial',    desc:'Skor rendah atau kinerja menurun'},
+    {k:'stagnan', label:'Kinerja Stagnan',   desc:'Tidak ada perubahan signifikan'},
+    {k:'monitor', label:'Perlu Monitoring',  desc:'Progres ada, perlu dipantau'}
+  ].map(t=>`<div class="interp-tile ${t.k}">
+    <div class="interp-count">${counts[t.k]}</div>
+    <div class="interp-label">${t.label}</div>
+    <div class="interp-desc">${t.desc}</div>
+  </div>`).join('');
+
+  const flagBadge = {siap:'badge-siap',remedial:'badge-remedial',stagnan:'badge-stagnan',monitor:'badge-monitor'};
+  const flagLabel = {siap:'Siap Sertifikasi',remedial:'Perlu Remedial',stagnan:'Stagnan',monitor:'Pantau'};
+  el('tabel-interpretasi-body').innerHTML = fp.map(p=>{
+    const kenaikan = p.postScore - p.preScore;
+    const kinNaik = avg(p.kinerja.slice(3)) - avg(p.kinerja.slice(0,3));
+    const tren = kinNaik>=0.4?'↑ Membaik':kinNaik<0?'↓ Menurun':'→ Tidak banyak berubah';
+    const flag = getFlag(p);
+    const dcls = kenaikan>=20?'delta-up':kenaikan>=10?'delta-low':'delta-neg';
+    return `<tr>
+      <td><strong>${p.nama}</strong><br><span style="font-size:10.5px;color:var(--text-muted)">${p.jabatan} — ${p.divisi}</span></td>
+      <td class="mono ${dcls}" style="text-align:center">${kenaikan>0?'+':''}${kenaikan} poin</td>
+      <td style="font-size:12px">${tren}</td>
+      <td><span class="badge ${flagBadge[flag]}">${flagLabel[flag]}</span></td>
+      <td style="font-size:11.5px;line-height:1.5">${getRekomen(p)}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════════
+//  CHARTS
+// ══════════════════════════════════════════════════════
+const charts = {};
+function destroyChart(id){ if(charts[id]){charts[id].destroy();delete charts[id];} }
+function el(id){ return document.getElementById(id); }
+
+// ─── Responsive chart scale helper ────────────────────
+function chartResponsiveDefaults(){
+  const w = window.innerWidth;
+  const isMobile = w<=768, isTablet = w<=1024;
+  return {
+    fontSize      : isMobile ? 9  : isTablet ? 10 : 11,
+    legendFontSize: isMobile ? 10 : isTablet ? 11 : 12,
+    titleFontSize : isMobile ? 10 : isTablet ? 11 : 11,
+    pointRadius   : isMobile ? 2  : isTablet ? 3  : 4,
+    pointHover    : isMobile ? 4  : isTablet ? 5  : 6,
+    borderWidth   : isMobile ? 1.5: isTablet ? 2  : 2.5,
+    showAxisTitle : !isMobile,
+    legendPos     : isMobile ? 'bottom' : 'top',
+  };
+}
+function applyChartDefaults(){
+  const d = chartResponsiveDefaults();
+  Chart.defaults.font.size = d.fontSize;
+  Chart.defaults.plugins.legend.labels.font = {size:d.legendFontSize};
+  Chart.defaults.elements.point.radius      = d.pointRadius;
+  Chart.defaults.elements.point.hoverRadius = d.pointHover;
+  Chart.defaults.elements.line.borderWidth  = d.borderWidth;
+}
+applyChartDefaults();
+let _resizeTimer;
+window.addEventListener('resize',()=>{
+  clearTimeout(_resizeTimer);
+  _resizeTimer = setTimeout(()=>{
+    applyChartDefaults();
+    const anyMgrVisible = ['dashboard','prepost','tren','interpretasi','pegawai']
+      .some(v=>document.getElementById('view-'+v)?.classList.contains('active'));
+    if(anyMgrVisible) destroyAndRebuildMgrCharts();
+  },250);
+});
+
+function destroyAndRebuildCharts(){ destroyAndRebuildMgrCharts(); }
+function destroyAndRebuildMgrCharts(){
+  Object.keys(charts).forEach(id=>{charts[id].destroy();delete charts[id];});
+  buildChartPrePost();
+  buildChartDonut();
+  buildChartTrenDash();
+  buildChartPrePostFull();
+  buildChartDivisi();
+  buildChartScatter();
+  buildChartTren();
+  populateEmpSelect();
+}
+
+// ─── 1. Dash Bar Pre/Post ─────────────────────────────
+function buildChartPrePost(){
+  const fp = filteredPegawai.slice(0,10);
+  const ctx = el('chartPrePost').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  charts['prepost'] = new Chart(ctx,{
+    type:'bar',
+    data:{labels:fp.map(p=>p.nama.split(' ')[0]),datasets:[
+      {label:'Nilai Awal',  data:fp.map(p=>p.preScore),  backgroundColor:NAVY,borderWidth:0},
+      {label:'Nilai Akhir', data:fp.map(p=>p.postScore), backgroundColor:GOLD,borderWidth:0}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{title:items=>fp[items[0].dataIndex].nama}}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},
+        y:{min:0,max:100,grid:{color:'#eee'},ticks:{stepSize:20,font:{size:rd.fontSize}}}
+      }}
+  });
+}
+
+// ─── 2. Donut ─────────────────────────────────────────
+function buildChartDonut(){
+  const fp = filteredPegawai;
+  const ctx = el('chartDonut').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  charts['donut'] = new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:['Aktif','Belum Sertifikasi','Kadaluarsa'],datasets:[{
+      data:[fp.filter(p=>p.status==='Aktif').length,fp.filter(p=>p.status==='Belum').length,fp.filter(p=>p.status==='Kadaluarsa').length],
+      backgroundColor:[NAVY,GOLD,'#d9cdb8'],borderColor:'#fff',borderWidth:3,hoverOffset:6
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'65%',
+      plugins:{legend:{position:'bottom',labels:{padding:12,font:{size:rd.legendFontSize},usePointStyle:true,pointStyleWidth:10}}}
+    }
+  });
+}
+
+// ─── 3. Tren Dash ─────────────────────────────────────
+function buildChartTrenDash(){
+  const divisiList = ['Akomodasi','F&B','Tur & Perjalanan'];
+  const rd = chartResponsiveDefaults();
+  const datasets = [];
+  divisiList.forEach((d,di)=>{
+    const emps = filteredPegawai.filter(p=>p.divisi===d);
+    if(!emps.length) return;
+    const c = [NAVY,GOLD,NAVY_L][di];
+    datasets.push({
+      label:d,
+      data:activePeriodeIndices.map(qi=>parseFloat(avg(emps.map(p=>p.kinerja[qi])).toFixed(2))),
+      borderColor:c,backgroundColor:'transparent',borderWidth:rd.borderWidth,
+      pointBackgroundColor:c,pointRadius:rd.pointRadius,pointHoverRadius:rd.pointHover,tension:0.35
+    });
+  });
+  el('tren-legend-dash').innerHTML = datasets.map(ds=>
+    `<span><span class="legend-dot" style="background:${ds.borderColor}"></span>${ds.label}</span>`
+  ).join('');
+  const trainIdx = activePeriodeIndices.indexOf(TRAINING_IDX);
+  const ctx = el('chartTrenDash').getContext('2d');
+  charts['trenDash'] = new Chart(ctx,{
+    type:'line',data:{labels:activePeriodeLabels,datasets},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},
+        y:{min:2.5,max:5,ticks:{stepSize:0.5,font:{size:rd.fontSize}},grid:{color:'#eee'}}
+      }},
+    plugins:[makeVerticalLinePlugin(trainIdx)]
+  });
+}
+
+// ─── 4. Bar Pre/Post Full ─────────────────────────────
+function buildChartPrePostFull(){
+  const fp = filteredPegawai;
+  const ctx = el('chartPrePostFull').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  charts['prepostFull'] = new Chart(ctx,{
+    type:'bar',
+    data:{labels:fp.map(p=>p.nama.split(' ')[0]),datasets:[
+      {label:'Nilai Awal',  data:fp.map(p=>p.preScore),  backgroundColor:NAVY,borderWidth:0,barPercentage:0.7},
+      {label:'Nilai Akhir', data:fp.map(p=>p.postScore), backgroundColor:GOLD,borderWidth:0,barPercentage:0.7}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{position:rd.legendPos,labels:{padding:12,usePointStyle:true,pointStyleWidth:10,font:{size:rd.legendFontSize}}},
+        tooltip:{callbacks:{afterBody:items=>'Kenaikan: +'+(fp[items[0].dataIndex].postScore-fp[items[0].dataIndex].preScore)+' poin'}}
+      },
+      scales:{
+        x:{grid:{display:false},ticks:{maxRotation:35,font:{size:rd.fontSize}}},
+        y:{min:0,max:100,grid:{color:'#eee'},ticks:{stepSize:10,font:{size:rd.fontSize}}}
+      }}
+  });
+}
+
+// ─── 5. Bar per Divisi ────────────────────────────────
+function buildChartDivisi(){
+  const divisiList = ['Akomodasi','F&B','Tur & Perjalanan'];
+  const preA  = divisiList.map(d=>{const e=filteredPegawai.filter(p=>p.divisi===d);return e.length?Math.round(avg(e.map(p=>p.preScore))):0;});
+  const postA = divisiList.map(d=>{const e=filteredPegawai.filter(p=>p.divisi===d);return e.length?Math.round(avg(e.map(p=>p.postScore))):0;});
+  const ctx = el('chartDivisi').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  charts['divisi'] = new Chart(ctx,{
+    type:'bar',data:{labels:divisiList,datasets:[
+      {label:'Nilai Awal', data:preA,  backgroundColor:NAVY,borderWidth:0},
+      {label:'Nilai Akhir',data:postA, backgroundColor:GOLD,borderWidth:0}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:rd.legendPos,labels:{usePointStyle:true,pointStyleWidth:10,padding:12,font:{size:rd.legendFontSize}}}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},
+        y:{min:0,max:100,grid:{color:'#eee'},ticks:{stepSize:20,font:{size:rd.fontSize}}}
+      }}
+  });
+}
+
+// ─── 6. Scatter ───────────────────────────────────────
+function buildChartScatter(){
+  const fp = filteredPegawai;
+  const ctx = el('chartScatter').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  const colMap = {'Akomodasi':NAVY,'F&B':GOLD,'Tur & Perjalanan':NAVY_L};
+  charts['scatter'] = new Chart(ctx,{
+    type:'scatter',
+    data:{datasets:[{
+      label:'Pegawai',
+      data:fp.map(p=>({x:p.preScore,y:p.postScore,nama:p.nama})),
+      backgroundColor:fp.map(p=>colMap[p.divisi]||NAVY),
+      pointRadius:rd.pointRadius+3,pointHoverRadius:rd.pointHover+3
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const d=c.raw;return `${d.nama}: Awal=${d.x}, Akhir=${d.y} (naik ${d.y-d.x} poin)`;}} }},
+      scales:{
+        x:{min:35,max:80,title:{display:rd.showAxisTitle,text:'Nilai Sebelum Pelatihan',font:{size:rd.titleFontSize}},grid:{color:'#eee'},ticks:{font:{size:rd.fontSize}}},
+        y:{min:50,max:100,title:{display:rd.showAxisTitle,text:'Nilai Sesudah Pelatihan',font:{size:rd.titleFontSize}},grid:{color:'#eee'},ticks:{font:{size:rd.fontSize}}}
+      }}
+  });
+}
+
+// ─── 7. Line Tren ─────────────────────────────────────
+function buildChartTren(){
+  const fp = filteredPegawai;
+  const trainIdx = activePeriodeIndices.indexOf(TRAINING_IDX);
+  const ctx = el('chartTren').getContext('2d');
+  const rd = chartResponsiveDefaults();
+  const avgData = activePeriodeIndices.map(qi=>parseFloat(avg(fp.map(p=>p.kinerja[qi])).toFixed(2)));
+  const datasets = [{
+    label:'Rata-rata Semua',data:avgData,
+    borderColor:GOLD,backgroundColor:'rgba(164,144,99,.08)',
+    borderWidth:rd.borderWidth+0.5,pointRadius:rd.pointRadius+1,tension:0.35,fill:true,hidden:false
+  }];
+  fp.forEach((p,i)=>{
+    datasets.push({
+      label:p.nama,data:activePeriodeIndices.map(qi=>p.kinerja[qi]),
+      borderColor:empColors[i%empColors.length],backgroundColor:'transparent',
+      borderWidth:rd.borderWidth,pointRadius:rd.pointRadius,tension:0.35,hidden:true
+    });
+  });
+  charts['tren'] = new Chart(ctx,{
+    type:'line',data:{labels:activePeriodeLabels,datasets},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+      scales:{
+        x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},
+        y:{min:2.0,max:5,ticks:{stepSize:0.5,font:{size:rd.fontSize}},grid:{color:'#eee'}}
+      }},
+    plugins:[makeVerticalLinePlugin(trainIdx)]
+  });
+}
+
+// ─── Vertical Line Plugin ─────────────────────────────
+function makeVerticalLinePlugin(trainIdx){
+  return {
+    id:'verticalLine',
+    afterDraw(chart){
+      if(trainIdx<0) return;
+      const ctx = chart.ctx;
+      const xScale = chart.scales.x;
+      const yScale = chart.scales.y;
+      if(!xScale||!yScale) return;
+      const x = xScale.getPixelForValue(trainIdx);
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(x,yScale.top);
+      ctx.lineTo(x,yScale.bottom);
+      ctx.strokeStyle=GOLD;ctx.lineWidth=1.5;ctx.setLineDash([6,4]);ctx.stroke();
+      ctx.restore();
+    }
+  };
+}
+
+// ── Employee Select Populate ──────────────────────────
+function populateEmpSelect(){
+  const sel = el('selectEmp');
+  sel.innerHTML = '<option value="all">Semua (Rata-rata)</option>';
+  filteredPegawai.forEach(p=>{
+    const opt = document.createElement('option');
+    opt.value = p.id;
+    opt.textContent = p.nama+' — '+p.jabatan;
+    sel.appendChild(opt);
+  });
+}
+
+function updateTrenChart(){
+  const val   = el('selectEmp').value;
+  const chart = charts['tren'];
+  if(!chart) return;
+  chart.data.datasets.forEach((ds,i)=>{
+    ds.hidden = val==='all' ? i!==0 : (i===0 ? true : filteredPegawai[i-1]?.id !== val);
+  });
+  chart.update();
+}
+
+// ══════════════════════════════════════════════════════
+//  NAVIGATION (extended for manager + pegawai roles)
+// ══════════════════════════════════════════════════════
+function showView(id){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  el('view-'+id).classList.add('active');
+  if(currentRole==='manager'){
+    document.querySelectorAll('#nav-manager a').forEach(a=>a.classList.remove('active'));
+    const idx = MGR_VIEW_ORDER.indexOf(id);
+    if(idx>=0) document.querySelectorAll('#nav-manager a')[idx].classList.add('active');
+    el('topbar-title').textContent = MGR_VIEW_TITLES[id]||id;
+    el('topbar-sub').textContent   = 'Evaluasi Pelatihan & Sertifikasi 2024–2025';
+  } else {
+    document.querySelectorAll('#nav-pegawai a').forEach(a=>a.classList.remove('active'));
+    const idx = EMP_VIEW_ORDER.indexOf(id);
+    if(idx>=0) document.querySelectorAll('#nav-pegawai a')[idx].classList.add('active');
+    el('topbar-title').textContent = EMP_VIEW_TITLES[id]||id;
+    const p = SEMUA_PEGAWAI.find(x=>x.id===currentEmpId);
+    el('topbar-sub').textContent   = p ? p.nama+' · '+p.divisi : 'Tampilan Pegawai';
+  }
+}
+
+// ══════════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', ()=>{ renderAll(); });
+// ════════════════════════════════════════════════════
+//  COURSE CATALOG & CAREER PATHS
+// ════════════════════════════════════════════════════
+const COURSE_CATALOG = {
+  'Front Desk Officer': [
+    { title:'Certified Front Office Manager (CFOM)', provider:'ASEAN Tourism Standard', level:'Lanjutan', durasi:'3 bulan', mode:'Blended Learning', tags:['Reservasi','Check-in/out','Complaint Handling'], tipe:'priority', alasan:'Nilai post-test Anda masih di bawah 80 — kursus ini menargetkan gap di area SOP check-in dan penanganan tamu VIP.' },
+    { title:'Hospitality English for Front Desk', provider:'BNSP / LPK Pariwisata', level:'Menengah', durasi:'6 minggu', mode:'Online', tags:['Komunikasi','Bahasa Inggris','Guest Service'], tipe:'recommended', alasan:'Kemampuan komunikasi multi-bahasa adalah kompetensi utama Front Desk Officer yang akan meningkatkan skor kinerja Anda.' },
+    { title:'Revenue Management Dasar', provider:'Perhimpunan Hotel Indonesia', level:'Dasar', durasi:'2 minggu', mode:'Online', tags:['Pricing','Occupancy','Revenue'], tipe:'optional', alasan:'Pemahaman revenue management membuka jalur karir ke posisi Front Office Supervisor.' }
+  ],
+  'Housekeeping Supervisor': [
+    { title:'Certified Housekeeping Executive (CHE)', provider:'ASEAN Tourism Standard', level:'Lanjutan', durasi:'2 bulan', mode:'Blended', tags:['Manajemen Tim','Kualitas Kamar','Inventaris'], tipe:'recommended', alasan:'Sebagai supervisor, sertifikasi CHE adalah validasi kompetensi manajerial yang akan memperkuat posisi Anda.' },
+    { title:'Green Housekeeping & Sustainability', provider:'BNSP Pariwisata', level:'Menengah', durasi:'3 minggu', mode:'Online', tags:['Lingkungan','Efisiensi','Eco-Hotel'], tipe:'recommended', alasan:'Tren industri hotel bintang 4-5 mengarah pada standar keberlanjutan — nilai tambah di pasar kerja.' }
+  ],
+  'Housekeeping Attendant': [
+    { title:'Sertifikasi Tata Graha BNSP', provider:'LSP Pariwisata / BNSP', level:'Dasar-Menengah', durasi:'1 bulan', mode:'Tatap Muka', tags:['Pembersihan Kamar','Linen','Standar Hygiene'], tipe:'priority', alasan:'Anda belum memiliki sertifikasi resmi. Sertifikasi BNSP adalah syarat wajib untuk kenaikan jenjang jabatan.' },
+    { title:'Customer Service Excellence', provider:'LPK Pariwisata Indonesia', level:'Dasar', durasi:'2 minggu', mode:'Online', tags:['Pelayanan','Komunikasi','Etika'], tipe:'recommended', alasan:'Kinerja layanan tamu Anda dapat ditingkatkan melalui kursus dasar ini.' }
+  ],
+  'Bartender': [
+    { title:'Certified Bartender International (WSET Level 2)', provider:'WSET School', level:'Lanjutan', durasi:'2 bulan', mode:'Intensif', tags:['Mixology','Wine & Spirits','Service'], tipe:'recommended', alasan:'WSET Level 2 adalah standar internasional yang diakui hotel bintang 5 — meningkatkan daya saing Anda secara signifikan.' },
+    { title:'Flair Bartending & Mixology Kreatif', provider:'Indonesian Bartenders Association', level:'Menengah', durasi:'1 bulan', mode:'Tatap Muka', tags:['Flair','Kreativitas','Cocktail'], tipe:'optional', alasan:'Diversifikasi skill dengan flair bartending membuka peluang di rooftop bar dan resort premium.' }
+  ],
+  'Chef de Partie': [
+    { title:'Certified Culinary Professional (CCP)', provider:'American Culinary Federation', level:'Lanjutan', durasi:'3 bulan', mode:'Blended', tags:['Teknik Memasak','Menu Planning','HACCP'], tipe:'recommended', alasan:'CCP adalah sertifikasi global yang memperkuat kredensial Anda di level chef senior.' },
+    { title:'Food Safety & HACCP Management', provider:'BNSP / Kemenkes', level:'Wajib', durasi:'2 minggu', mode:'Online', tags:['Food Safety','Sanitasi','Regulasi'], tipe:'priority', alasan:'Pembaruan sertifikasi HACCP adalah kewajiban regulasi — pastikan Anda selalu memiliki sertifikat yang valid.' }
+  ],
+  'Barista': [
+    { title:'SCA Barista Skills (Foundation)', provider:'Specialty Coffee Association', level:'Dasar', durasi:'1 bulan', mode:'Tatap Muka', tags:['Espresso','Latte Art','Brewing'], tipe:'priority', alasan:'Sertifikat SCA adalah standar industri kafe premium — dengan sertifikat ini Anda eligible untuk posisi Head Barista.' },
+    { title:'Coffee Tasting & Sensory Skills', provider:'Indonesian Specialty Coffee', level:'Menengah', durasi:'3 minggu', mode:'Workshop', tags:['Cupping','Origin','Profile'], tipe:'optional', alasan:'Menguasai sensory skills meningkatkan kemampuan rekomendasi kopi kepada pelanggan.' }
+  ],
+  'F&B Attendant': [
+    { title:'Sertifikasi Pramusaji BNSP', provider:'LSP Pariwisata / BNSP', level:'Dasar', durasi:'1 bulan', mode:'Tatap Muka', tags:['Serving Technique','Menu Knowledge','Table Set'], tipe:'priority', alasan:'Sertifikasi resmi BNSP adalah syarat wajib untuk naik ke posisi Senior Attendant atau Captain Waiter.' },
+    { title:'Wine & Beverage Pairing Dasar', provider:'Perhimpunan F&B Indonesia', level:'Dasar', durasi:'2 minggu', mode:'Workshop', tags:['Wine','Beverage','Pairing'], tipe:'recommended', alasan:'Pengetahuan minuman meningkatkan kemampuan upselling dan kepuasan tamu.' }
+  ],
+  'F&B Supervisor': [
+    { title:'Certified Food & Beverage Manager (CFBM)', provider:'ASEAN Tourism Standard', level:'Lanjutan', durasi:'2 bulan', mode:'Blended', tags:['Manajemen Tim','Cost Control','SOP'], tipe:'recommended', alasan:'Sebagai supervisor, CFBM memvalidasi kompetensi manajerial Anda secara regional.' },
+    { title:'Service Excellence & Guest Experience', provider:'LPK Hospitality Indonesia', level:'Menengah', durasi:'3 minggu', mode:'Blended', tags:['Guest Satisfaction','Training','Leadership'], tipe:'optional', alasan:'Meningkatkan kemampuan dalam mentoring staf dan mempertahankan standar layanan.' }
+  ],
+  'Tour Guide': [
+    { title:'Sertifikasi Pemandu Wisata BNSP (Resertifikasi)', provider:'LSP Pariwisata Nasional', level:'Wajib', durasi:'2 minggu', mode:'Tatap Muka', tags:['Pemanduan','Pengetahuan Lokal','Keselamatan'], tipe:'priority', alasan:'Sertifikat Anda akan segera/sudah kadaluarsa. Resertifikasi adalah kewajiban hukum sesuai Permenpar.' },
+    { title:'Licensed Nature Guide (LNG)', provider:'Kementerian Pariwisata & BNSP', level:'Lanjutan', durasi:'1 bulan', mode:'Tatap Muka', tags:['Ekowisata','Flora Fauna','Safety'], tipe:'recommended', alasan:'Lisensi LNG membuka akses ke segmen wisata alam premium yang berkembang pesat.' },
+    { title:'Storytelling & Interpretasi Budaya', provider:'Indonesian Heritage Tourism', level:'Menengah', durasi:'2 minggu', mode:'Workshop', tags:['Narasi','Budaya','Komunikasi'], tipe:'optional', alasan:'Kemampuan bercerita yang kuat meningkatkan rating ulasan tamu dan nilai tip secara signifikan.' }
+  ],
+  'Tour Leader': [
+    { title:'Certified Tour Manager (CTM)', provider:'ASEAN Tourism Standard', level:'Lanjutan', durasi:'2 bulan', mode:'Blended', tags:['Manajemen Grup','Logistik','Krisis'], tipe:'recommended', alasan:'CTM adalah sertifikasi regional yang meningkatkan kepercayaan operator tur internasional.' },
+    { title:'Crisis Management & First Aid for Tour Leaders', provider:'PMI / Kementerian Pariwisata', level:'Wajib', durasi:'3 hari', mode:'Tatap Muka', tags:['P3K','Keselamatan','Krisis'], tipe:'priority', alasan:'Sertifikat First Aid wajib dimiliki setiap tour leader sesuai regulasi keselamatan wisata.' }
+  ],
+  'Travel Consultant': [
+    { title:'Certified Travel Agent (CTA)', provider:'ASITA / IATA', level:'Lanjutan', durasi:'2 bulan', mode:'Blended', tags:['GDS','Ticketing','Paket Wisata'], tipe:'recommended', alasan:'Lisensi CTA dari IATA/ASITA adalah standar industri untuk konsultan perjalanan profesional.' },
+    { title:'Digital Travel Marketing', provider:'Google Digital Academy', level:'Menengah', durasi:'1 bulan', mode:'Online', tags:['SEO','Media Sosial','Booking Online'], tipe:'optional', alasan:'Kemampuan digital marketing meningkatkan pelayanan ke segmen wisatawan mandiri (FIT).' }
+  ],
+  'Guest Relations Officer': [
+    { title:'Certified Guest Service Professional (CGSP)', provider:'AHLA / ASEAN Tourism', level:'Lanjutan', durasi:'1.5 bulan', mode:'Blended', tags:['Guest Experience','CRM','Complaint Resolution'], tipe:'priority', alasan:'CGSP secara langsung meningkatkan skor NPS dan Guest Satisfaction Index — indikator utama kinerja GRO.' },
+    { title:'Cross-Cultural Communication', provider:'LPK Pariwisata Internasional', level:'Menengah', durasi:'3 minggu', mode:'Online', tags:['Budaya','Komunikasi','Empati'], tipe:'recommended', alasan:'Melayani tamu dari berbagai latar budaya adalah inti pekerjaan GRO.' }
+  ],
+  'Concierge': [
+    { title:"Certified Concierge (Les Clefs d'Or)", provider:"Union Internationale des Concierges d'Hotels", level:'Prestisius', durasi:'Keanggotaan + Ujian', mode:'Tatap Muka', tags:['Networking','Lokal Knowledge','VIP Service'], tipe:'recommended', alasan:"Keanggotaan Les Clefs d'Or adalah penghargaan tertinggi di profesi concierge." },
+    { title:'Luxury Hospitality & VIP Protocol', provider:'ASEAN Tourism Standard', level:'Lanjutan', durasi:'1 bulan', mode:'Blended', tags:['VIP','Protokol','Luxury'], tipe:'optional', alasan:'Penguasaan protokol VIP adalah nilai tambah utama Anda dibandingkan concierge di hotel lain.' }
+  ]
+};
+
+const CAREER_PATHS = {
+  'Front Desk Officer': [
+    { tahap:'I', target:'Penguasaan SOP Front Office Standar ASEAN', program:'Pelatihan Internal + CFOM Modul 1', durasi:'1 bulan', prioritas:'Tinggi' },
+    { tahap:'II', target:'Sertifikasi Front Office BNSP', program:'LSP Pariwisata Nasional', durasi:'2 bulan', prioritas:'Tinggi' },
+    { tahap:'III', target:'Kemampuan Revenue Management Dasar', program:'PHI Online Course', durasi:'2 minggu', prioritas:'Sedang' },
+    { tahap:'IV', target:'Kenaikan ke Front Office Supervisor', program:'On-the-job Training + CFOM Penuh', durasi:'6-12 bulan', prioritas:'Jangka Panjang' }
+  ],
+  'Tour Guide': [
+    { tahap:'I', target:'Resertifikasi Pemandu Wisata BNSP', program:'LSP Pariwisata Nasional', durasi:'2 minggu', prioritas:'Urgent' },
+    { tahap:'II', target:'Lisensi Pemandu Alam (LNG)', program:'Kemenpar + BNSP', durasi:'1 bulan', prioritas:'Tinggi' },
+    { tahap:'III', target:'Kemampuan Storytelling & Interpretasi', program:'Indonesian Heritage Tourism', durasi:'2 minggu', prioritas:'Sedang' },
+    { tahap:'IV', target:'Sertifikasi Tour Leader Internasional', program:'ASEAN Tourism CTM', durasi:'2 bulan', prioritas:'Jangka Panjang' }
+  ],
+  'F&B Attendant': [
+    { tahap:'I', target:'Sertifikasi Pramusaji BNSP', program:'LSP Pariwisata / BNSP', durasi:'1 bulan', prioritas:'Urgent' },
+    { tahap:'II', target:'Pengetahuan Wine & Beverage Dasar', program:'Perhimpunan F&B Indonesia', durasi:'2 minggu', prioritas:'Sedang' },
+    { tahap:'III', target:'Kenaikan ke Captain Waiter', program:'On-the-job + Internal Training', durasi:'6 bulan', prioritas:'Sedang' },
+    { tahap:'IV', target:'Sertifikasi F&B Supervisor', program:'ASEAN Tourism / CFBM', durasi:'2 bulan', prioritas:'Jangka Panjang' }
+  ]
+};
+
+function getCourses(jabatan){ return COURSE_CATALOG[jabatan] || [
+  { title:'Pelatihan Kompetensi Dasar Pariwisata', provider:'BNSP / LSP Pariwisata', level:'Dasar', durasi:'1 bulan', mode:'Tatap Muka', tags:['Layanan Tamu','Etika','SOP'], tipe:'recommended', alasan:'Tingkatkan kompetensi inti sesuai standar industri pariwisata Indonesia.' }
+]; }
+function getCareerPath(jabatan){ return CAREER_PATHS[jabatan] || [
+  { tahap:'I', target:'Sertifikasi Kompetensi BNSP sesuai jabatan', program:'LSP Pariwisata Nasional', durasi:'1-2 bulan', prioritas:'Tinggi' },
+  { tahap:'II', target:'Pelatihan Layanan Pelanggan Lanjutan', program:'LPK Pariwisata Indonesia', durasi:'3 minggu', prioritas:'Sedang' },
+  { tahap:'III', target:'Sertifikasi ASEAN Tourism Standard', program:'ASEAN Tourism Forum', durasi:'2 bulan', prioritas:'Sedang' },
+  { tahap:'IV', target:'Pengembangan Kompetensi Manajerial', program:'Program Internal / Eksternal', durasi:'6-12 bulan', prioritas:'Jangka Panjang' }
+]; }
+
+// ════════════════════════════════════════════════════
+//  ROLE STATE
+// ════════════════════════════════════════════════════
+let currentRole = 'manager';
+let currentEmpId = 'EMP001';
+const NAVY_PALE = '#9ab4d4';
+
+// ════════════════════════════════════════════════════
+//  ROLE SWITCH
+// ════════════════════════════════════════════════════
+function setRole(role){
+  currentRole = role;
+  el('btn-mgr').classList.toggle('active', role==='manager');
+  el('btn-emp').classList.toggle('active', role==='pegawai');
+  el('nav-manager').style.display = role==='manager'?'block':'none';
+  el('nav-pegawai').style.display = role==='pegawai'?'block':'none';
+  el('emp-profile-block').style.display = role==='pegawai'?'block':'none';
+  el('mgr-filters').style.display = role==='manager'?'flex':'none';
+  el('sidebar-kq-block').style.display = role==='manager'?'block':'none';
+  el('topbar-role-badge').textContent = role==='manager'?'Manajer':'Pegawai';
+  el('topbar-role-badge').className = 'role-badge-topbar '+(role==='manager'?'role-badge-manager':'role-badge-pegawai');
+  if(role==='manager'){ showView('dashboard'); }
+  else { populateEmpProfileSelect(); showView('emp-progress'); renderEmpViews(); }
+}
+
+function populateEmpProfileSelect(){
+  const sel = el('selectEmpProfile');
+  sel.innerHTML = SEMUA_PEGAWAI.map(p=>
+    `<option value="${p.id}"${p.id===currentEmpId?' selected':''}>${p.nama} — ${p.jabatan}</option>`
+  ).join('');
+  updateSidebarEmpProfile();
+}
+function changeEmpProfile(){
+  currentEmpId = el('selectEmpProfile').value;
+  updateSidebarEmpProfile();
+  renderEmpViews();
+  // refresh current emp view subtitle
+  const p = SEMUA_PEGAWAI.find(x=>x.id===currentEmpId);
+  if(p) el('topbar-sub').textContent = p.nama+' · '+p.divisi;
+}
+function updateSidebarEmpProfile(){
+  const p = SEMUA_PEGAWAI.find(x=>x.id===currentEmpId);
+  if(!p) return;
+  el('sidebar-emp-name').textContent = p.nama;
+  el('sidebar-emp-role').textContent = p.jabatan+' · '+p.divisi;
+}
+
+// ════════════════════════════════════════════════════
+//  EMPLOYEE VIEW RENDERERS
+// ════════════════════════════════════════════════════
+function renderEmpViews(){
+  const p = SEMUA_PEGAWAI.find(x=>x.id===currentEmpId);
+  if(!p) return;
+  renderEmpProgress(p);
+  renderEmpSertifikat(p);
+  renderEmpPenilaian(p);
+  renderEmpTren(p);
+  renderEmpRekomendasi(p);
+}
+
+// ── Progress ──────────────────────────────────────
+function renderEmpProgress(p){
+  el('emp-hero-name').textContent = p.nama;
+  el('emp-hero-role').textContent = p.jabatan;
+  el('emp-hero-divisi').textContent = p.divisi;
+  el('emp-stat-pre').textContent  = p.preScore;
+  el('emp-stat-post').textContent = p.postScore;
+  const delta = p.postScore - p.preScore;
+  const dEl = el('emp-stat-delta');
+  dEl.textContent = (delta>0?'+':'')+delta;
+  dEl.style.color = delta>=20?'var(--green)':delta>=10?'var(--amber)':'var(--red)';
+  el('emp-stat-kin').textContent = avg(p.kinerja).toFixed(2);
+
+  const stBadge = p.status==='Aktif'?'badge-aktif':p.status==='Belum'?'badge-belum':'badge-expired';
+  const stDesc  = p.status==='Aktif'?'Sertifikat valid dan aktif':p.status==='Belum'?'Belum mengikuti sertifikasi':'Sertifikat telah kadaluarsa';
+  el('emp-cert-summary-content').innerHTML = `
+    <div style="margin-bottom:14px">
+      <div style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Sertifikat Utama</div>
+      <div style="font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--navy);margin-top:5px;line-height:1.3">${p.sertifikat}</div>
+      <div style="margin-top:8px"><span class="badge ${stBadge}">${p.status}</span></div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:6px">${stDesc}</div>
+    </div>
+    <div style="padding:10px 12px;background:var(--row-alt);border:1px solid var(--border)">
+      <div style="font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted)">Berlaku Sampai</div>
+      <div style="font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--navy);margin-top:3px">${p.tanggal||'Belum Tersedia'}</div>
+    </div>`;
+
+  const divEmps = SEMUA_PEGAWAI.filter(x=>x.divisi===p.divisi);
+  const avgPre  = Math.round(avg(divEmps.map(x=>x.preScore)));
+  const avgPost = Math.round(avg(divEmps.map(x=>x.postScore)));
+
+  destroyChart('empPrePost');
+  const rd = chartResponsiveDefaults();
+  charts['empPrePost'] = new Chart(el('chartEmpPrePost').getContext('2d'),{
+    type:'bar',
+    data:{labels:['Nilai Awal','Nilai Akhir'],datasets:[
+      {label:p.nama, data:[p.preScore,p.postScore], backgroundColor:[NAVY,GOLD], borderWidth:0, barPercentage:0.5},
+      {label:'Rata-rata '+p.divisi, data:[avgPre,avgPost], backgroundColor:['rgba(19,43,80,.25)','rgba(164,144,99,.35)'], borderWidth:0, barPercentage:0.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:rd.legendPos,labels:{usePointStyle:true,pointStyleWidth:10,padding:12,font:{size:rd.legendFontSize}}}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},y:{min:0,max:100,ticks:{stepSize:20,font:{size:rd.fontSize}},grid:{color:'#eee'}}}}
+  });
+
+  destroyChart('empTrenSummary');
+  const divAvgData = [0,1,2,3,4,5].map(qi=>parseFloat(avg(divEmps.map(x=>x.kinerja[qi])).toFixed(2)));
+  charts['empTrenSummary'] = new Chart(el('chartEmpTrenSummary').getContext('2d'),{
+    type:'line',
+    data:{labels:PERIODE_LABELS_ALL,datasets:[
+      {label:p.nama, data:p.kinerja, borderColor:NAVY, backgroundColor:'rgba(19,43,80,.08)', fill:true, borderWidth:rd.borderWidth, pointRadius:rd.pointRadius+1, tension:0.35},
+      {label:'Rata-rata '+p.divisi, data:divAvgData, borderColor:GOLD, backgroundColor:'transparent', borderDash:[4,4], borderWidth:rd.borderWidth-0.5, pointRadius:rd.pointRadius, tension:0.35}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:rd.fontSize}}},y:{min:2,max:5.5,ticks:{stepSize:0.5,font:{size:rd.fontSize}},grid:{color:'#eee'}}}},
+    plugins:[makeVerticalLinePlugin(TRAINING_IDX)]
+  });
+}
+
+// ── Sertifikat ────────────────────────────────────
+function renderEmpSertifikat(p){
+  const stBadge = p.status==='Aktif'?'badge-aktif':p.status==='Belum'?'badge-belum':'badge-expired';
+  const stColor = p.status==='Aktif'?'var(--green)':p.status==='Belum'?'var(--amber)':'var(--red)';
+  el('emp-cert-cards-container').innerHTML = `
+    <div class="cert-card" style="border-top:3px solid ${stColor}">
+      <div class="cert-card-header">
+        <div>
+          <div class="cert-name">${p.sertifikat}</div>
+          <div class="cert-meta">${p.jabatan} &middot; ${p.divisi}</div>
+        </div>
+        <span class="badge ${stBadge}">${p.status}</span>
+      </div>
+      <div class="cert-detail-grid">
+        <div class="cert-detail-item"><div class="cert-detail-label">Lembaga Sertifikasi</div><div class="cert-detail-value">LSP Pariwisata Nasional / BNSP</div></div>
+        <div class="cert-detail-item"><div class="cert-detail-label">Tanggal Sertifikasi</div><div class="cert-detail-value">${p.tanggal||'—'}</div></div>
+        <div class="cert-detail-item"><div class="cert-detail-label">Masa Berlaku</div><div class="cert-detail-value">${p.status==='Aktif'?'3 tahun sejak terbit':p.status==='Belum'?'Belum ada':'Sudah habis'}</div></div>
+      </div>
+      <div style="margin-top:16px">
+        <div style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Skor Ujian Sertifikasi</div>
+        <div class="cert-score-row">
+          <div class="cert-score-label">Pre-Test</div>
+          <div class="cert-score-bar-wrap"><div class="cert-score-bar bar-navy" style="width:${p.preScore}%"></div></div>
+          <div class="cert-score-val">${p.preScore}</div>
+        </div>
+        <div class="cert-score-row" style="margin-top:8px">
+          <div class="cert-score-label">Post-Test</div>
+          <div class="cert-score-bar-wrap"><div class="cert-score-bar bar-gold" style="width:${p.postScore}%"></div></div>
+          <div class="cert-score-val">${p.postScore}</div>
+        </div>
+      </div>
+      ${p.status==='Kadaluarsa'?`<div style="margin-top:14px;padding:10px 14px;background:#fde8e8;border-left:3px solid var(--red);font-size:11.5px;color:#8b1a1a"><strong>Perhatian:</strong> Sertifikat Anda sudah kadaluarsa sejak ${p.tanggal}. Segera hubungi supervisor untuk menjadwalkan resertifikasi.</div>`:''}
+      ${p.status==='Belum'?`<div style="margin-top:14px;padding:10px 14px;background:#fff3cd;border-left:3px solid var(--amber);font-size:11.5px;color:#7a4e0d"><strong>Catatan:</strong> Anda belum mengikuti ujian sertifikasi. Konsultasikan dengan supervisor untuk pendaftaran ke LSP Pariwisata.</div>`:''}
+    </div>`;
+  el('emp-test-history-body').innerHTML = `
+    <tr>
+      <td>${p.sertifikat}</td>
+      <td class="mono" style="text-align:center">${p.preScore}</td>
+      <td class="mono" style="text-align:center">${p.postScore}</td>
+      <td class="mono delta-up" style="text-align:center">+${p.postScore-p.preScore}</td>
+      <td style="font-size:11.5px">${p.tanggal||'Belum ada'}</td>
+      <td><span class="badge ${p.postScore>=70?'badge-siap':'badge-remedial'}">${p.postScore>=70?'Lulus':'Perlu Remedial'}</span></td>
+    </tr>
+    <tr>
+      <td>Pelatihan Layanan Pelanggan</td>
+      <td class="mono" style="text-align:center">${Math.max(p.preScore-8,30)}</td>
+      <td class="mono" style="text-align:center">${Math.min(p.postScore+3,100)}</td>
+      <td class="mono delta-up" style="text-align:center">+11</td>
+      <td style="font-size:11.5px">2024-06-10</td>
+      <td><span class="badge badge-siap">Lulus</span></td>
+    </tr>`;
+}
+
+// ── Penilaian ─────────────────────────────────────
+const ASPEK_KINERJA = ['Kualitas Layanan','Kepatuhan SOP','Inisiatif','Kerja Tim'];
+function getAspekScores(p){
+  const base = avg(p.kinerja.slice(3));
+  return [Math.min(5,parseFloat((base+0.15).toFixed(1))),Math.min(5,parseFloat((base-0.05).toFixed(1))),Math.min(5,parseFloat((base-0.2).toFixed(1))),Math.min(5,parseFloat((base+0.1).toFixed(1)))];
+}
+function getAspekScoresPre(p){
+  const base = avg(p.kinerja.slice(0,3));
+  return [Math.min(5,parseFloat((base+0.1).toFixed(1))),Math.min(5,parseFloat((base-0.1).toFixed(1))),Math.min(5,parseFloat((base-0.15).toFixed(1))),Math.min(5,parseFloat((base+0.05).toFixed(1)))];
+}
+function renderEmpPenilaian(p){
+  const aspekPost = getAspekScores(p);
+  const aspekPre  = getAspekScoresPre(p);
+  const standar   = [3.5,3.5,3.0,3.5];
+  el('emp-penilaian-breakdown').innerHTML = ASPEK_KINERJA.map((label,i)=>{
+    const naik = aspekPost[i]-aspekPre[i];
+    const nc = naik>=0.3?'delta-up':naik>=0?'delta-low':'delta-neg';
+    return `<div class="penilaian-aspect">
+      <div class="penilaian-aspect-label">${label}</div>
+      <div class="penilaian-aspect-score">${aspekPost[i].toFixed(1)}<span class="unit">/5</span></div>
+      <div class="penilaian-bar"><div class="penilaian-bar-fill" style="width:${(aspekPost[i]/5*100).toFixed(0)}%"></div></div>
+      <div class="${nc}" style="font-family:var(--font-mono);font-size:11px;margin-top:5px">${naik>=0?'↑ ':''}${naik>=0?'+':''}${naik.toFixed(1)} vs lalu</div>
+    </div>`;
+  }).join('');
+
+  destroyChart('empAspek');
+  const rdP = chartResponsiveDefaults();
+  charts['empAspek'] = new Chart(el('chartEmpAspek').getContext('2d'),{
+    type:'bar',
+    data:{labels:ASPEK_KINERJA,datasets:[
+      {label:'Skor Anda', data:aspekPost, backgroundColor:GOLD, borderWidth:0, barPercentage:0.6},
+      {label:'Standar Minimum', data:standar, backgroundColor:'rgba(19,43,80,.2)', borderWidth:0, barPercentage:0.6}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:rdP.legendPos,labels:{usePointStyle:true,pointStyleWidth:10,font:{size:rdP.legendFontSize}}}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:rdP.fontSize}}},y:{min:0,max:5,ticks:{stepSize:1,font:{size:rdP.fontSize}},grid:{color:'#eee'}}}}
+  });
+
+  const divEmps = SEMUA_PEGAWAI.filter(x=>x.divisi===p.divisi);
+  divEmps.sort((a,b)=>avg(b.kinerja.slice(3))-avg(a.kinerja.slice(3)));
+  destroyChart('empRank');
+  charts['empRank'] = new Chart(el('chartEmpRank').getContext('2d'),{
+    type:'bar',
+    data:{labels:divEmps.map(x=>x.nama.split(' ')[0]),datasets:[{
+      label:'Rata-rata Kinerja', data:divEmps.map(x=>avg(x.kinerja.slice(3))),
+      backgroundColor:divEmps.map(x=>x.id===p.id?NAVY:'rgba(164,144,99,.3)'), borderWidth:0, barPercentage:0.7
+    }]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Kinerja: '+c.raw.toFixed(2)}}},
+      scales:{x:{min:2,max:5.5,grid:{color:'#eee'},ticks:{font:{size:rdP.fontSize}}},y:{grid:{display:false},ticks:{font:{size:rdP.fontSize}}}}}
+  });
+
+  el('emp-penilaian-history').innerHTML = PERIODE_LABELS_ALL.map((periode,qi)=>{
+    const base = p.kinerja[qi];
+    const scores = [Math.min(5,(base+0.1).toFixed(1)),Math.min(5,(base-0.1).toFixed(1)),Math.min(5,(base-0.2).toFixed(1)),Math.min(5,(base+0.1).toFixed(1))];
+    const rataScore = avg(scores.map(Number));
+    return `<tr>
+      <td style="font-family:var(--font-mono);font-size:11.5px">${periode}${qi===2?' ✦':''}</td>
+      ${scores.map(s=>`<td class="mono" style="text-align:center">${s}</td>`).join('')}
+      <td class="mono" style="text-align:center;font-weight:600;color:var(--navy)">${rataScore.toFixed(2)}</td>
+      <td><span class="badge ${qi>=3?'badge-aktif':'badge-belum'}">${qi>=3?'Post-Training':'Pre-Training'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Tren (emp) ────────────────────────────────────
+function renderEmpTren(p){
+  const preAvg  = avg(p.kinerja.slice(0,3));
+  const postAvg = avg(p.kinerja.slice(3));
+  const perubahan = postAvg - preAvg;
+  const pCls = perubahan>=0.4?'kpi-green':'kpi-warn';
+  const pColor = perubahan>=0.4?'var(--green)':perubahan>=0.1?'var(--amber)':'var(--red)';
+  el('emp-tren-kpi').innerHTML = `
+    <div class="kpi-card kpi-accent">
+      <div class="kpi-label">Rata-rata Pre-Training</div>
+      <div class="kpi-value">${preAvg.toFixed(2)}</div>
+      <div class="kpi-note">Q1–Q3 2024</div>
+    </div>
+    <div class="kpi-card kpi-green">
+      <div class="kpi-label">Rata-rata Post-Training</div>
+      <div class="kpi-value">${postAvg.toFixed(2)}</div>
+      <div class="kpi-note">Q4 2024–Q2 2025</div>
+    </div>
+    <div class="kpi-card ${pCls}">
+      <div class="kpi-label">Perubahan Kinerja</div>
+      <div class="kpi-value" style="color:${pColor}">${perubahan>=0?'+':''}${perubahan.toFixed(2)}</div>
+      <div class="kpi-note">${perubahan>=0.4?'↑ Signifikan membaik':perubahan>=0.1?'↗ Sedikit meningkat':'→ Tidak banyak berubah'}</div>
+    </div>`;
+
+  const divEmps = SEMUA_PEGAWAI.filter(x=>x.divisi===p.divisi);
+  const allAvg  = [0,1,2,3,4,5].map(qi=>parseFloat(avg(SEMUA_PEGAWAI.map(x=>x.kinerja[qi])).toFixed(2)));
+  const divAvg  = [0,1,2,3,4,5].map(qi=>parseFloat(avg(divEmps.map(x=>x.kinerja[qi])).toFixed(2)));
+
+  destroyChart('empTrenFull');
+  const rdT = chartResponsiveDefaults();
+  charts['empTrenFull'] = new Chart(el('chartEmpTrenFull').getContext('2d'),{
+    type:'line',
+    data:{labels:PERIODE_LABELS_ALL,datasets:[
+      {label:p.nama, data:p.kinerja, borderColor:NAVY, backgroundColor:'rgba(19,43,80,.07)', fill:true, borderWidth:rdT.borderWidth, pointRadius:rdT.pointRadius+1, tension:0.35},
+      {label:'Rata-rata '+p.divisi, data:divAvg, borderColor:GOLD, borderDash:[5,4], backgroundColor:'transparent', borderWidth:rdT.borderWidth-0.5, pointRadius:rdT.pointRadius, tension:0.35},
+      {label:'Rata-rata Program', data:allAvg, borderColor:NAVY_PALE, borderDash:[2,3], backgroundColor:'transparent', borderWidth:rdT.borderWidth-1, pointRadius:Math.max(1,rdT.pointRadius-1), tension:0.35}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:rdT.fontSize}}},y:{min:2,max:5.5,ticks:{stepSize:0.5,font:{size:rdT.fontSize}},grid:{color:'#eee'}}}},
+    plugins:[makeVerticalLinePlugin(TRAINING_IDX)]
+  });
+
+  destroyChart('empBeforeAfter');
+  charts['empBeforeAfter'] = new Chart(el('chartEmpBeforeAfter').getContext('2d'),{
+    type:'bar',
+    data:{labels:[p.nama.split(' ')[0]+' (Sbl)',p.nama.split(' ')[0]+' (Ssd)',p.divisi+' (Sbl)',p.divisi+' (Ssd)'],
+      datasets:[{data:[preAvg, postAvg, avg(divEmps.map(x=>avg(x.kinerja.slice(0,3)))), avg(divEmps.map(x=>avg(x.kinerja.slice(3))))],
+        backgroundColor:[NAVY,GOLD,'rgba(19,43,80,.3)','rgba(164,144,99,.4)'], borderWidth:0, barPercentage:0.5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{x:{grid:{display:false},ticks:{font:{size:rdT.fontSize}}},y:{min:2,max:5.5,ticks:{stepSize:0.5,font:{size:rdT.fontSize}},grid:{color:'#eee'}}}}
+  });
+}
+
+// ── Rekomendasi ───────────────────────────────────
+function renderEmpRekomendasi(p){
+  const flag = getFlag(p);
+  const bannerColor = flag==='siap'?'var(--green)':flag==='remedial'?'var(--red)':'var(--amber)';
+  const bannerText  = flag==='siap'?'Kinerja Anda menunjukkan progres yang sangat baik. Pertimbangkan sertifikasi lanjutan untuk meningkatkan jenjang karir.':
+                      flag==='remedial'?'Hasil evaluasi menunjukkan beberapa area yang perlu ditingkatkan. Kursus di bawah diprioritaskan untuk memperkuat kompetensi inti Anda.':
+                      'Kinerja Anda relatif stabil. Ambil kursus pengembangan untuk mendorong peningkatan lebih signifikan.';
+  el('emp-rekomen-banner').innerHTML = `
+    <div style="padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-left:4px solid ${bannerColor}">
+      <div style="font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:5px">Analisis untuk ${p.nama} &middot; ${p.jabatan}</div>
+      <div style="font-size:13px;color:var(--text-main);line-height:1.6">${bannerText}</div>
+    </div>`;
+  const tipeCls = {priority:'course-priority',recommended:'course-recommended',optional:'course-optional'};
+  const tipeBadge = {priority:'badge-priority',recommended:'badge-recommended',optional:'badge-belum'};
+  const tipeLabel = {priority:'Prioritas Utama',recommended:'Direkomendasikan',optional:'Pengembangan'};
+  el('emp-course-grid').innerHTML = getCourses(p.jabatan).map(c=>`
+    <div class="course-card ${tipeCls[c.tipe]}">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+        <span class="badge ${tipeBadge[c.tipe]}">${tipeLabel[c.tipe]}</span>
+        <span style="font-size:10px;color:var(--text-muted)">${c.mode}</span>
+      </div>
+      <div class="course-title">${c.title}</div>
+      <div class="course-provider">${c.provider} &middot; ${c.level}</div>
+      <div class="course-tags">${c.tags.map(t=>`<span class="course-tag">${t}</span>`).join('')}</div>
+      <div class="course-reason">${c.alasan}</div>
+      <div class="course-meta" style="margin-top:10px;font-size:11px;color:var(--text-muted)">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" style="vertical-align:middle;margin-right:4px"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1.5"/></svg>
+        ${c.durasi}
+      </div>
+    </div>`).join('');
+  const prioritasCls = {'Urgent':'delta-neg','Tinggi':'delta-low','Sedang':'delta-up','Jangka Panjang':''};
+  el('emp-career-path-body').innerHTML = getCareerPath(p.jabatan).map(step=>`
+    <tr>
+      <td><span class="rank-badge rank-top">${step.tahap}</span></td>
+      <td><strong>${step.target}</strong></td>
+      <td style="font-size:11.5px">${step.program}</td>
+      <td class="mono" style="text-align:center;font-size:11.5px">${step.durasi}</td>
+      <td><span class="mono ${prioritasCls[step.prioritas]||''}" style="font-size:11.5px">${step.prioritas}</span></td>
+    </tr>`).join('');
+}
+
+// ════════════════════════════════════════════════════
+//  OVERRIDE: showView & navigation
+// ════════════════════════════════════════════════════
+const MGR_VIEW_TITLES = {
+  dashboard:'Dashboard Utama', pegawai:'Tabel Pegawai',
+  prepost:'Perbandingan Nilai', tren:'Tren Kinerja', interpretasi:'Interpretasi & Flagging'
+};
+const MGR_VIEW_ORDER = ['dashboard','pegawai','prepost','tren','interpretasi'];
+const EMP_VIEW_TITLES = {
+  'emp-progress':'Progress Saya','emp-sertifikat':'Sertifikat Saya',
+  'emp-penilaian':'Hasil Penilaian','emp-tren':'Tren Kinerja','emp-rekomendasi':'Rekomendasi Course'
+};
+const EMP_VIEW_ORDER = ['emp-progress','emp-sertifikat','emp-penilaian','emp-tren','emp-rekomendasi'];
+
+// ── Sidebar toggle (mobile) ───────────────────────
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebar-overlay').classList.toggle('open');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click',()=>{ if(window.innerWidth<=768) closeSidebar(); });
+});
+
+</script>
+</body>
+</html>
