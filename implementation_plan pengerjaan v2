@@ -1,0 +1,288 @@
+# SDC Dashboard — Full Overhaul Implementation Plan
+
+Membangun ulang website SDC Dashboard dengan data baru dari CSV, login system, admin panel, integrasi ML, dan perbaikan animasi + keamanan.
+
+---
+
+## User Review Required
+
+> [!IMPORTANT]
+> **Struktur Data Baru**: `data_pegawai.csv` memiliki 400 pegawai (vs 20 sebelumnya), dengan kolom baru: 8 skill dimensions, `label_rekomendasi`, `label_tindakan`, dan divisi yang berbeda (`Akomodasi`, `Food & Beverage`, `Tur & Perjalanan`). Ini akan mengubah sepenuhnya database schema.
+
+> [!IMPORTANT]
+> **Email Generation**: Email akan di-generate otomatis dari nama pegawai dengan format `namapertama.namaterakhir@kemenpar.go.id` (huruf kecil, tanpa spasi). Jika ada duplikat, akan ditambah nomor urut.
+
+> [!IMPORTANT]
+> **Manager Account**: Hanya 1 akun manager dibuat — "Ahmad Riyadi" (email: `ahmad.riyadi@kemenpar.go.id`, password: `kemenpar123`). Manager bukan dari data CSV.
+
+> [!WARNING]
+> **ML Model Files**: File `sdc_model.pkl` dan `sdc_model_tindakan.pkl` menggunakan pickle — ini memerlukan scikit-learn dan imbalanced-learn yang sama versinya. Akan ditambahkan ke requirements.txt.
+
+---
+
+## Open Questions
+
+> [!IMPORTANT]
+> 1. **Divisi filter**: Data CSV baru menggunakan "Food & Beverage" (bukan "F&B") dan "Tur & Perjalanan". Apakah filter divisi di dashboard perlu menyesuaikan nama-nama ini?
+> 2. **Career Paths**: Data CSV baru tidak memiliki career path. Apakah career path tetap dipertahankan dari data lama, atau dihapus saja dari tampilan pegawai?
+> 3. **Admin melihat sebagai user**: User admin bisa memilih "melihat sebagai" manajer atau pegawai tertentu. Apakah admin juga bisa melakukan edit data (CRUD) sambil melihat tampilan user, atau hanya di menu Admin-nya saja?
+
+---
+
+## Proposed Changes
+
+### 1. Database Restructuring
+
+Menghapus data lama dan membangun ulang database dari `data_pegawai.csv` dan `data_course.csv`.
+
+#### [MODIFY] [init_db.py](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/database/init_db.py)
+- **Hapus** semua hardcoded data (seed functions lama)
+- **Buat tabel baru** `users` untuk authentication:
+  ```sql
+  CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    role TEXT NOT NULL DEFAULT 'pegawai',  -- 'pegawai', 'manager', 'supadmin'
+    pegawai_id TEXT,  -- NULL untuk supadmin/manager
+    nama TEXT NOT NULL,
+    FOREIGN KEY (pegawai_id) REFERENCES pegawai(id_pegawai)
+  );
+  ```
+- **Ubah tabel `pegawai`** untuk match kolom CSV baru:
+  ```sql
+  CREATE TABLE pegawai (
+    id_pegawai TEXT PRIMARY KEY,
+    nama_pegawai TEXT NOT NULL,
+    jabatan TEXT NOT NULL,
+    divisi TEXT NOT NULL,
+    status_sertifikat TEXT NOT NULL,
+    pre_score INTEGER NOT NULL,
+    post_score INTEGER NOT NULL,
+    kinerja_q1_2024 REAL, kinerja_q2_2024 REAL, kinerja_q3_2024 REAL,
+    kinerja_q4_2024 REAL, kinerja_q1_2025 REAL, kinerja_q2_2025 REAL,
+    skill_komunikasi REAL, skill_layanan_tamu REAL,
+    skill_penguasaan_teknis REAL, skill_kepatuhan_sop REAL,
+    skill_kepemimpinan REAL, skill_bahasa_asing REAL,
+    skill_problem_solving REAL, skill_digital_literacy REAL,
+    label_rekomendasi INTEGER, label_rekomendasi_nama TEXT,
+    label_tindakan INTEGER, label_tindakan_nama TEXT
+  );
+  ```
+- **Ubah tabel `course_catalog`** untuk match `data_course.csv`:
+  ```sql
+  CREATE TABLE course_catalog (
+    id_course TEXT PRIMARY KEY,
+    nama_course TEXT NOT NULL,
+    provider TEXT, level TEXT, mode TEXT, durasi TEXT,
+    label_kategori INTEGER, label_kategori_nama TEXT,
+    skill_target_utama TEXT,
+    min_skill_komunikasi REAL, min_skill_layanan_tamu REAL,
+    min_skill_penguasaan_teknis REAL, min_skill_kepatuhan_sop REAL,
+    min_skill_kepemimpinan REAL, min_skill_bahasa_asing REAL,
+    min_skill_problem_solving REAL, min_skill_digital_literacy REAL,
+    deskripsi TEXT
+  );
+  ```
+- **Hapus tabel `kinerja_periodik`** (data kinerja sekarang ada di tabel pegawai langsung)
+- **Seed dari CSV**: Baca `data_pegawai.csv` dan `data_course.csv` menggunakan Python `csv` module
+- **Generate email** dari nama pegawai: `namapertama.namaterakhir@kemenpar.go.id`
+- **Hash password** menggunakan `werkzeug.security.generate_password_hash`
+- **Buat akun default**:
+  - 400 pegawai dari CSV (password: `kemenpar123`)
+  - 1 manager: Ahmad Riyadi (password: `kemenpar123`)
+  - 1 supadmin (email: `supadmin`, password: `supadmingacor1`)
+
+---
+
+### 2. Authentication & Login System
+
+#### [MODIFY] [app.py](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/app.py)
+- Tambahkan `flask-login` atau session-based auth
+- Gunakan `app.secret_key` untuk session security
+- Tambah CSRF protection
+- Routes baru:
+  - `GET /login` — Halaman login
+  - `POST /login` — Proses login (email + password)
+  - `GET /logout` — Logout
+  - `GET /supadmin` — Admin panel (redirect to login if not authenticated)
+  - `GET /` — Redirect ke login jika belum login, ke dashboard jika sudah
+- Middleware untuk protect API routes
+- Rate limiting pada login endpoint (anti brute-force)
+- Session timeout
+
+#### [NEW] [templates/login.html](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/templates/login.html)
+- Login page dengan style yang sama seperti dashboard (navy/gold theme dari `SDC_Dashboard_Prototype.html`)
+- Form di tengah halaman dengan field email dan password
+- Logo Kemenpar di atas form
+- Animasi fade-in yang smooth
+
+---
+
+### 3. Admin Panel (`/supadmin`)
+
+#### [NEW] [templates/admin.html](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/templates/admin.html)
+- Menggunakan style **identik** dengan dashboard utama (navy/gold theme)
+- Layout sidebar + topbar yang sama
+- **Topbar**: Badge "Admin" di paling kanan (selain "Manajer" dan "Pegawai")
+- **Role toggle** di sidebar: Manajer / Pegawai / Admin (Admin selalu visible)
+- Saat role = Admin, sidebar menampilkan menu:
+  - Database Viewer (lihat isi tabel pegawai, course, users)
+  - Manage Pegawai (CRUD pegawai)
+  - Manage Course (CRUD course)
+  - Assign Manajer (ubah role user ke manager)
+  - Users Management
+- Saat role = Manajer/Pegawai, menampilkan menu yang sama seperti dashboard biasa
+- Dropdown "Lihat Sebagai" — pilih user mana yang ingin dilihat (untuk pegawai) atau divisi mana (untuk manajer)
+- **Realtime update**: Menggunakan polling/refetch setelah CRUD operation
+
+#### API Routes baru untuk Admin (di `app.py`):
+- `GET /api/admin/pegawai` — List all pegawai (with pagination/search)
+- `POST /api/admin/pegawai` — Create pegawai
+- `PUT /api/admin/pegawai/<id>` — Update pegawai
+- `DELETE /api/admin/pegawai/<id>` — Delete pegawai
+- `GET /api/admin/courses` — List all courses
+- `POST /api/admin/courses` — Create course
+- `PUT /api/admin/courses/<id>` — Update course
+- `DELETE /api/admin/courses/<id>` — Delete course
+- `GET /api/admin/users` — List all users
+- `PUT /api/admin/users/<id>/role` — Update user role
+- `GET /api/admin/database/<table>` — View raw database table
+
+---
+
+### 4. ML Model Integration
+
+#### [MODIFY] [app.py](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/app.py)
+- Load `sdc_model.pkl` dan `sdc_model_tindakan.pkl` saat startup
+- Implementasi fungsi `predict_course_category()` dari notebook (lihat Cell 28 di Employee notebook):
+  - Input: skill_dict, pre_score, post_score, kinerja_list, divisi, status_sertifikat
+  - Output: label_id, label_name, confidence, courses
+  - Lookup courses dari `data_course.csv` berdasarkan predicted label
+- Implementasi fungsi `predict_tindakan_manajer()` dari notebook (lihat Cell 29 di Manager notebook):
+  - Input: skill_dict, pre_score, post_score, kinerja_list, divisi, status_sertifikat
+  - Output: label_id, label_name, prioritas, confidence, langkah_tindakan, target
+
+#### API Routes baru:
+- `GET /api/ml/recommend/<pegawai_id>` — Prediksi rekomendasi course untuk pegawai tertentu (menggunakan `sdc_model.pkl`)
+- `GET /api/ml/tindakan/<pegawai_id>` — Prediksi tindakan manajer untuk pegawai tertentu (menggunakan `sdc_model_tindakan.pkl`)
+
+#### Integrasi ke Frontend:
+- **Pegawai view — Rekomendasi Course**: Ganti static course lookup dengan ML prediction
+  - Tampilkan label prediksi + confidence
+  - Tampilkan daftar course yang match dengan label prediksi
+- **Manager view — Interpretasi & Flagging**: Tambahkan kolom "Tindakan ML" yang menampilkan prediksi dari model tindakan
+  - Tampilkan label tindakan + confidence
+  - Prioritas + langkah tindakan yang direkomendasikan
+
+#### [MODIFY] [requirements.txt](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/requirements.txt)
+```
+flask>=3.0
+scikit-learn>=1.3
+imbalanced-learn>=0.11
+pandas>=2.0
+numpy>=1.24
+werkzeug>=3.0
+```
+
+---
+
+### 5. Color Scheme (Matching `SDC_Dashboard_Prototype.html`)
+
+Warna dari prototype yang harus dipertahankan:
+
+```css
+:root {
+  --navy:       #132B50;
+  --navy-deep:  #0c1f3a;
+  --navy-mid:   #1e3d6e;
+  --navy-light: #2a5298;
+  --gold:       #A49063;
+  --gold-light: #c8b07a;
+  --gold-pale:  #e8dcc4;
+  --bg:         #F5F5F3;
+  --surface:    #FFFFFF;
+  --text-main:  #132B50;
+  --text-muted: #6b7a8d;
+  --border:     #dde3ec;
+  --row-alt:    #f8f7f4;
+  --green:      #2d7a4f;
+  --red:        #b53b3b;
+  --amber:      #c97c1a;
+}
+```
+
+#### [MODIFY] [static/css/style.css](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/static/css/style.css)
+- Pastikan semua CSS variables match dengan prototype
+- Font families: `Cormorant Garamond` (display), `DM Sans` (body), `DM Mono` (mono)
+- Tambahkan styles untuk login page dan admin panel
+
+---
+
+### 6. Frontend Updates
+
+#### [MODIFY] [templates/index.html](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/templates/index.html)
+- Update semua API call endpoints
+- Update divisi filter options (Akomodasi, Food & Beverage, Tur & Perjalanan)
+- Hapus tabel `kinerja_periodik` references — kinerja sudah inline di pegawai
+- Ubah format data pegawai untuk match field names baru
+- Tambahkan ML recommendation panels
+- Tambahkan ML tindakan manajer panels
+- Fix animasi:
+  - Smooth page transitions (gunakan opacity + transform)
+  - Fix staggered animation timing
+  - Pastikan animasi tidak glitch saat switch views
+
+---
+
+### 7. Security Hardening
+
+#### Di [app.py](file:///c:/Users/iyel/Documents/Codes/SDC%202026%20Kelomopok%202%20SDA1/app.py):
+- **Password Hashing**: Gunakan `werkzeug.security.generate_password_hash` / `check_password_hash`
+- **CSRF Protection**: Gunakan flask session tokens
+- **SQL Injection Prevention**: Sudah menggunakan parameterized queries (tetap lanjutkan)
+- **Session Security**: 
+  - `app.config['SESSION_COOKIE_HTTPONLY'] = True`
+  - `app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'`
+  - Session timeout (30 menit idle)
+- **Rate Limiting**: Anti brute-force pada login (max 5 attempts per IP per minute)
+- **Input Validation**: Validate semua input pada admin CRUD operations
+- **Role-based Access Control**: 
+  - Pegawai hanya bisa lihat data sendiri
+  - Manajer bisa lihat semua pegawai
+  - Admin bisa CRUD dan lihat semua
+- **Hide Admin Route**: `/supadmin` tidak ada link dari website biasa — hanya bisa diakses manual
+
+---
+
+## Execution Order
+
+1. **Database**: Restructure `init_db.py` → seed dari CSV + generate users
+2. **Backend Auth**: Add login/session/RBAC to `app.py`
+3. **Login Page**: Create `login.html` with matching style
+4. **API Updates**: Update all existing APIs for new schema
+5. **ML Integration**: Load models + create prediction endpoints
+6. **Admin Panel**: Create `admin.html` with CRUD functionality
+7. **Frontend Updates**: Update `index.html` for new data structure + ML
+8. **Animations & Polish**: Fix transitions, stagger timing, smooth interactions
+9. **Security**: Final security hardening pass
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- `python database/init_db.py` — Verify DB creates correctly with 400 pegawai, 24 courses, 402 users
+- `python app.py` — Verify server starts without errors and ML models load
+- Test all API endpoints with curl/browser
+
+### Manual Verification
+- Login sebagai pegawai → pastikan hanya bisa lihat data sendiri
+- Login sebagai manager → pastikan bisa lihat semua data + ML tindakan
+- Akses `/supadmin` → login → pastikan CRUD works
+- Test admin "lihat sebagai" feature
+- Verify color scheme matches prototype
+- Test responsive layout (desktop, tablet, mobile)
+- Verify ML predictions return sensible results
+- Test brute-force protection
+- Verify no SQL injection vulnerabilities

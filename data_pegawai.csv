@@ -1,0 +1,401 @@
+id_pegawai,nama_pegawai,jabatan,divisi,status_sertifikat,pre_score,post_score,kinerja_q1_2024,kinerja_q2_2024,kinerja_q3_2024,kinerja_q4_2024,kinerja_q1_2025,kinerja_q2_2025,skill_komunikasi,skill_layanan_tamu,skill_penguasaan_teknis,skill_kepatuhan_sop,skill_kepemimpinan,skill_bahasa_asing,skill_problem_solving,skill_digital_literacy,label_rekomendasi,label_rekomendasi_nama,label_tindakan,label_tindakan_nama
+EMP0001,Budi Wijaya Kurniawan,Front Desk Officer,Akomodasi,Aktif,45,76,2.89,3.0,2.95,2.85,2.0,3.0,3.97,3.43,3.61,4.12,1.73,3.0,3.27,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0002,Nabila Nugraha Maulana,Front Desk Officer,Akomodasi,Aktif,46,67,2.96,2.96,2.97,3.0,2.84,3.0,3.27,4.48,3.0,4.0,2.43,4.07,3.12,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0003,Budi Kusuma Prasetyo,Front Desk Officer,Akomodasi,Aktif,50,79,2.97,2.99,3.09,2.99,3.0,2.96,3.35,4.0,3.82,3.54,2.34,3.0,4.0,3.91,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0004,Farah Wibowo Maulana,Front Desk Officer,Akomodasi,Aktif,43,74,2.63,2.83,2.9,3.0,2.98,3.0,4.0,5.0,2.4,3.42,3.0,3.05,3.05,5.0,1,Teknis & Kepatuhan SOP,3,Percepatan Karir
+EMP0005,Fajar Nugraha Anggraini,Front Desk Officer,Akomodasi,Belum,45,65,3.0,2.84,2.7,2.82,2.65,2.69,4.0,3.75,4.0,3.49,2.1,3.0,3.0,3.77,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0006,Rizal Permana Anggraini,Front Desk Officer,Akomodasi,Aktif,47,73,2.91,2.67,2.71,2.73,2.78,2.99,4.0,3.0,3.0,3.34,2.81,3.66,3.45,3.87,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0007,Putri Permana Setiawan,Front Desk Officer,Akomodasi,Belum,45,58,2.89,3.0,2.73,2.0,2.83,2.74,3.3,3.79,3.91,3.4,3.21,2.89,3.09,2.98,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0008,Putri Utama Sari,Front Desk Officer,Akomodasi,Aktif,53,74,3.28,2.88,3.0,2.92,3.0,2.85,4.0,4.01,4.08,3.47,2.24,3.5,3.0,4.25,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0009,Fajar Hidayat Anggraini,Front Desk Officer,Akomodasi,Aktif,53,67,3.18,3.0,3.08,3.05,3.0,3.3,4.0,3.88,2.39,3.0,3.0,3.86,4.0,5.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0010,Rina Wibowo Lestari,Front Desk Officer,Akomodasi,Kadaluarsa,50,74,2.66,3.0,2.73,3.16,2.72,2.97,4.0,4.0,2.63,3.0,2.0,3.37,4.17,3.57,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0011,Andi Permana Prasetyo,Front Desk Officer,Akomodasi,Kadaluarsa,42,76,3.13,3.0,3.0,3.0,3.0,2.93,3.3,5.0,3.41,4.0,2.78,3.04,3.45,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0012,Rafi Hidayat Setiawan,Front Desk Officer,Akomodasi,Aktif,56,90,2.98,3.25,3.0,2.9,3.0,3.0,4.0,5.0,3.44,4.44,2.9,2.73,2.45,4.41,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0013,Rafi Permana Lestari,Front Desk Officer,Akomodasi,Aktif,45,72,2.88,3.0,3.0,2.94,2.86,2.88,4.0,3.91,3.39,4.37,2.85,3.75,2.07,3.47,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0014,Rizal Nugraha Sari,Front Desk Officer,Akomodasi,Aktif,45,69,3.09,3.43,3.34,3.0,3.0,2.83,4.35,4.3,3.94,3.52,2.42,3.28,3.33,3.6,3,Sertifikasi Lanjutan & Pengembangan Karir,4,Retensi & Risiko Resign
+EMP0015,Yoga Hidayat Hakim,Front Desk Officer,Akomodasi,Belum,42,53,3.0,2.44,2.48,3.02,2.0,2.0,3.48,4.0,4.0,3.0,2.44,2.0,3.0,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0016,Bayu Mahendra Maulana,Front Desk Officer,Akomodasi,Aktif,54,73,3.04,3.08,2.89,3.06,3.06,3.13,4.81,5.0,3.0,3.4,2.99,4.0,2.66,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0017,Rizal Nugraha Hakim,Front Desk Officer,Akomodasi,Aktif,48,72,3.28,3.0,3.02,3.0,2.8,3.15,3.49,4.26,3.76,3.69,3.0,3.43,3.2,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0018,Rizal Utama Putra,Front Desk Officer,Akomodasi,Belum,47,61,3.0,2.83,2.89,3.09,2.48,2.83,3.94,4.26,2.24,4.0,3.0,3.0,2.94,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0019,Rafi Mahendra Sari,Front Desk Officer,Akomodasi,Belum,46,66,2.86,3.0,3.0,3.17,3.08,2.97,3.9,4.16,3.0,3.0,2.98,4.35,2.36,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0020,Bayu Wibowo Putra,Front Desk Officer,Akomodasi,Kadaluarsa,54,72,3.0,3.21,3.0,3.31,3.14,2.8,5.0,4.24,3.66,3.44,2.84,3.0,3.74,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0021,Taufik Mahendra Lestari,Housekeeping Supervisor,Akomodasi,Belum,42,53,2.77,3.04,2.96,2.52,2.91,2.88,3.36,3.0,3.51,5.0,4.15,2.42,2.84,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0022,Arif Permana Prasetyo,Housekeeping Supervisor,Akomodasi,Belum,52,64,3.0,3.12,3.0,2.99,3.0,2.83,3.63,4.0,2.67,3.67,4.12,2.0,4.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0023,Rizal Saputra Prasetyo,Housekeeping Supervisor,Akomodasi,Aktif,45,64,2.98,3.0,3.11,3.11,3.06,3.0,3.32,3.52,4.0,5.0,3.0,2.73,4.21,2.49,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0024,Nabila Utama Kurniawan,Housekeeping Supervisor,Akomodasi,Aktif,39,68,3.0,2.88,3.0,3.0,2.0,2.81,3.29,2.5,5.0,3.75,3.86,3.52,2.52,2.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0025,Indah Santoso Lestari,Housekeeping Supervisor,Akomodasi,Aktif,49,80,2.98,3.0,3.0,3.02,3.16,2.74,3.0,3.85,4.19,4.08,4.22,3.0,4.0,2.51,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0026,Dimas Ramadhan Lestari,Housekeeping Supervisor,Akomodasi,Aktif,49,78,2.59,2.91,2.72,2.58,2.62,2.49,2.69,2.78,2.52,3.63,4.0,2.64,3.51,4.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0027,Budi Gunawan Putra,Housekeeping Supervisor,Akomodasi,Aktif,47,67,2.84,2.85,3.0,2.83,2.99,2.9,2.91,3.0,4.24,5.0,3.0,3.0,2.83,3.16,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0028,Farah Kusuma Anggraini,Housekeeping Supervisor,Akomodasi,Aktif,50,78,3.12,3.36,3.0,3.07,3.09,3.22,3.58,4.0,4.53,3.81,2.99,3.39,3.0,3.51,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0029,Rafi Permana Anggraini,Housekeeping Supervisor,Akomodasi,Belum,42,58,3.0,2.46,3.0,2.54,3.0,2.63,2.93,4.0,3.79,4.17,3.34,1.93,2.26,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0030,Ayu Pratama Rahmawati,Housekeeping Supervisor,Akomodasi,Kadaluarsa,53,73,3.19,3.18,3.0,3.0,3.08,3.3,4.0,3.41,4.39,3.37,3.8,4.23,3.52,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0031,Nabila Wijaya Sari,Housekeeping Supervisor,Akomodasi,Aktif,40,67,3.08,3.0,3.0,2.0,2.87,3.72,4.0,3.8,3.64,4.0,3.63,3.31,2.39,2.72,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0032,Dewi Kusuma Firmansyah,Housekeeping Supervisor,Akomodasi,Aktif,49,80,3.0,3.0,3.0,2.76,2.77,3.1,4.0,3.0,4.06,3.0,4.0,3.0,3.0,3.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0033,Taufik Gunawan Sari,Housekeeping Supervisor,Akomodasi,Aktif,48,64,2.93,3.0,3.08,3.34,2.81,3.0,3.29,4.37,3.56,4.8,4.0,2.94,4.26,2.7,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0034,Taufik Purnama Lestari,Housekeeping Supervisor,Akomodasi,Aktif,47,79,2.79,3.0,3.0,3.03,2.72,2.68,2.47,3.15,3.94,3.9,4.0,2.71,3.51,2.35,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0035,Farah Nugraha Setiawan,Housekeeping Supervisor,Akomodasi,Aktif,47,64,2.59,3.0,2.72,2.47,2.68,3.0,2.99,3.03,3.12,3.0,3.76,2.98,3.43,2.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0036,Ayu Permana Rahmawati,Housekeeping Supervisor,Akomodasi,Kadaluarsa,42,57,2.67,2.94,3.13,2.66,2.0,3.0,2.91,3.7,3.0,4.73,5.0,3.0,3.6,1.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0037,Nanda Mahendra Hakim,Housekeeping Supervisor,Akomodasi,Kadaluarsa,50,83,2.94,2.77,3.05,2.77,3.0,3.0,4.29,3.0,3.94,5.0,2.89,2.0,3.17,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0038,Ayu Gunawan Prasetyo,Housekeeping Supervisor,Akomodasi,Belum,43,64,2.95,2.88,3.0,3.06,3.0,2.85,3.82,3.85,2.87,4.3,3.23,3.0,2.62,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0039,Rizky Wijaya Hakim,Housekeeping Supervisor,Akomodasi,Aktif,50,81,2.48,2.73,2.73,3.0,2.61,2.86,3.55,3.26,4.0,3.71,3.0,3.0,3.0,1.57,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0040,Fajar Gunawan Sari,Housekeeping Attendant,Akomodasi,Aktif,37,66,2.5,2.84,3.0,2.81,2.0,2.0,3.09,2.0,4.0,5.0,2.29,2.01,2.72,2.74,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0041,Rina Kusuma Rahmawati,Housekeeping Attendant,Akomodasi,Belum,36,55,2.0,2.39,2.24,1.94,2.0,2.36,2.98,3.0,3.6,5.0,2.02,1.0,3.0,1.9,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0042,Rizal Santoso Kurniawan,Housekeeping Attendant,Akomodasi,Aktif,45,77,3.0,3.0,2.0,3.0,2.69,3.0,2.41,2.48,4.0,4.09,3.51,2.0,3.01,2.31,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0043,Indah Purnama Putra,Housekeeping Attendant,Akomodasi,Belum,30,54,2.2,2.4,2.19,2.08,2.0,2.39,3.0,2.97,4.0,4.0,3.0,1.0,2.0,1.97,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0044,Farah Mahendra Sari,Housekeeping Attendant,Akomodasi,Belum,38,51,2.19,2.0,2.47,2.32,2.22,2.36,2.26,2.7,3.81,3.78,2.56,2.19,3.19,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0045,Taufik Gunawan Putra,Housekeeping Attendant,Akomodasi,Aktif,32,64,2.4,2.0,2.0,2.34,2.43,2.44,3.0,1.95,3.0,4.0,3.0,2.36,3.22,1.77,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0046,Putri Utama Rahmawati,Housekeeping Attendant,Akomodasi,Aktif,44,71,2.18,2.1,2.24,2.19,2.08,2.54,1.91,1.96,4.05,4.55,1.64,1.0,2.85,2.91,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0047,Dimas Utama Lestari,Housekeeping Attendant,Akomodasi,Aktif,48,78,2.52,3.0,3.0,2.59,3.03,3.0,3.78,3.82,2.99,4.0,2.55,3.0,3.0,2.75,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0048,Bayu Kusuma Setiawan,Housekeeping Attendant,Akomodasi,Belum,37,50,3.0,3.0,2.73,3.0,3.0,2.6,3.55,3.0,4.0,3.91,2.31,1.6,3.0,2.43,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0049,Dewi Santoso Anggraini,Housekeeping Attendant,Akomodasi,Belum,35,50,2.35,2.0,2.0,2.03,2.24,2.25,2.69,3.0,3.0,4.0,1.51,2.48,3.02,1.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0050,Taufik Pratama Anggraini,Housekeeping Attendant,Akomodasi,Aktif,40,65,2.36,2.5,2.0,2.0,3.0,2.28,3.51,3.8,3.43,3.22,2.02,2.32,2.69,2.08,3,Sertifikasi Lanjutan & Pengembangan Karir,0,Coaching Intensif
+EMP0051,Rafi Purnama Kurniawan,Housekeeping Attendant,Akomodasi,Belum,41,64,2.0,2.0,2.0,2.0,2.06,2.15,2.54,4.0,3.0,2.74,1.18,2.22,3.0,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0052,Fajar Santoso Maulana,Housekeeping Attendant,Akomodasi,Aktif,48,78,2.96,3.0,2.98,3.0,3.0,3.0,3.59,4.21,3.0,4.95,2.22,3.16,2.75,2.47,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0053,Nabila Ramadhan Lestari,Housekeeping Attendant,Akomodasi,Kadaluarsa,34,54,2.27,2.0,2.0,2.31,3.0,2.0,2.82,3.0,4.0,4.0,2.43,1.13,3.17,1.86,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0054,Andi Wijaya Rahmawati,Housekeeping Attendant,Akomodasi,Kadaluarsa,35,63,2.24,2.35,2.04,2.0,2.04,2.0,3.0,2.65,3.9,3.93,1.0,1.0,2.79,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0055,Dimas Mahendra Kurniawan,Housekeeping Attendant,Akomodasi,Belum,34,51,2.0,2.0,1.91,2.2,2.16,2.0,3.48,2.96,2.12,2.96,1.74,1.89,2.58,2.42,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0056,Arif Kusuma Kurniawan,Housekeeping Attendant,Akomodasi,Aktif,41,72,2.0,2.0,2.6,2.65,2.51,3.0,3.67,3.0,5.0,3.78,2.0,2.24,2.21,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0057,Nabila Gunawan Prasetyo,Housekeeping Attendant,Akomodasi,Aktif,40,71,2.0,2.0,2.51,2.58,2.38,3.0,1.77,3.0,3.02,4.0,2.0,2.11,3.84,2.31,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0058,Arif Permana Kurniawan,Housekeeping Attendant,Akomodasi,Belum,44,63,2.69,2.2,2.7,2.0,2.38,2.71,2.17,3.15,4.02,4.38,2.0,2.69,3.0,3.06,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0059,Yoga Utama Susanto,Guest Relations Officer,Akomodasi,Aktif,59,74,3.17,3.0,3.0,3.15,3.0,3.0,4.0,3.76,2.61,4.0,3.0,5.0,4.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0060,Dewi Utama Kurniawan,Guest Relations Officer,Akomodasi,Aktif,48,81,3.11,3.11,2.81,3.08,3.0,3.1,4.22,4.0,3.0,4.0,3.54,3.25,3.03,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0061,Siti Kusuma Susanto,Guest Relations Officer,Akomodasi,Aktif,58,77,3.36,3.26,3.26,3.36,3.23,3.0,4.55,3.63,3.0,3.33,2.93,4.28,4.41,4.19,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0062,Rina Pratama Firmansyah,Guest Relations Officer,Akomodasi,Aktif,46,67,3.11,2.94,3.0,3.03,3.2,3.0,4.0,4.75,3.0,4.0,4.0,3.59,4.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0063,Nanda Kusuma Susanto,Guest Relations Officer,Akomodasi,Belum,41,69,3.0,3.22,3.07,2.97,3.11,3.0,4.0,4.74,3.19,4.0,4.0,4.14,2.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0064,Andi Saputra Prasetyo,Guest Relations Officer,Akomodasi,Aktif,53,69,3.09,3.14,3.3,3.08,3.29,3.0,4.2,5.0,3.0,4.0,3.57,3.0,4.14,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0065,Andi Mahendra Putra,Guest Relations Officer,Akomodasi,Aktif,55,74,3.0,3.0,3.16,3.0,3.09,3.32,4.09,5.0,4.34,2.74,4.01,3.88,4.0,3.27,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0066,Siti Wibowo Sari,Guest Relations Officer,Akomodasi,Belum,54,73,2.84,3.14,2.96,3.0,2.99,3.0,4.99,4.36,2.89,2.89,3.07,2.92,3.1,3.32,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0067,Bayu Utama Hakim,Guest Relations Officer,Akomodasi,Kadaluarsa,50,77,3.0,3.11,2.94,3.0,3.0,3.04,4.26,4.0,2.23,2.65,4.0,4.0,3.27,3.2,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0068,Dewi Ramadhan Susanto,Guest Relations Officer,Akomodasi,Aktif,54,80,3.0,2.93,3.06,3.12,3.11,3.27,4.54,4.73,3.0,2.9,4.0,3.0,3.0,4.0,1,Teknis & Kepatuhan SOP,3,Percepatan Karir
+EMP0069,Rizky Wijaya Prasetyo,Guest Relations Officer,Akomodasi,Aktif,47,75,2.93,2.66,3.0,2.93,2.87,3.18,4.0,5.0,2.0,3.75,3.0,3.0,3.47,3.1,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0070,Budi Wibowo Putra,Guest Relations Officer,Akomodasi,Aktif,42,72,3.0,3.19,3.16,3.03,3.0,3.24,4.11,5.0,3.0,3.52,3.15,4.0,4.0,2.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0071,Putri Purnama Putra,Guest Relations Officer,Akomodasi,Aktif,43,64,3.2,3.0,3.0,3.11,3.0,3.62,4.3,4.93,3.0,3.19,4.0,3.86,4.0,4.01,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0072,Budi Ramadhan Putra,Guest Relations Officer,Akomodasi,Belum,40,54,3.0,2.92,2.92,2.66,2.99,2.74,5.0,4.0,2.8,2.87,2.0,3.0,3.0,3.15,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0073,Fajar Kusuma Prasetyo,Guest Relations Officer,Akomodasi,Aktif,56,86,3.74,3.44,3.0,3.01,3.67,3.0,4.55,4.0,2.0,3.33,3.4,4.0,3.52,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0074,Dimas Pratama Rahmawati,Guest Relations Officer,Akomodasi,Aktif,55,88,3.0,2.74,3.0,2.71,2.41,2.61,3.47,4.0,3.23,4.0,2.84,3.43,3.21,2.72,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0075,Nanda Pratama Kurniawan,Guest Relations Officer,Akomodasi,Aktif,45,60,2.9,3.07,3.07,2.9,3.0,3.0,3.0,3.16,2.0,4.0,3.0,5.0,3.83,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0076,Dimas Utama Putra,Guest Relations Officer,Akomodasi,Aktif,50,70,3.2,3.44,3.29,3.0,3.0,3.0,4.25,4.58,3.0,3.51,3.0,4.14,4.45,4.0,1,Teknis & Kepatuhan SOP,4,Retensi & Risiko Resign
+EMP0077,Taufik Ramadhan Setiawan,Guest Relations Officer,Akomodasi,Aktif,50,73,3.21,3.0,3.0,2.99,3.0,3.0,3.34,4.93,4.0,3.0,3.37,3.4,3.25,3.63,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0078,Rizky Utama Hakim,Concierge,Akomodasi,Aktif,53,65,3.29,3.67,3.0,3.0,3.56,3.0,3.54,4.56,3.76,3.93,4.0,5.0,3.0,3.81,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0079,Arif Kusuma Maulana,Concierge,Akomodasi,Aktif,52,79,2.86,3.0,3.3,3.0,3.0,3.0,2.89,5.0,3.43,3.74,2.27,3.99,5.0,4.05,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0080,Ayu Utama Firmansyah,Concierge,Akomodasi,Aktif,51,66,2.78,2.65,3.0,2.73,2.89,3.0,3.47,4.0,2.25,3.94,3.0,3.86,2.44,3.05,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0081,Dewi Nugraha Susanto,Concierge,Akomodasi,Belum,45,58,3.21,2.93,3.15,3.28,3.0,3.0,5.0,4.0,3.61,2.78,4.0,4.0,3.49,3.59,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0082,Rizal Wijaya Susanto,Concierge,Akomodasi,Aktif,54,65,3.59,3.45,3.37,3.87,3.67,3.0,5.0,4.35,3.0,4.62,3.26,4.36,5.0,3.48,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0083,Siti Gunawan Setiawan,Concierge,Akomodasi,Belum,52,62,3.26,3.24,3.0,3.0,3.42,3.0,4.5,4.0,3.26,4.0,2.0,4.19,4.85,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0084,Putri Ramadhan Firmansyah,Concierge,Akomodasi,Aktif,47,79,3.35,3.0,3.32,3.34,3.51,3.48,4.21,4.0,4.0,4.29,4.0,3.0,4.0,3.82,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0085,Nanda Purnama Lestari,Concierge,Akomodasi,Belum,43,57,3.0,2.95,2.0,3.16,3.0,3.0,2.42,4.03,3.0,3.0,3.05,4.69,3.2,3.79,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0086,Fajar Wibowo Susanto,Concierge,Akomodasi,Aktif,51,85,3.11,3.19,3.05,3.45,3.0,3.72,4.32,3.42,4.0,3.42,3.0,3.73,3.0,3.98,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0087,Rizal Purnama Setiawan,Concierge,Akomodasi,Aktif,57,82,3.26,3.52,3.53,3.5,3.67,3.0,4.75,3.73,4.63,4.15,4.0,4.0,4.0,3.48,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0088,Farah Nugraha Rahmawati,Concierge,Akomodasi,Aktif,49,64,2.73,2.47,2.9,2.66,3.0,3.03,3.49,3.72,3.0,3.73,3.0,4.0,2.17,2.91,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0089,Taufik Mahendra Anggraini,Concierge,Akomodasi,Belum,53,67,3.51,3.3,3.39,3.14,3.0,3.0,5.0,4.0,3.0,3.42,3.28,4.0,3.58,4.0,1,Teknis & Kepatuhan SOP,4,Retensi & Risiko Resign
+EMP0090,Andi Pratama Hakim,Concierge,Akomodasi,Aktif,49,79,2.91,2.91,3.25,2.72,2.88,3.72,4.0,4.22,3.0,2.85,2.22,3.03,3.86,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0091,Siti Permana Sari,Concierge,Akomodasi,Aktif,53,72,3.0,3.0,3.04,3.0,3.03,3.25,4.0,4.51,3.46,3.78,3.0,3.55,4.0,2.84,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0092,Rafi Kusuma Lestari,Concierge,Akomodasi,Aktif,52,68,3.06,3.36,3.09,3.08,3.15,3.0,3.37,5.0,2.75,3.29,2.0,5.0,4.0,3.48,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0093,Arif Gunawan Setiawan,Concierge,Akomodasi,Kadaluarsa,34,55,2.71,2.93,2.95,3.0,2.45,2.86,3.0,3.27,3.52,3.21,4.0,3.83,2.74,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0094,Yoga Santoso Kurniawan,Concierge,Akomodasi,Kadaluarsa,48,80,3.0,3.32,3.0,3.17,3.4,3.16,4.31,4.37,4.0,2.96,4.1,3.47,4.21,3.0,2,Kepemimpinan & Supervisi,3,Percepatan Karir
+EMP0095,Dewi Ramadhan Kurniawan,Concierge,Akomodasi,Belum,41,51,2.98,2.98,3.0,2.8,3.0,2.74,3.02,4.0,3.7,3.82,2.14,3.6,4.0,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0096,Ayu Santoso Kurniawan,Concierge,Akomodasi,Belum,46,73,3.0,3.0,2.69,2.88,3.03,3.0,3.37,3.68,3.05,2.96,3.09,4.0,3.0,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0097,Nabila Kusuma Susanto,Bellboy,Akomodasi,Belum,40,56,2.01,2.01,2.0,2.11,2.28,2.0,3.39,4.0,2.72,4.0,1.61,2.53,1.71,1.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0098,Nabila Purnama Susanto,Bellboy,Akomodasi,Belum,40,53,2.57,2.0,2.46,2.44,2.54,3.0,3.38,3.73,4.0,3.0,2.0,3.0,3.3,1.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0099,Rafi Saputra Putra,Bellboy,Akomodasi,Belum,42,71,2.59,2.0,3.0,2.06,2.65,2.47,3.0,3.64,2.0,4.0,4.0,1.62,2.78,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0100,Rafi Santoso Anggraini,Bellboy,Akomodasi,Kadaluarsa,41,65,2.28,2.09,2.38,1.95,2.41,2.08,4.0,2.93,2.0,3.48,2.0,3.0,3.2,1.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0101,Ayu Purnama Maulana,Bellboy,Akomodasi,Belum,39,55,2.53,2.2,2.58,2.49,2.83,2.3,3.0,3.53,3.0,3.3,1.62,2.0,3.3,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,0,Coaching Intensif
+EMP0102,Dimas Pratama Sari,Bellboy,Akomodasi,Kadaluarsa,40,64,2.52,2.57,2.46,2.26,3.0,2.55,3.14,5.0,3.46,3.0,2.12,2.6,3.0,1.82,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0103,Nabila Pratama Sari,Bellboy,Akomodasi,Aktif,34,65,2.35,2.0,2.0,2.01,2.13,2.03,2.8,3.45,1.97,3.0,1.0,3.0,2.25,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0104,Rizky Mahendra Maulana,Bellboy,Akomodasi,Belum,30,50,2.63,2.27,2.38,2.49,2.32,2.25,4.0,3.0,4.11,2.0,2.0,1.98,2.0,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0105,Putri Kusuma Prasetyo,Bellboy,Akomodasi,Belum,30,50,2.1,2.48,2.0,2.0,2.06,2.12,2.0,4.0,3.0,3.0,2.07,2.0,3.0,2.53,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0106,Arif Saputra Rahmawati,Bellboy,Akomodasi,Belum,32,50,2.18,2.0,2.0,2.53,2.38,2.11,3.24,4.0,2.75,3.38,1.88,1.81,2.32,2.7,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0107,Rafi Saputra Hakim,Bellboy,Akomodasi,Aktif,34,69,2.0,2.0,2.64,2.14,2.0,2.0,3.57,3.0,2.0,3.57,1.73,3.09,2.17,1.86,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0108,Rafi Kusuma Hakim,Bellboy,Akomodasi,Aktif,45,69,2.0,2.02,2.1,1.9,2.35,2.0,2.77,3.25,2.0,2.82,1.92,1.93,3.0,1.7,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0109,Ayu Permana Susanto,Bellboy,Akomodasi,Belum,31,50,2.44,2.04,2.0,2.43,2.03,2.0,3.36,2.86,2.92,2.78,2.8,3.0,2.65,1.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0110,Dewi Purnama Putra,Bellboy,Akomodasi,Belum,35,57,2.12,2.1,2.0,2.0,2.24,2.0,3.0,3.43,2.0,3.22,1.82,2.52,2.29,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0111,Nanda Saputra Susanto,Bellboy,Akomodasi,Belum,39,50,2.0,1.89,2.0,2.39,2.0,2.0,3.0,4.0,2.0,2.0,2.15,2.6,2.69,1.95,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0112,Rizky Pratama Rahmawati,Bellboy,Akomodasi,Aktif,43,76,2.0,3.0,2.44,2.7,2.34,2.0,4.0,4.07,3.66,2.92,1.88,3.01,2.63,1.59,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0113,Dimas Nugraha Sari,Bellboy,Akomodasi,Belum,36,50,2.03,2.0,2.0,2.0,2.05,2.0,3.21,4.08,1.98,2.68,1.0,2.62,1.98,1.99,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0114,Nanda Hidayat Kurniawan,Bellboy,Akomodasi,Kadaluarsa,39,53,2.41,2.5,2.6,2.38,2.37,2.29,3.42,2.83,3.16,3.0,2.78,3.16,3.0,2.29,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0115,Budi Gunawan Firmansyah,Bellboy,Akomodasi,Belum,38,56,2.0,2.0,2.5,2.0,2.55,3.0,2.61,2.59,3.2,4.39,3.0,1.71,3.0,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0116,Putri Ramadhan Anggraini,Room Division Manager,Akomodasi,Kadaluarsa,42,52,3.03,3.0,2.85,3.0,2.7,2.88,3.0,3.17,2.41,4.0,4.0,2.0,4.25,4.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0117,Fajar Hidayat Rahmawati,Room Division Manager,Akomodasi,Belum,40,63,3.13,2.95,3.0,3.33,2.88,3.0,3.68,4.0,3.84,4.0,4.68,3.5,2.4,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0118,Fajar Ramadhan Kurniawan,Room Division Manager,Akomodasi,Belum,46,66,2.85,3.29,3.05,2.88,3.0,2.93,3.57,3.0,3.28,3.64,4.88,3.6,3.05,3.58,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0119,Farah Utama Putra,Room Division Manager,Akomodasi,Belum,41,61,3.0,2.49,2.66,2.79,2.6,3.0,2.9,4.0,2.92,3.0,4.19,2.21,4.0,3.3,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0120,Dimas Wibowo Sari,Room Division Manager,Akomodasi,Aktif,51,72,3.02,3.0,3.15,2.99,2.98,3.05,3.0,3.64,3.28,4.29,4.05,3.05,3.87,3.4,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0121,Taufik Mahendra Hakim,Room Division Manager,Akomodasi,Belum,52,62,3.23,3.0,3.38,3.0,3.0,3.0,4.53,3.0,4.02,3.16,4.52,4.07,4.27,3.89,2,Kepemimpinan & Supervisi,4,Retensi & Risiko Resign
+EMP0122,Putri Purnama Susanto,Room Division Manager,Akomodasi,Kadaluarsa,54,73,3.35,3.32,3.48,3.87,3.0,3.59,3.81,4.1,3.73,5.0,5.0,4.0,4.17,3.75,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0123,Dewi Permana Lestari,Room Division Manager,Akomodasi,Aktif,61,95,3.25,3.44,3.42,3.36,3.23,3.37,3.55,3.19,4.25,4.0,4.0,4.18,4.36,4.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0124,Indah Gunawan Kurniawan,Room Division Manager,Akomodasi,Aktif,47,63,3.0,3.04,3.14,2.96,3.17,2.88,3.56,3.0,2.79,4.51,2.97,4.0,4.0,4.52,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0125,Andi Saputra Hakim,Room Division Manager,Akomodasi,Aktif,57,67,3.74,3.12,3.47,3.73,3.36,3.39,3.76,4.31,4.0,5.0,3.98,3.0,3.45,4.16,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0126,Nanda Pratama Rahmawati,Room Division Manager,Akomodasi,Aktif,49,81,3.0,3.07,3.15,3.0,3.02,2.86,3.33,3.0,3.27,3.6,3.0,4.15,4.15,4.01,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0127,Indah Hidayat Kurniawan,Room Division Manager,Akomodasi,Aktif,48,74,2.89,3.0,2.99,2.86,3.0,2.78,3.0,3.66,3.63,3.49,4.0,3.23,2.81,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0128,Rizky Pratama Putra,Room Division Manager,Akomodasi,Aktif,54,64,3.72,3.52,3.0,3.38,3.6,3.44,3.86,3.91,3.95,4.0,5.0,3.0,4.43,4.28,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0129,Dimas Ramadhan Maulana,Room Division Manager,Akomodasi,Aktif,54,89,3.32,3.0,3.34,3.0,3.67,3.32,3.32,4.57,3.02,3.76,5.0,3.0,4.27,4.0,2,Kepemimpinan & Supervisi,3,Percepatan Karir
+EMP0130,Bayu Mahendra Prasetyo,Room Division Manager,Akomodasi,Kadaluarsa,55,76,3.28,3.39,3.0,3.28,3.37,3.0,3.15,3.84,3.58,4.31,5.0,2.91,4.23,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0131,Nanda Ramadhan Maulana,Room Division Manager,Akomodasi,Aktif,50,64,3.0,3.31,3.43,3.2,3.0,3.36,4.0,4.49,3.55,4.02,5.0,3.42,3.6,3.42,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0132,Fajar Wijaya Kurniawan,Room Division Manager,Akomodasi,Kadaluarsa,55,85,3.43,3.67,3.0,3.13,3.15,3.12,3.93,3.98,3.0,4.57,3.99,2.91,3.48,4.52,2,Kepemimpinan & Supervisi,4,Retensi & Risiko Resign
+EMP0133,Ayu Wibowo Putra,Room Division Manager,Akomodasi,Belum,51,63,2.94,3.06,3.0,3.22,3.2,3.0,3.0,3.64,3.0,4.38,5.0,3.46,4.0,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0134,Putri Pratama Lestari,Room Division Manager,Akomodasi,Belum,52,69,3.0,3.11,3.0,3.0,3.0,3.0,5.0,4.1,4.0,3.69,4.0,3.22,4.1,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0135,Rizal Saputra Putra,F&B Attendant,Food & Beverage,Belum,50,60,3.0,3.0,2.74,2.65,2.53,2.76,4.0,3.64,3.15,4.0,2.54,2.0,3.0,3.14,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0136,Bayu Gunawan Rahmawati,F&B Attendant,Food & Beverage,Belum,44,55,2.0,2.43,3.0,2.0,2.0,3.0,3.0,3.85,3.0,3.0,2.0,3.0,3.12,3.8,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0137,Fajar Utama Sari,F&B Attendant,Food & Beverage,Belum,39,51,2.54,2.72,2.39,2.53,2.64,2.0,3.15,3.0,3.23,5.0,1.76,1.83,3.32,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0138,Rina Utama Kurniawan,F&B Attendant,Food & Beverage,Aktif,42,70,2.6,2.65,3.0,2.5,2.25,3.0,4.0,3.15,4.0,3.94,2.8,3.0,1.29,2.17,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0139,Rizal Santoso Maulana,F&B Attendant,Food & Beverage,Belum,39,59,2.0,2.68,2.56,2.59,2.57,3.0,3.43,3.0,4.0,4.0,2.27,1.0,2.1,3.64,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0140,Rizal Wibowo Firmansyah,F&B Attendant,Food & Beverage,Kadaluarsa,50,75,3.0,2.82,2.85,3.0,2.76,3.0,4.45,4.33,2.53,4.05,2.83,3.26,2.57,3.24,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0141,Rizky Utama Sari,F&B Attendant,Food & Beverage,Kadaluarsa,47,64,3.0,2.87,2.77,3.0,3.15,2.77,2.96,4.0,3.0,4.86,2.21,3.31,3.0,3.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0142,Nabila Wijaya Lestari,F&B Attendant,Food & Beverage,Belum,43,64,3.0,2.38,3.0,2.61,2.54,2.63,3.43,4.49,4.0,3.81,1.0,2.88,1.58,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0143,Dewi Nugraha Rahmawati,F&B Attendant,Food & Beverage,Aktif,50,64,2.75,3.08,2.97,2.96,2.95,2.85,4.72,4.0,3.98,4.26,3.01,3.0,2.0,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0144,Nabila Utama Lestari,F&B Attendant,Food & Beverage,Aktif,40,74,2.76,3.0,2.91,2.86,2.63,3.0,3.0,3.15,2.2,4.0,2.38,3.0,4.0,3.46,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0145,Indah Wibowo Kurniawan,F&B Attendant,Food & Beverage,Belum,38,69,2.47,2.63,2.0,2.44,2.62,2.42,4.0,3.19,3.0,4.0,3.08,2.4,1.46,2.88,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0146,Nanda Wijaya Kurniawan,F&B Attendant,Food & Beverage,Belum,36,61,2.38,2.0,2.0,3.0,2.38,2.6,2.32,4.17,4.0,4.0,1.12,3.0,2.0,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0147,Arif Saputra Lestari,F&B Attendant,Food & Beverage,Belum,33,52,2.03,2.41,2.45,2.14,2.15,2.34,3.35,3.42,2.92,2.89,2.0,2.4,1.5,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0148,Fajar Permana Hakim,F&B Attendant,Food & Beverage,Belum,40,64,2.87,2.36,2.75,2.44,2.61,2.56,1.92,2.78,3.25,4.65,2.0,3.0,4.0,3.76,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0149,Budi Saputra Kurniawan,F&B Attendant,Food & Beverage,Aktif,44,70,2.0,2.46,2.64,2.65,2.45,2.47,3.0,3.0,3.55,4.0,2.0,3.0,3.11,2.07,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0150,Dimas Hidayat Hakim,F&B Attendant,Food & Beverage,Kadaluarsa,33,63,2.34,2.18,2.26,2.0,2.29,3.0,3.5,3.34,3.0,4.0,2.75,2.27,1.79,1.55,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0151,Dewi Saputra Firmansyah,F&B Attendant,Food & Beverage,Belum,34,59,2.54,2.85,2.0,3.0,2.58,2.57,3.56,4.0,3.15,4.0,2.38,2.92,2.0,2.62,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0152,Nabila Gunawan Firmansyah,F&B Attendant,Food & Beverage,Belum,42,67,3.11,2.76,2.45,2.69,2.96,2.86,3.14,4.0,4.0,4.56,2.2,3.05,2.0,3.02,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0153,Rizal Nugraha Maulana,F&B Attendant,Food & Beverage,Aktif,47,69,3.0,3.1,3.0,3.0,3.0,3.2,3.0,4.0,3.67,4.0,2.71,3.44,3.0,3.1,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0154,Ayu Mahendra Hakim,F&B Supervisor,Food & Beverage,Aktif,49,60,3.0,2.95,3.2,3.11,3.07,3.05,3.71,3.0,4.0,5.0,3.68,1.0,4.44,3.58,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0155,Fajar Purnama Susanto,F&B Supervisor,Food & Beverage,Belum,48,71,3.0,2.96,3.31,3.0,3.0,2.75,3.0,4.38,3.0,3.11,4.14,3.0,3.66,3.42,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0156,Budi Nugraha Hakim,F&B Supervisor,Food & Beverage,Kadaluarsa,52,73,2.84,3.0,3.0,3.0,2.69,2.86,3.0,4.0,2.45,4.21,4.0,2.0,3.86,3.99,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0157,Putri Utama Susanto,F&B Supervisor,Food & Beverage,Aktif,53,67,3.35,3.36,3.0,3.0,3.14,3.0,3.64,3.0,3.86,5.0,4.0,3.61,3.5,3.16,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0158,Siti Utama Sari,F&B Supervisor,Food & Beverage,Aktif,55,75,3.04,3.16,3.61,3.32,3.0,3.0,4.0,5.0,3.65,4.78,4.0,3.14,2.94,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0159,Yoga Permana Maulana,F&B Supervisor,Food & Beverage,Aktif,52,80,3.1,2.89,2.92,3.0,3.0,2.98,3.1,4.58,3.55,4.11,4.45,2.31,3.0,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0160,Andi Nugraha Hakim,F&B Supervisor,Food & Beverage,Belum,49,73,3.29,2.95,3.0,3.09,3.0,3.0,4.0,3.38,4.51,3.62,3.0,3.65,4.0,2.9,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0161,Budi Saputra Hakim,F&B Supervisor,Food & Beverage,Aktif,51,79,3.0,3.1,3.37,3.04,3.16,3.48,3.4,4.43,4.0,4.0,3.68,3.17,3.0,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0162,Siti Ramadhan Firmansyah,F&B Supervisor,Food & Beverage,Kadaluarsa,44,74,3.0,2.65,3.0,2.0,2.69,3.0,3.0,2.76,4.31,3.55,3.79,2.48,3.55,2.68,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0163,Farah Pratama Prasetyo,F&B Supervisor,Food & Beverage,Kadaluarsa,48,59,3.1,2.76,3.09,3.21,2.99,3.17,3.18,3.65,4.0,3.64,4.0,4.0,3.14,3.47,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0164,Nabila Santoso Anggraini,F&B Supervisor,Food & Beverage,Kadaluarsa,39,62,3.0,2.84,3.0,3.0,3.0,2.69,3.0,3.0,4.0,3.0,3.67,3.51,2.0,2.5,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0165,Fajar Kusuma Putra,F&B Supervisor,Food & Beverage,Kadaluarsa,39,55,3.0,3.16,3.0,2.88,3.03,3.0,3.0,4.0,2.99,4.46,4.0,2.92,3.0,3.0,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0166,Indah Nugraha Maulana,F&B Supervisor,Food & Beverage,Belum,46,60,2.85,2.96,3.26,2.79,2.81,3.0,3.46,3.89,4.17,3.0,3.9,3.51,2.45,3.0,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0167,Andi Wijaya Hakim,F&B Supervisor,Food & Beverage,Aktif,48,69,3.0,3.0,3.0,3.34,3.0,3.16,4.35,3.55,4.0,3.78,3.0,2.67,4.75,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0168,Dewi Mahendra Maulana,F&B Supervisor,Food & Beverage,Belum,50,73,3.09,2.86,2.72,2.88,3.0,3.0,3.81,4.02,3.0,3.11,3.86,3.39,2.74,3.55,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0169,Rafi Utama Kurniawan,F&B Supervisor,Food & Beverage,Aktif,50,72,3.18,3.03,3.17,2.95,3.32,3.0,3.02,2.8,4.0,4.0,4.0,3.0,3.72,3.07,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0170,Bayu Mahendra Lestari,F&B Supervisor,Food & Beverage,Belum,55,71,2.91,3.0,3.2,3.0,3.0,2.99,3.68,4.39,3.81,4.0,4.0,3.0,3.08,2.95,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0171,Rafi Ramadhan Maulana,F&B Supervisor,Food & Beverage,Aktif,55,86,2.76,2.87,3.0,2.9,2.88,2.96,3.72,3.45,3.46,5.0,4.0,2.26,3.0,3.26,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0172,Budi Wijaya Prasetyo,F&B Supervisor,Food & Beverage,Aktif,44,65,3.0,3.24,3.0,2.71,3.34,3.0,3.11,3.0,4.03,4.41,4.26,2.0,4.0,3.57,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0173,Andi Gunawan Maulana,Bartender,Food & Beverage,Kadaluarsa,52,76,3.13,3.15,3.0,3.0,2.96,2.95,4.0,4.0,4.0,4.07,2.34,3.5,3.13,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0174,Rina Ramadhan Hakim,Bartender,Food & Beverage,Aktif,51,77,3.0,3.03,2.94,3.0,3.0,3.0,4.03,4.34,4.11,4.59,3.15,3.0,2.55,3.67,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0175,Rizal Wibowo Kurniawan,Bartender,Food & Beverage,Aktif,40,72,2.38,2.52,3.0,2.6,2.78,3.0,3.0,3.11,4.48,4.64,2.44,4.0,1.99,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0176,Andi Wijaya Putra,Bartender,Food & Beverage,Aktif,47,63,3.0,3.0,2.94,2.94,3.0,3.19,4.09,4.21,5.0,4.0,2.57,4.0,3.0,2.58,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0177,Nabila Wijaya Hakim,Bartender,Food & Beverage,Belum,45,61,2.0,3.0,3.0,3.0,2.74,3.0,3.64,3.33,4.64,3.0,1.63,3.76,2.7,2.58,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0178,Dimas Pratama Maulana,Bartender,Food & Beverage,Aktif,46,79,3.04,3.27,3.26,3.18,3.0,3.09,4.0,5.0,5.0,5.0,1.84,3.7,2.6,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0179,Fajar Nugraha Rahmawati,Bartender,Food & Beverage,Aktif,43,69,2.95,2.76,3.0,3.0,3.0,3.0,3.19,4.28,4.85,4.38,2.0,1.69,2.0,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0180,Nabila Gunawan Hakim,Bartender,Food & Beverage,Aktif,38,63,3.0,2.7,2.96,2.0,3.0,3.0,3.83,4.2,4.84,3.16,2.82,3.04,1.62,1.63,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0181,Budi Santoso Hakim,Bartender,Food & Beverage,Kadaluarsa,48,81,2.95,3.0,2.82,2.92,2.84,3.28,3.0,4.0,3.32,5.0,2.03,4.32,2.98,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0182,Yoga Santoso Maulana,Bartender,Food & Beverage,Belum,50,68,3.03,3.18,2.93,3.0,2.86,3.0,3.55,4.65,4.09,4.0,1.67,3.0,3.0,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0183,Arif Kusuma Setiawan,Bartender,Food & Beverage,Aktif,49,75,3.23,3.03,3.0,3.87,3.0,3.01,3.0,5.0,5.0,3.0,3.09,3.58,4.08,1.95,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0184,Rina Hidayat Lestari,Bartender,Food & Beverage,Aktif,52,69,2.62,3.0,2.74,2.85,2.53,2.61,4.0,4.34,3.89,3.45,2.98,3.41,1.88,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0185,Putri Saputra Susanto,Bartender,Food & Beverage,Belum,48,67,3.0,3.0,2.81,3.0,2.97,3.0,3.75,4.0,4.0,3.0,2.6,4.0,3.27,2.88,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0186,Fajar Wijaya Prasetyo,Bartender,Food & Beverage,Kadaluarsa,45,74,3.0,3.0,3.0,2.94,3.0,3.02,3.87,4.0,4.69,4.58,3.0,2.69,2.5,2.76,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0187,Siti Ramadhan Sari,Bartender,Food & Beverage,Belum,54,74,3.21,3.29,2.97,3.1,3.0,2.91,4.96,3.89,4.0,4.0,2.54,3.44,4.0,2.34,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0188,Bayu Gunawan Anggraini,Bartender,Food & Beverage,Aktif,41,66,2.89,2.93,3.0,2.89,2.0,3.0,4.18,3.0,3.59,3.93,2.11,3.0,3.41,2.16,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0189,Taufik Pratama Susanto,Bartender,Food & Beverage,Aktif,52,81,3.0,2.95,2.74,2.81,3.0,3.11,2.98,5.0,4.0,5.0,2.73,3.0,2.71,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0190,Taufik Purnama Putra,Bartender,Food & Beverage,Belum,48,59,2.98,3.0,3.0,2.96,3.0,2.94,5.0,4.0,4.0,4.0,2.03,3.0,2.55,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0191,Putri Utama Hakim,Bartender,Food & Beverage,Belum,49,64,2.99,3.0,3.15,2.66,2.73,2.64,3.2,4.0,4.57,3.43,2.0,3.0,3.0,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0192,Putri Utama Maulana,Barista,Food & Beverage,Aktif,45,71,3.0,3.2,2.76,3.0,2.7,2.8,3.0,4.06,3.94,4.58,2.33,2.95,2.3,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0193,Yoga Wibowo Sari,Barista,Food & Beverage,Aktif,37,69,3.0,2.59,2.7,2.32,3.0,2.61,3.5,3.91,4.37,3.25,3.0,2.0,2.0,2.1,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0194,Rizky Pratama Firmansyah,Barista,Food & Beverage,Aktif,37,60,3.0,2.0,2.29,2.0,2.0,2.32,3.54,4.0,3.46,3.0,1.81,3.11,3.18,1.85,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0195,Nanda Santoso Firmansyah,Barista,Food & Beverage,Belum,42,55,3.0,3.0,3.0,2.82,2.59,2.68,3.14,4.18,3.28,3.49,3.0,2.57,2.48,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0196,Farah Nugraha Sari,Barista,Food & Beverage,Kadaluarsa,50,68,2.84,2.58,2.55,3.0,2.74,2.69,3.0,4.0,3.44,4.0,2.46,2.08,3.46,3.83,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0197,Putri Saputra Lestari,Barista,Food & Beverage,Aktif,45,74,2.74,2.43,2.77,2.48,3.0,2.64,3.17,3.94,3.2,3.35,3.03,2.0,3.0,2.33,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0198,Indah Saputra Anggraini,Barista,Food & Beverage,Kadaluarsa,38,63,2.63,2.73,2.59,2.93,2.55,3.0,3.0,3.79,3.0,2.86,2.68,2.9,3.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0199,Indah Saputra Maulana,Barista,Food & Beverage,Belum,39,70,2.0,2.0,2.47,2.0,2.0,2.67,3.0,3.0,4.0,4.49,1.93,3.02,1.29,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0200,Putri Pratama Rahmawati,Barista,Food & Beverage,Aktif,46,73,2.75,2.53,2.0,3.0,3.0,2.52,2.04,3.18,3.78,4.56,2.62,3.0,3.52,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0201,Bayu Permana Anggraini,Barista,Food & Beverage,Aktif,52,69,3.17,2.78,2.78,2.81,3.0,2.64,3.5,3.0,4.0,4.0,2.17,3.0,2.88,2.9,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0202,Fajar Saputra Kurniawan,Barista,Food & Beverage,Aktif,49,83,2.47,2.66,3.0,2.82,2.84,3.0,2.92,4.0,3.9,3.68,2.8,3.27,2.71,2.23,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0203,Andi Purnama Susanto,Barista,Food & Beverage,Aktif,41,64,2.56,2.32,2.24,2.43,3.0,3.0,3.0,3.64,3.63,3.46,2.21,3.0,1.76,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0204,Rina Hidayat Anggraini,Barista,Food & Beverage,Kadaluarsa,44,66,2.47,2.54,2.18,2.0,2.51,2.44,3.63,2.79,4.0,4.0,2.3,3.1,2.3,2.64,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0205,Rafi Pratama Kurniawan,Barista,Food & Beverage,Kadaluarsa,38,50,2.0,2.0,2.2,2.34,2.0,2.33,3.0,3.57,2.76,4.0,2.0,3.07,2.09,2.62,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0206,Rafi Gunawan Sari,Barista,Food & Beverage,Aktif,43,69,2.68,2.61,2.0,2.61,2.52,2.0,3.54,3.0,3.47,3.45,2.32,3.0,3.83,2.23,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0207,Rizky Gunawan Susanto,Barista,Food & Beverage,Belum,39,57,2.55,2.0,2.2,2.5,2.64,2.0,2.76,3.02,4.32,4.0,1.7,2.0,1.78,2.33,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0208,Rina Nugraha Kurniawan,Barista,Food & Beverage,Aktif,40,65,2.5,2.32,2.3,2.48,2.17,3.0,3.18,3.0,3.0,3.67,2.0,2.19,2.84,3.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0209,Dewi Mahendra Lestari,Barista,Food & Beverage,Aktif,47,79,2.74,3.0,2.79,3.12,3.0,2.84,3.41,4.0,4.0,4.63,2.0,1.92,3.57,2.41,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0210,Rina Purnama Hakim,Barista,Food & Beverage,Aktif,38,62,3.0,2.77,2.88,2.53,3.0,2.52,3.0,3.39,4.61,3.42,2.0,3.34,2.5,2.58,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0211,Taufik Purnama Maulana,Chef de Partie,Food & Beverage,Kadaluarsa,51,66,2.93,2.56,2.75,3.0,2.88,2.6,2.87,4.0,4.66,3.42,2.0,1.0,3.67,3.94,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0212,Siti Mahendra Sari,Chef de Partie,Food & Beverage,Kadaluarsa,54,83,3.06,3.0,3.0,2.91,2.86,2.71,3.0,2.0,4.48,4.83,3.01,2.0,4.0,3.34,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0213,Yoga Mahendra Rahmawati,Chef de Partie,Food & Beverage,Aktif,52,76,3.0,2.8,3.0,3.22,2.95,3.04,2.0,3.0,4.73,4.99,2.98,2.95,3.99,2.67,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0214,Nabila Gunawan Kurniawan,Chef de Partie,Food & Beverage,Aktif,46,67,2.8,3.0,2.69,2.8,2.75,3.0,3.3,2.83,4.88,3.43,3.0,2.99,3.0,2.63,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0215,Arif Gunawan Firmansyah,Chef de Partie,Food & Beverage,Aktif,51,69,2.61,3.0,2.76,2.94,3.0,2.84,2.0,4.26,5.0,3.47,2.0,2.34,4.26,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0216,Budi Nugraha Anggraini,Chef de Partie,Food & Beverage,Belum,50,63,2.76,3.0,3.0,3.0,2.9,2.91,3.0,3.32,5.0,4.05,2.64,3.0,4.0,2.38,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0217,Andi Saputra Firmansyah,Chef de Partie,Food & Beverage,Aktif,54,83,3.0,3.03,3.01,3.02,2.96,3.0,3.0,3.72,4.0,4.59,3.06,2.0,3.31,3.56,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0218,Yoga Kusuma Hakim,Chef de Partie,Food & Beverage,Aktif,46,64,2.89,3.15,3.0,2.87,2.72,2.76,2.67,2.36,4.79,4.3,3.0,2.0,3.75,3.93,0,Komunikasi & Layanan Tamu,4,Retensi & Risiko Resign
+EMP0219,Indah Gunawan Susanto,Chef de Partie,Food & Beverage,Belum,43,54,3.42,2.85,3.0,3.0,3.18,3.0,3.0,4.14,5.0,4.0,3.0,3.77,3.0,2.49,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0220,Dewi Santoso Setiawan,Chef de Partie,Food & Beverage,Belum,48,63,3.0,2.85,3.0,2.85,3.0,2.67,3.81,3.83,4.58,4.55,2.58,2.08,3.15,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0221,Rizky Nugraha Rahmawati,Chef de Partie,Food & Beverage,Aktif,54,78,3.02,3.0,3.01,3.25,3.08,3.0,4.0,3.36,5.0,4.23,2.49,3.0,4.0,3.2,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0222,Farah Hidayat Prasetyo,Chef de Partie,Food & Beverage,Aktif,51,72,2.98,2.81,2.9,3.0,2.86,2.82,2.14,4.32,5.0,3.84,3.0,1.59,4.0,2.58,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0223,Ayu Mahendra Kurniawan,Chef de Partie,Food & Beverage,Aktif,46,75,2.74,2.65,2.93,3.0,2.99,3.0,3.0,4.45,4.0,4.2,3.0,2.0,3.0,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0224,Dewi Pratama Hakim,Chef de Partie,Food & Beverage,Belum,46,66,2.53,2.44,2.64,2.42,3.0,3.0,1.94,2.0,5.0,3.62,3.34,2.02,3.0,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0225,Farah Wibowo Putra,Chef de Partie,Food & Beverage,Kadaluarsa,44,71,2.75,2.63,2.65,2.64,2.84,3.0,3.74,4.0,4.55,3.13,2.0,3.11,3.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0226,Fajar Pratama Lestari,Chef de Partie,Food & Beverage,Aktif,44,77,3.0,2.98,2.98,3.0,2.92,3.0,3.0,3.73,4.52,4.05,3.26,2.77,3.32,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0227,Taufik Ramadhan Sari,Chef de Partie,Food & Beverage,Kadaluarsa,48,61,3.06,3.12,3.05,3.0,3.0,3.01,4.0,4.0,4.54,5.0,3.0,2.75,3.56,2.94,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0228,Budi Wibowo Sari,Chef de Partie,Food & Beverage,Aktif,46,74,2.86,3.0,3.0,2.64,3.0,2.63,2.74,3.0,4.18,3.26,3.0,3.94,3.2,1.88,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0229,Rizal Purnama Putra,Chef de Partie,Food & Beverage,Aktif,46,77,2.83,2.76,3.0,2.8,2.62,2.49,2.73,3.0,3.9,4.42,2.02,2.0,4.0,2.97,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0230,Nabila Utama Susanto,Commis Chef,Food & Beverage,Belum,39,58,2.14,3.0,2.0,2.0,2.23,2.29,2.83,3.3,4.4,3.29,1.0,2.25,2.56,1.36,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0231,Indah Kusuma Kurniawan,Commis Chef,Food & Beverage,Kadaluarsa,33,50,3.0,2.0,2.31,2.39,3.0,3.0,3.58,2.73,3.0,4.65,1.79,2.4,1.79,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0232,Rizal Utama Firmansyah,Commis Chef,Food & Beverage,Aktif,34,65,2.09,2.04,2.14,2.0,2.39,2.0,1.16,2.54,4.0,3.75,2.22,2.0,2.43,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0233,Dimas Wibowo Prasetyo,Commis Chef,Food & Beverage,Kadaluarsa,42,64,3.0,2.47,3.0,3.0,2.54,2.59,3.13,3.68,4.0,3.68,1.82,1.86,3.0,2.53,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0234,Nanda Wijaya Susanto,Commis Chef,Food & Beverage,Belum,30,50,3.0,2.5,2.24,2.45,2.25,2.16,2.52,3.0,4.0,3.0,2.0,2.16,4.0,2.45,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0235,Dewi Saputra Prasetyo,Commis Chef,Food & Beverage,Aktif,36,65,1.84,1.93,2.16,2.35,2.14,2.18,2.41,3.05,2.77,3.0,2.01,1.78,3.0,1.73,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0236,Nabila Permana Putra,Commis Chef,Food & Beverage,Belum,30,57,2.03,2.31,2.15,2.29,2.0,2.11,2.61,2.44,3.53,3.0,1.0,2.22,1.98,2.58,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0237,Rafi Pratama Setiawan,Commis Chef,Food & Beverage,Kadaluarsa,33,50,2.14,1.77,1.91,1.96,1.97,1.64,2.0,2.77,3.66,3.4,1.33,1.22,1.31,1.82,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0238,Siti Mahendra Susanto,Commis Chef,Food & Beverage,Belum,46,66,1.96,1.82,2.12,2.11,2.06,2.19,2.0,2.11,5.0,2.92,2.0,1.43,1.78,3.14,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0239,Rafi Utama Susanto,Commis Chef,Food & Beverage,Aktif,33,66,2.3,3.0,2.51,3.0,2.52,2.49,2.82,3.0,4.0,3.0,2.37,2.01,3.09,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0240,Farah Pratama Setiawan,Commis Chef,Food & Beverage,Aktif,46,60,2.72,2.23,2.0,2.52,2.42,3.0,3.26,3.26,3.84,4.61,2.06,1.83,2.14,2.79,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0241,Dimas Hidayat Putra,Commis Chef,Food & Beverage,Belum,40,57,2.07,2.11,2.0,1.99,2.0,2.0,2.0,3.0,3.81,2.7,1.58,2.54,2.0,1.94,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0242,Rafi Mahendra Prasetyo,Commis Chef,Food & Beverage,Aktif,37,68,2.0,2.0,2.29,2.28,2.12,2.21,2.03,2.14,4.0,3.93,2.94,1.63,3.0,3.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0243,Ayu Purnama Setiawan,Commis Chef,Food & Beverage,Belum,34,50,2.0,2.2,2.0,2.05,2.28,2.0,2.26,2.38,4.04,4.46,1.5,2.16,2.0,2.23,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0244,Farah Ramadhan Susanto,Commis Chef,Food & Beverage,Belum,44,55,2.7,2.86,2.63,2.58,3.0,2.75,2.75,4.0,5.0,3.63,2.0,2.26,2.14,3.04,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0245,Dimas Saputra Kurniawan,Commis Chef,Food & Beverage,Kadaluarsa,31,55,2.12,2.0,2.02,2.0,2.0,1.99,2.42,3.0,3.91,4.0,1.25,1.15,2.11,2.0,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0246,Nabila Gunawan Setiawan,Commis Chef,Food & Beverage,Belum,34,62,2.42,2.41,2.0,2.41,2.45,2.57,3.0,4.0,3.79,3.0,1.9,2.0,2.52,2.38,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0247,Andi Kusuma Kurniawan,Commis Chef,Food & Beverage,Aktif,41,61,2.43,2.43,2.55,2.59,2.0,2.52,2.55,3.0,3.5,4.11,2.21,3.0,3.0,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0248,Andi Kusuma Hakim,Commis Chef,Food & Beverage,Aktif,30,62,2.1,2.0,2.32,2.0,2.0,2.0,3.0,1.78,3.68,3.71,1.91,3.0,2.0,1.95,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0249,Putri Gunawan Firmansyah,Pastry Cook,Food & Beverage,Aktif,38,71,2.24,2.59,2.63,2.58,2.48,2.59,3.36,3.19,3.55,2.86,1.76,2.42,4.05,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0250,Rizal Utama Anggraini,Pastry Cook,Food & Beverage,Aktif,41,67,3.0,2.5,2.68,2.47,2.5,2.76,2.89,2.77,5.0,3.61,2.43,1.0,3.0,3.21,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0251,Indah Kusuma Sari,Pastry Cook,Food & Beverage,Aktif,39,67,2.4,2.0,2.0,2.31,3.0,2.42,3.0,2.81,4.0,3.0,2.0,2.0,3.0,2.81,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0252,Putri Santoso Maulana,Pastry Cook,Food & Beverage,Belum,44,61,2.8,2.0,2.6,2.89,2.57,2.0,2.22,2.86,4.76,4.0,1.44,2.17,2.72,4.3,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0253,Putri Santoso Lestari,Pastry Cook,Food & Beverage,Aktif,46,76,2.31,2.59,2.0,3.0,3.0,2.0,2.58,4.0,4.21,3.34,1.62,2.0,3.0,3.14,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0254,Siti Ramadhan Maulana,Pastry Cook,Food & Beverage,Belum,37,50,2.45,2.0,2.29,2.58,3.0,2.19,2.0,3.15,4.28,4.38,2.0,2.0,2.39,1.81,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0255,Rina Gunawan Susanto,Pastry Cook,Food & Beverage,Aktif,48,64,2.94,3.0,3.0,3.0,2.44,2.79,4.1,3.18,4.0,4.02,1.8,2.0,3.97,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0256,Andi Kusuma Setiawan,Pastry Cook,Food & Beverage,Kadaluarsa,46,57,2.56,2.6,2.64,2.53,2.54,2.76,2.35,2.11,4.0,5.0,3.0,1.86,2.8,2.89,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0257,Taufik Hidayat Anggraini,Pastry Cook,Food & Beverage,Aktif,44,76,3.0,3.0,3.0,3.0,2.97,2.72,3.0,3.46,4.95,3.59,3.0,2.0,4.6,1.74,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0258,Bayu Permana Putra,Pastry Cook,Food & Beverage,Belum,39,63,3.0,2.73,2.69,3.0,2.77,3.0,4.0,3.88,4.33,3.91,2.12,1.96,3.0,2.42,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0259,Farah Kusuma Firmansyah,Pastry Cook,Food & Beverage,Belum,42,68,2.36,2.49,2.25,2.45,2.0,2.25,3.61,3.05,3.76,4.07,1.0,1.0,3.0,1.44,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0260,Fajar Saputra Sari,Pastry Cook,Food & Beverage,Kadaluarsa,42,58,2.58,2.0,2.41,2.32,3.0,2.09,2.36,3.39,4.64,4.0,1.0,1.4,3.02,3.41,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0261,Dimas Nugraha Prasetyo,Pastry Cook,Food & Beverage,Belum,39,50,3.0,2.0,2.0,2.43,2.0,2.73,3.24,2.94,3.77,4.73,1.61,2.0,2.73,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0262,Nabila Pratama Anggraini,Pastry Cook,Food & Beverage,Aktif,48,65,2.05,2.46,2.42,2.42,3.0,2.41,3.0,2.96,4.6,3.4,1.67,2.0,2.8,2.54,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0263,Rizky Nugraha Sari,Pastry Cook,Food & Beverage,Belum,41,54,2.0,2.0,3.0,2.18,3.0,2.26,2.77,3.54,4.0,3.28,4.0,1.61,3.0,1.58,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0264,Ayu Pratama Sari,Pastry Cook,Food & Beverage,Belum,33,50,2.0,2.0,3.0,2.0,2.41,2.0,3.64,3.76,4.32,4.0,2.08,1.74,2.82,2.26,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0265,Rina Kusuma Setiawan,Pastry Cook,Food & Beverage,Aktif,40,66,3.0,2.29,2.29,2.18,2.0,1.91,3.02,3.49,3.89,3.0,2.0,1.0,2.24,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0266,Siti Wijaya Setiawan,Pastry Cook,Food & Beverage,Kadaluarsa,45,65,2.03,2.13,2.34,2.0,2.16,2.65,3.33,3.45,4.0,3.72,2.0,1.0,3.0,1.78,3,Sertifikasi Lanjutan & Pengembangan Karir,0,Coaching Intensif
+EMP0267,Indah Nugraha Firmansyah,Pastry Cook,Food & Beverage,Belum,45,55,2.23,2.25,2.22,3.0,2.0,2.0,3.0,3.46,4.0,4.0,2.0,2.0,3.14,1.5,0,Komunikasi & Layanan Tamu,0,Coaching Intensif
+EMP0268,Bayu Kusuma Maulana,Tour Guide,Tur & Perjalanan,Belum,49,64,3.07,2.82,3.0,3.0,3.19,2.97,4.0,3.5,3.77,3.34,2.62,4.85,3.55,3.7,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0269,Indah Wibowo Sari,Tour Guide,Tur & Perjalanan,Aktif,49,83,3.0,3.39,3.0,3.34,3.0,3.36,4.0,3.72,4.0,4.0,3.0,5.0,4.24,3.42,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0270,Ayu Kusuma Lestari,Tour Guide,Tur & Perjalanan,Aktif,50,75,3.0,3.18,3.03,3.2,3.0,3.72,4.0,4.0,4.0,4.65,3.0,3.77,4.0,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0271,Rafi Purnama Maulana,Tour Guide,Tur & Perjalanan,Aktif,61,93,3.0,3.16,3.0,3.12,3.0,3.03,4.21,5.0,3.8,3.18,3.0,3.0,3.82,3.32,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0272,Rizal Ramadhan Prasetyo,Tour Guide,Tur & Perjalanan,Aktif,60,76,3.0,3.34,3.0,3.18,3.37,3.0,4.74,4.5,4.0,4.0,4.33,3.0,4.0,2.59,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0273,Dimas Purnama Sari,Tour Guide,Tur & Perjalanan,Kadaluarsa,54,74,3.0,3.07,3.0,3.23,3.0,3.0,4.32,4.18,4.04,3.73,3.03,3.65,4.53,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0274,Dewi Purnama Rahmawati,Tour Guide,Tur & Perjalanan,Aktif,53,69,2.74,2.75,2.98,2.85,2.86,3.0,3.02,4.33,3.52,2.78,3.6,3.28,4.04,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0275,Farah Gunawan Lestari,Tour Guide,Tur & Perjalanan,Aktif,50,64,3.0,3.0,3.0,3.03,2.89,3.21,4.0,4.25,4.33,4.05,2.91,3.84,3.0,2.42,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0276,Andi Purnama Maulana,Tour Guide,Tur & Perjalanan,Kadaluarsa,48,64,3.74,3.24,2.92,3.05,3.28,3.2,5.0,4.36,5.0,2.78,3.0,4.0,3.0,3.17,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0277,Taufik Nugraha Rahmawati,Tour Guide,Tur & Perjalanan,Belum,56,70,3.07,3.0,2.81,3.1,2.89,3.05,2.72,4.88,4.0,3.0,3.55,4.0,3.22,3.2,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0278,Nanda Hidayat Lestari,Tour Guide,Tur & Perjalanan,Kadaluarsa,56,69,2.83,3.08,3.0,3.19,3.09,2.9,4.0,4.48,4.0,2.0,3.1,4.0,3.85,2.94,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0279,Siti Wibowo Kurniawan,Tour Guide,Tur & Perjalanan,Aktif,51,73,2.84,3.0,3.0,3.32,3.13,3.05,2.86,3.94,4.22,3.41,3.44,4.08,4.31,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0280,Bayu Gunawan Lestari,Tour Guide,Tur & Perjalanan,Aktif,56,90,3.0,3.47,3.0,3.63,3.0,3.37,4.62,4.68,3.6,4.0,3.65,5.0,4.0,3.02,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0281,Dimas Pratama Anggraini,Tour Guide,Tur & Perjalanan,Aktif,60,84,2.99,3.0,3.12,3.0,3.05,3.0,4.0,5.0,3.57,3.0,2.7,4.91,2.05,2.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0282,Arif Utama Hakim,Tour Guide,Tur & Perjalanan,Aktif,40,67,2.61,2.7,3.0,3.0,3.0,2.9,5.0,4.0,3.23,3.0,2.14,3.51,2.95,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0283,Dimas Wijaya Prasetyo,Tour Guide,Tur & Perjalanan,Aktif,52,75,2.99,3.0,2.83,3.0,2.87,2.82,4.19,4.18,3.0,3.57,2.58,4.09,3.47,2.48,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0284,Nanda Ramadhan Setiawan,Tour Guide,Tur & Perjalanan,Aktif,62,89,3.0,3.0,3.41,3.0,3.0,3.52,3.31,4.0,4.11,3.22,4.39,5.0,4.0,3.44,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0285,Fajar Utama Setiawan,Tour Guide,Tur & Perjalanan,Kadaluarsa,48,65,2.88,3.0,3.0,3.27,3.15,3.14,4.0,4.64,3.28,3.0,3.89,4.06,3.0,3.0,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0286,Bayu Gunawan Putra,Tour Guide,Tur & Perjalanan,Belum,50,72,3.28,3.0,3.33,3.3,3.19,3.12,4.0,4.13,4.0,4.0,3.0,5.0,3.6,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0287,Nabila Permana Hakim,Tour Leader,Tur & Perjalanan,Aktif,54,87,2.97,3.24,3.37,3.33,3.42,3.55,4.3,4.0,3.0,4.41,3.51,3.0,4.9,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0288,Taufik Purnama Anggraini,Tour Leader,Tur & Perjalanan,Aktif,48,60,2.98,3.23,3.22,3.09,3.06,3.08,3.82,3.42,4.0,3.62,3.91,3.64,5.0,1.97,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0289,Dewi Gunawan Susanto,Tour Leader,Tur & Perjalanan,Aktif,53,85,2.82,3.0,3.0,3.0,3.16,2.88,4.0,4.0,3.5,4.0,4.0,3.12,3.0,2.24,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0290,Nanda Ramadhan Sari,Tour Leader,Tur & Perjalanan,Aktif,61,86,3.74,3.53,3.0,3.45,3.0,3.47,4.0,4.1,5.0,3.97,4.88,5.0,4.2,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0291,Nabila Mahendra Hakim,Tour Leader,Tur & Perjalanan,Aktif,54,86,2.95,3.15,3.44,3.23,2.89,2.68,4.39,3.53,2.88,4.0,4.0,3.61,5.0,2.73,2,Kepemimpinan & Supervisi,4,Retensi & Risiko Resign
+EMP0292,Budi Gunawan Maulana,Tour Leader,Tur & Perjalanan,Aktif,55,85,3.0,3.0,3.23,3.0,3.67,3.21,4.0,3.95,4.23,3.0,4.0,4.0,3.75,2.97,2,Kepemimpinan & Supervisi,3,Percepatan Karir
+EMP0293,Putri Hidayat Setiawan,Tour Leader,Tur & Perjalanan,Aktif,57,91,3.0,2.97,3.0,3.0,2.96,3.0,3.0,3.96,3.64,4.0,4.0,3.78,4.0,1.9,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0294,Arif Gunawan Hakim,Tour Leader,Tur & Perjalanan,Aktif,44,68,3.0,2.0,3.0,3.04,3.0,2.89,3.64,4.0,3.46,4.51,3.0,3.08,2.93,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0295,Rina Pratama Putra,Tour Leader,Tur & Perjalanan,Aktif,51,83,3.0,2.85,3.08,3.0,3.0,3.0,3.45,3.16,2.97,4.0,4.48,4.3,4.0,2.79,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0296,Putri Nugraha Firmansyah,Tour Leader,Tur & Perjalanan,Kadaluarsa,48,58,3.47,3.0,3.0,3.18,2.95,2.97,3.71,3.88,2.0,4.0,4.37,4.0,3.52,3.0,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0297,Ayu Wijaya Kurniawan,Tour Leader,Tur & Perjalanan,Aktif,49,82,3.13,3.22,3.0,3.0,3.36,3.27,3.43,3.76,4.12,4.12,4.29,3.0,3.7,3.35,2,Kepemimpinan & Supervisi,3,Percepatan Karir
+EMP0298,Nabila Utama Putra,Tour Leader,Tur & Perjalanan,Kadaluarsa,49,60,3.11,3.0,3.13,3.42,3.29,3.22,3.19,3.0,3.0,3.33,4.0,4.0,4.69,3.37,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0299,Nabila Nugraha Kurniawan,Tour Leader,Tur & Perjalanan,Kadaluarsa,52,81,3.19,3.3,3.0,3.0,3.18,2.95,3.0,3.72,3.0,3.37,4.28,4.0,3.4,3.86,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0300,Nanda Utama Anggraini,Tour Leader,Tur & Perjalanan,Aktif,62,77,3.38,3.34,3.48,3.0,3.54,3.3,3.0,4.62,4.26,3.98,4.82,4.38,4.38,2.7,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0301,Ayu Utama Anggraini,Tour Leader,Tur & Perjalanan,Aktif,55,75,3.24,3.35,3.0,3.53,3.67,3.37,4.2,3.71,3.45,3.0,3.91,4.84,4.76,3.39,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0302,Budi Gunawan Lestari,Tour Leader,Tur & Perjalanan,Aktif,50,67,2.87,2.98,3.08,3.01,2.82,3.18,2.83,4.33,3.0,3.44,4.34,3.94,4.0,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0303,Andi Santoso Sari,Tour Leader,Tur & Perjalanan,Aktif,51,82,3.0,3.17,3.17,3.15,3.03,3.23,3.0,3.75,3.0,3.88,4.31,4.42,3.61,3.52,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0304,Indah Permana Maulana,Tour Leader,Tur & Perjalanan,Aktif,52,77,3.14,3.13,3.07,3.24,3.0,3.0,3.14,3.96,3.0,3.43,4.24,4.39,4.0,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0305,Rizal Permana Setiawan,Tour Leader,Tur & Perjalanan,Aktif,51,67,3.0,3.0,3.25,3.0,3.28,3.05,3.0,4.0,3.0,3.97,4.43,3.1,3.0,4.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0306,Rafi Wijaya Setiawan,Travel Consultant,Tur & Perjalanan,Belum,49,58,3.0,2.92,2.55,3.0,2.65,2.0,3.0,3.0,1.96,3.53,2.71,4.05,2.56,4.44,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0307,Bayu Gunawan Susanto,Travel Consultant,Tur & Perjalanan,Kadaluarsa,42,72,2.89,2.85,3.0,2.72,2.83,2.83,3.18,3.8,2.95,3.81,2.0,2.0,4.35,4.3,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0308,Dewi Wibowo Lestari,Travel Consultant,Tur & Perjalanan,Kadaluarsa,45,71,2.58,3.03,3.0,3.0,2.83,2.89,4.0,3.0,3.0,3.62,2.0,4.04,3.0,3.68,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0309,Ayu Ramadhan Susanto,Travel Consultant,Tur & Perjalanan,Aktif,49,68,3.19,3.33,3.0,3.0,3.0,3.0,4.85,3.65,4.0,4.0,3.0,4.0,4.07,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0310,Siti Nugraha Prasetyo,Travel Consultant,Tur & Perjalanan,Aktif,62,75,3.0,3.0,3.42,3.34,3.16,3.0,5.0,4.0,4.0,3.0,3.0,4.0,3.0,4.39,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0311,Arif Santoso Hakim,Travel Consultant,Tur & Perjalanan,Aktif,53,71,3.12,3.0,2.89,3.0,3.0,3.0,3.35,4.0,3.19,3.46,3.13,3.0,3.0,3.81,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0312,Taufik Nugraha Hakim,Travel Consultant,Tur & Perjalanan,Belum,48,60,3.18,2.97,3.0,3.0,3.0,3.25,3.62,3.75,3.12,4.41,3.0,4.36,4.0,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0313,Putri Utama Kurniawan,Travel Consultant,Tur & Perjalanan,Kadaluarsa,52,73,2.0,3.02,3.0,3.0,2.98,2.87,4.0,4.06,3.3,2.02,2.53,4.0,2.68,3.86,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0314,Siti Kusuma Maulana,Travel Consultant,Tur & Perjalanan,Aktif,45,79,2.7,2.0,2.64,3.0,3.14,2.91,3.32,3.44,3.67,3.26,1.64,4.0,2.79,4.69,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0315,Rizal Hidayat Prasetyo,Travel Consultant,Tur & Perjalanan,Aktif,49,71,3.0,3.67,2.98,3.0,3.24,3.14,4.0,4.0,3.0,5.0,3.0,5.0,4.0,2.84,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0316,Nanda Utama Hakim,Travel Consultant,Tur & Perjalanan,Kadaluarsa,52,70,3.0,3.16,3.0,3.0,3.05,3.01,3.86,3.23,3.46,4.0,3.0,3.91,4.38,4.32,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0317,Dimas Purnama Firmansyah,Travel Consultant,Tur & Perjalanan,Belum,42,58,3.0,3.0,2.91,2.86,3.0,3.0,2.89,3.67,2.0,3.0,2.0,3.0,4.0,4.21,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0318,Nabila Wibowo Prasetyo,Travel Consultant,Tur & Perjalanan,Kadaluarsa,49,79,2.86,3.0,3.4,3.0,3.06,3.0,2.71,4.54,3.62,4.0,3.01,4.0,3.0,4.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0319,Putri Permana Susanto,Travel Consultant,Tur & Perjalanan,Aktif,52,74,3.0,3.2,3.0,3.13,3.36,3.0,4.0,4.0,3.3,4.07,2.42,4.03,4.05,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0320,Andi Ramadhan Hakim,Travel Consultant,Tur & Perjalanan,Aktif,52,86,3.0,2.84,3.0,3.0,2.69,3.1,4.61,4.23,2.71,3.87,2.0,3.0,3.73,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0321,Bayu Mahendra Firmansyah,Travel Consultant,Tur & Perjalanan,Kadaluarsa,46,59,2.72,3.0,2.8,3.08,3.0,3.01,3.39,4.28,4.01,3.26,3.12,3.0,2.58,3.87,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0322,Nabila Mahendra Lestari,Travel Consultant,Tur & Perjalanan,Aktif,53,76,3.09,3.0,3.29,3.26,3.0,3.08,3.28,3.38,3.91,4.57,3.06,3.11,3.79,5.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0323,Indah Saputra Prasetyo,Travel Consultant,Tur & Perjalanan,Kadaluarsa,52,73,3.42,3.44,3.61,3.56,3.65,3.16,4.0,4.46,4.23,4.59,2.87,3.43,4.0,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0324,Putri Pratama Hakim,Travel Consultant,Tur & Perjalanan,Kadaluarsa,46,62,3.0,3.0,3.17,3.16,3.67,3.28,4.0,4.0,2.56,3.24,2.34,3.61,4.5,5.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0325,Rizky Kusuma Setiawan,Ticketing Staff,Tur & Perjalanan,Belum,40,59,2.76,3.0,3.01,3.0,3.0,3.0,2.62,3.84,4.09,4.17,3.0,3.1,3.11,4.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0326,Yoga Gunawan Susanto,Ticketing Staff,Tur & Perjalanan,Aktif,42,66,3.0,2.65,3.0,3.0,2.61,2.97,3.75,2.95,3.6,4.48,1.0,3.0,3.0,4.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0327,Budi Hidayat Prasetyo,Ticketing Staff,Tur & Perjalanan,Aktif,48,66,3.0,2.93,3.11,3.15,3.0,3.0,3.2,4.0,4.01,4.17,2.16,2.66,3.04,4.29,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0328,Nabila Saputra Setiawan,Ticketing Staff,Tur & Perjalanan,Aktif,42,73,3.0,2.77,2.94,3.0,2.96,3.0,3.41,4.24,4.0,3.31,2.05,2.49,2.85,4.68,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0329,Siti Gunawan Firmansyah,Ticketing Staff,Tur & Perjalanan,Kadaluarsa,39,67,2.85,3.0,3.0,2.7,3.0,3.0,2.0,4.05,3.43,4.4,1.47,3.0,3.0,4.44,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0330,Dewi Pratama Susanto,Ticketing Staff,Tur & Perjalanan,Belum,43,53,2.0,2.57,2.68,3.0,3.01,2.44,2.3,3.74,4.0,3.86,2.0,3.0,2.34,4.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0331,Yoga Purnama Kurniawan,Ticketing Staff,Tur & Perjalanan,Kadaluarsa,46,72,3.0,2.68,2.86,2.58,2.0,2.68,3.37,2.8,4.0,4.0,2.0,2.68,3.0,3.98,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0332,Fajar Ramadhan Firmansyah,Ticketing Staff,Tur & Perjalanan,Belum,39,61,3.0,2.97,3.0,3.0,3.0,2.82,3.91,3.0,3.0,3.0,3.17,2.0,3.0,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0333,Rina Wibowo Kurniawan,Ticketing Staff,Tur & Perjalanan,Aktif,49,70,3.0,3.0,3.01,3.05,3.0,3.02,2.66,4.0,4.04,4.81,2.4,3.0,3.0,3.54,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0334,Nabila Ramadhan Firmansyah,Ticketing Staff,Tur & Perjalanan,Belum,45,68,2.59,3.0,2.86,3.06,3.0,3.0,3.0,3.41,5.0,4.44,2.64,4.0,3.0,3.26,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0335,Ayu Kusuma Anggraini,Ticketing Staff,Tur & Perjalanan,Belum,39,60,3.0,2.62,2.62,2.56,2.33,2.0,3.0,3.8,3.18,4.0,1.0,2.4,2.59,3.84,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0336,Putri Utama Anggraini,Ticketing Staff,Tur & Perjalanan,Kadaluarsa,44,55,2.87,3.0,2.96,2.92,2.86,2.89,3.0,3.0,3.64,4.78,2.65,2.0,3.37,4.15,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0337,Budi Saputra Sari,Ticketing Staff,Tur & Perjalanan,Belum,44,70,2.61,2.65,2.0,3.0,3.0,3.0,2.8,3.74,3.58,4.09,2.4,2.36,3.0,2.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0338,Arif Mahendra Maulana,Ticketing Staff,Tur & Perjalanan,Belum,47,70,3.0,3.0,3.0,3.06,3.19,2.89,3.74,3.59,3.05,4.4,2.0,3.0,3.0,3.7,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0339,Fajar Kusuma Anggraini,Ticketing Staff,Tur & Perjalanan,Aktif,43,64,3.0,2.74,2.81,2.68,2.63,2.91,2.47,2.97,3.88,5.0,1.53,2.93,3.0,4.28,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0340,Rina Kusuma Anggraini,Ticketing Staff,Tur & Perjalanan,Aktif,46,76,3.0,3.0,2.99,3.0,2.92,3.0,3.41,4.0,4.0,3.42,1.9,3.09,3.0,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0341,Siti Hidayat Maulana,Ticketing Staff,Tur & Perjalanan,Belum,48,63,2.98,3.0,3.04,3.0,2.86,2.86,3.1,3.0,3.76,4.0,3.13,4.0,3.35,4.01,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0342,Siti Wibowo Rahmawati,Ticketing Staff,Tur & Perjalanan,Aktif,51,75,2.78,2.96,3.0,3.1,2.38,3.14,4.0,3.82,3.39,3.94,2.0,3.02,3.0,5.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0343,Yoga Santoso Setiawan,Ticketing Staff,Tur & Perjalanan,Belum,48,67,3.0,2.0,2.75,2.91,3.0,2.35,4.25,2.3,4.44,3.0,3.0,3.0,1.71,4.05,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0344,Nabila Hidayat Putra,Tour Operations Staff,Tur & Perjalanan,Belum,41,51,2.39,3.0,2.68,3.0,2.74,2.72,2.57,2.93,2.72,4.0,3.0,2.21,3.83,3.93,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0345,Nabila Purnama Rahmawati,Tour Operations Staff,Tur & Perjalanan,Belum,46,65,2.9,2.89,2.87,3.0,3.0,2.98,3.25,3.56,4.15,4.0,2.97,3.0,3.04,3.89,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0346,Andi Kusuma Anggraini,Tour Operations Staff,Tur & Perjalanan,Aktif,52,63,3.0,3.0,3.0,2.84,3.09,2.98,3.87,3.11,4.64,4.0,2.32,2.45,2.45,4.44,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0347,Fajar Santoso Susanto,Tour Operations Staff,Tur & Perjalanan,Aktif,48,81,3.0,3.02,3.0,3.0,3.08,2.0,4.61,3.54,3.38,4.0,1.78,3.0,4.0,3.93,3,Sertifikasi Lanjutan & Pengembangan Karir,4,Retensi & Risiko Resign
+EMP0348,Indah Permana Susanto,Tour Operations Staff,Tur & Perjalanan,Belum,50,68,3.0,3.67,3.04,3.05,3.0,2.94,3.61,5.0,2.77,3.87,3.0,2.75,3.97,3.86,1,Teknis & Kepatuhan SOP,4,Retensi & Risiko Resign
+EMP0349,Rina Gunawan Firmansyah,Tour Operations Staff,Tur & Perjalanan,Belum,45,57,2.88,2.82,2.88,2.8,3.0,2.79,4.0,3.0,2.0,4.0,4.0,3.02,3.22,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0350,Indah Gunawan Lestari,Tour Operations Staff,Tur & Perjalanan,Belum,50,64,2.84,3.0,2.77,2.85,2.0,3.0,4.0,2.0,3.0,4.0,3.0,3.0,4.0,4.21,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0351,Rizky Pratama Hakim,Tour Operations Staff,Tur & Perjalanan,Aktif,50,63,3.04,3.0,3.0,3.1,3.0,3.07,3.71,3.07,4.66,3.81,2.87,2.73,4.31,3.54,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0352,Farah Kusuma Lestari,Tour Operations Staff,Tur & Perjalanan,Belum,48,71,2.72,3.0,3.0,2.83,2.76,2.99,4.12,3.0,4.0,3.0,2.15,2.72,3.37,4.57,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0353,Rina Ramadhan Rahmawati,Tour Operations Staff,Tur & Perjalanan,Aktif,50,75,3.0,2.72,2.85,2.78,2.72,3.15,2.85,4.0,4.85,4.0,2.37,3.0,3.14,2.83,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0354,Dimas Ramadhan Firmansyah,Tour Operations Staff,Tur & Perjalanan,Aktif,49,75,2.85,3.07,3.0,2.76,3.12,3.19,4.0,3.71,4.09,4.42,3.0,3.0,3.0,3.84,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0355,Budi Pratama Susanto,Tour Operations Staff,Tur & Perjalanan,Belum,39,53,2.88,2.67,2.8,3.0,2.88,3.0,5.0,3.18,3.0,3.39,2.91,3.0,3.0,3.5,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0356,Arif Mahendra Setiawan,Tour Operations Staff,Tur & Perjalanan,Aktif,58,91,3.18,3.27,3.43,3.31,3.67,3.51,4.19,4.0,4.0,5.0,3.11,3.0,3.96,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0357,Nanda Gunawan Prasetyo,Tour Operations Staff,Tur & Perjalanan,Belum,50,62,3.29,2.95,3.0,3.0,3.0,2.85,4.06,4.06,3.03,4.27,2.47,2.09,3.24,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0358,Budi Saputra Lestari,Tour Operations Staff,Tur & Perjalanan,Aktif,56,87,3.0,3.21,3.04,3.0,3.0,3.0,3.04,4.1,4.0,4.62,2.6,2.97,3.37,4.03,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0359,Rafi Purnama Anggraini,Tour Operations Staff,Tur & Perjalanan,Aktif,50,80,3.0,3.15,3.39,3.0,3.14,3.0,4.0,3.0,3.48,4.32,3.72,3.24,3.65,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0360,Arif Wibowo Setiawan,Tour Operations Staff,Tur & Perjalanan,Aktif,52,86,3.0,3.15,3.61,3.0,3.6,3.01,3.79,4.0,4.49,4.11,3.12,3.0,3.69,3.77,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0361,Rizky Purnama Sari,Tour Operations Staff,Tur & Perjalanan,Aktif,45,72,3.0,3.0,2.96,2.88,3.0,2.57,2.71,2.87,3.0,4.49,3.13,3.0,4.0,3.0,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0362,Rafi Pratama Lestari,Tour Operations Staff,Tur & Perjalanan,Aktif,58,83,2.81,2.0,2.77,2.67,2.72,2.0,2.58,4.0,2.0,4.67,1.8,3.46,2.91,4.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0363,Dewi Purnama Setiawan,MICE Coordinator,Tur & Perjalanan,Aktif,58,83,3.29,3.5,3.34,3.3,3.24,3.0,4.23,3.0,4.28,3.77,2.83,4.28,3.76,5.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0364,Siti Hidayat Kurniawan,MICE Coordinator,Tur & Perjalanan,Belum,50,60,2.72,3.18,3.07,3.0,3.12,3.0,4.52,3.8,3.0,3.69,3.0,3.0,3.0,4.42,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0365,Taufik Wijaya Sari,MICE Coordinator,Tur & Perjalanan,Belum,50,65,3.0,3.17,3.13,2.59,3.0,2.89,3.0,4.31,4.0,4.0,3.07,2.59,3.92,4.0,0,Komunikasi & Layanan Tamu,4,Retensi & Risiko Resign
+EMP0366,Andi Gunawan Firmansyah,MICE Coordinator,Tur & Perjalanan,Belum,45,70,2.79,3.0,3.0,3.0,2.76,3.0,3.02,4.0,4.0,3.1,4.0,4.0,4.0,3.0,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0367,Putri Nugraha Prasetyo,MICE Coordinator,Tur & Perjalanan,Aktif,56,90,3.0,3.0,3.0,3.12,2.92,3.15,4.14,3.0,3.87,4.05,3.25,3.87,2.0,3.79,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0368,Ayu Hidayat Lestari,MICE Coordinator,Tur & Perjalanan,Aktif,55,74,3.0,3.0,2.99,3.47,3.0,3.27,4.97,3.77,3.0,3.0,4.03,3.37,4.0,3.31,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0369,Rizal Utama Rahmawati,MICE Coordinator,Tur & Perjalanan,Belum,56,71,3.17,2.89,2.91,3.0,2.86,3.0,3.5,3.22,3.47,4.61,3.31,2.92,3.89,4.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0370,Rafi Utama Lestari,MICE Coordinator,Tur & Perjalanan,Kadaluarsa,40,54,2.89,3.0,2.85,3.17,3.16,3.33,3.96,3.84,2.17,5.0,3.11,4.53,3.0,3.15,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0371,Rizal Wibowo Prasetyo,MICE Coordinator,Tur & Perjalanan,Aktif,48,66,3.09,3.03,3.05,3.0,3.0,3.16,3.42,3.92,3.0,3.82,3.0,4.0,4.36,4.15,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0372,Nanda Hidayat Setiawan,MICE Coordinator,Tur & Perjalanan,Aktif,54,79,3.03,3.06,3.0,3.16,3.53,3.72,4.0,5.0,4.32,3.6,3.45,3.28,3.88,3.21,3,Sertifikasi Lanjutan & Pengembangan Karir,3,Percepatan Karir
+EMP0373,Dewi Ramadhan Anggraini,MICE Coordinator,Tur & Perjalanan,Aktif,52,80,3.0,3.33,3.0,3.06,2.91,3.2,4.32,3.65,4.0,3.0,4.03,3.67,4.51,3.48,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0374,Arif Wibowo Hakim,MICE Coordinator,Tur & Perjalanan,Kadaluarsa,53,73,3.65,3.36,3.33,3.0,3.42,3.72,4.6,5.0,3.8,5.0,3.0,3.92,4.0,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0375,Taufik Hidayat Sari,MICE Coordinator,Tur & Perjalanan,Aktif,49,67,3.23,3.0,3.12,3.44,3.33,2.85,5.0,2.89,3.41,3.0,4.14,3.0,3.45,3.64,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0376,Rina Pratama Kurniawan,MICE Coordinator,Tur & Perjalanan,Aktif,48,75,2.62,3.0,3.06,3.0,2.95,2.92,3.63,3.14,4.0,4.0,3.18,3.0,2.0,3.0,0,Komunikasi & Layanan Tamu,2,Pertahankan & Stabilkan
+EMP0377,Yoga Mahendra Hakim,MICE Coordinator,Tur & Perjalanan,Aktif,55,85,3.0,3.0,3.0,3.0,3.0,3.17,4.74,4.0,3.0,4.47,2.87,3.0,4.0,3.0,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0378,Indah Wijaya Susanto,MICE Coordinator,Tur & Perjalanan,Belum,56,71,3.09,3.17,3.0,3.06,3.0,3.19,4.0,4.0,2.7,4.78,3.0,3.96,3.46,3.26,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0379,Budi Hidayat Setiawan,MICE Coordinator,Tur & Perjalanan,Aktif,56,75,3.2,3.0,3.0,3.47,3.18,3.0,3.0,5.0,3.43,4.0,4.0,3.41,4.0,3.58,2,Kepemimpinan & Supervisi,2,Pertahankan & Stabilkan
+EMP0380,Rina Wibowo Firmansyah,MICE Coordinator,Tur & Perjalanan,Kadaluarsa,56,71,3.0,3.0,3.35,3.11,3.03,3.0,3.71,3.08,3.03,4.0,4.22,3.38,3.53,4.0,2,Kepemimpinan & Supervisi,1,Pengawasan & Evaluasi Ketat
+EMP0381,Rina Gunawan Prasetyo,MICE Coordinator,Tur & Perjalanan,Belum,47,73,3.0,3.06,2.88,3.0,3.0,3.04,4.0,3.49,4.0,4.51,2.96,3.0,3.19,3.06,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0382,Siti Saputra Susanto,Driver & Guide,Tur & Perjalanan,Aktif,50,76,2.32,2.73,3.03,2.73,2.0,3.0,3.09,3.81,1.88,3.7,4.11,2.73,3.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0383,Indah Gunawan Maulana,Driver & Guide,Tur & Perjalanan,Aktif,38,72,2.28,2.48,3.0,3.0,2.7,2.36,2.0,4.28,2.47,3.44,1.93,2.5,3.0,2.0,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0384,Nabila Utama Anggraini,Driver & Guide,Tur & Perjalanan,Aktif,43,71,2.49,3.0,2.74,2.77,2.47,2.4,3.07,3.01,3.54,4.55,1.43,3.0,3.5,1.6,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0385,Putri Kusuma Putra,Driver & Guide,Tur & Perjalanan,Kadaluarsa,41,67,3.0,2.77,2.58,2.52,2.29,2.32,3.0,4.14,2.25,3.0,3.0,2.52,2.95,4.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0386,Yoga Wibowo Lestari,Driver & Guide,Tur & Perjalanan,Belum,36,62,3.0,2.44,2.36,2.0,2.39,2.45,2.0,3.81,2.0,4.09,2.0,2.67,2.34,2.74,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0387,Arif Utama Putra,Driver & Guide,Tur & Perjalanan,Kadaluarsa,43,54,2.84,2.74,2.79,2.71,3.0,3.04,2.75,4.74,3.0,4.0,2.3,3.24,3.2,3.03,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0388,Andi Utama Kurniawan,Driver & Guide,Tur & Perjalanan,Aktif,43,63,3.0,3.0,3.0,2.53,3.0,2.7,2.65,3.08,4.0,3.74,3.57,2.55,2.87,2.04,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0389,Siti Ramadhan Hakim,Driver & Guide,Tur & Perjalanan,Kadaluarsa,36,63,2.86,3.0,2.75,2.39,2.42,2.69,3.0,3.88,4.14,4.0,1.0,2.5,3.0,2.36,0,Komunikasi & Layanan Tamu,1,Pengawasan & Evaluasi Ketat
+EMP0390,Taufik Purnama Firmansyah,Driver & Guide,Tur & Perjalanan,Belum,35,50,2.7,2.44,2.28,2.0,2.19,2.0,4.0,3.07,3.0,2.64,2.0,3.26,2.56,2.26,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0391,Andi Hidayat Prasetyo,Driver & Guide,Tur & Perjalanan,Aktif,42,70,3.0,2.76,2.54,2.44,2.6,2.0,3.95,4.0,4.04,3.35,3.0,3.15,1.33,2.51,3,Sertifikasi Lanjutan & Pengembangan Karir,1,Pengawasan & Evaluasi Ketat
+EMP0392,Rizky Wibowo Lestari,Driver & Guide,Tur & Perjalanan,Aktif,48,75,2.9,2.92,3.17,3.15,2.91,3.0,4.0,4.0,3.0,3.9,3.0,3.0,3.58,2.73,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0393,Yoga Pratama Prasetyo,Driver & Guide,Tur & Perjalanan,Aktif,44,78,2.82,2.77,2.58,2.74,2.64,3.0,4.0,4.04,3.17,3.22,2.58,2.79,2.0,3.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0394,Dewi Permana Rahmawati,Driver & Guide,Tur & Perjalanan,Aktif,39,65,2.79,3.0,2.72,3.0,3.0,2.7,3.57,4.0,4.43,4.2,2.79,3.0,3.0,1.85,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0395,Arif Utama Rahmawati,Driver & Guide,Tur & Perjalanan,Aktif,45,61,3.0,3.0,2.0,2.49,2.0,2.57,3.0,4.0,3.36,3.0,2.36,2.78,2.0,1.98,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0396,Taufik Hidayat Hakim,Driver & Guide,Tur & Perjalanan,Aktif,50,70,3.0,2.94,2.94,3.1,3.02,3.0,4.43,4.0,3.8,4.94,2.82,3.0,3.0,2.09,3,Sertifikasi Lanjutan & Pengembangan Karir,2,Pertahankan & Stabilkan
+EMP0397,Andi Santoso Maulana,Driver & Guide,Tur & Perjalanan,Kadaluarsa,43,57,2.65,2.57,3.0,2.16,2.47,3.0,2.0,2.97,2.51,3.63,2.52,3.39,3.21,3.0,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat
+EMP0398,Fajar Hidayat Maulana,Driver & Guide,Tur & Perjalanan,Aktif,34,66,2.6,2.65,2.43,3.0,3.0,3.0,3.83,4.46,2.0,4.0,1.76,2.17,2.67,2.0,1,Teknis & Kepatuhan SOP,2,Pertahankan & Stabilkan
+EMP0399,Taufik Permana Sari,Driver & Guide,Tur & Perjalanan,Belum,38,50,2.14,2.16,1.9,2.23,2.0,2.0,2.0,3.0,3.0,3.0,2.26,3.0,2.44,2.44,1,Teknis & Kepatuhan SOP,0,Coaching Intensif
+EMP0400,Indah Wibowo Maulana,Driver & Guide,Tur & Perjalanan,Belum,37,56,2.57,3.0,2.0,2.0,2.65,2.28,3.0,4.0,2.44,3.2,2.0,2.41,4.0,3.22,1,Teknis & Kepatuhan SOP,1,Pengawasan & Evaluasi Ketat

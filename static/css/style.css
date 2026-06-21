@@ -149,11 +149,31 @@ td.mono{font-family:var(--font-mono);font-size:12px;font-weight:500}
 .section-label{font-size:9.5px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:0 24px 10px;display:block}
 
 /* ── ANIMATIONS ────────────────────────────────────── */
-.view.active .kpi-card,.view.active .chart-card,.view.active .table-card,.view.active .interp-tile{animation:fadeUp .28s ease both}
-.view.active .kpi-card:nth-child(2){animation-delay:.05s}
-.view.active .kpi-card:nth-child(3){animation-delay:.1s}
-.view.active .kpi-card:nth-child(4){animation-delay:.15s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.view { display: none; opacity: 0; transform: translateY(5px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.view.active { display: block; opacity: 1; transform: translateY(0); animation: viewEnter 0.4s ease forwards; }
+
+.view.active .kpi-card, .view.active .chart-card, .view.active .table-card, .view.active .interp-tile, .view.active .course-card {
+  animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: opacity, transform;
+}
+.view.active .kpi-card:nth-child(1) { animation-delay: 0.05s; }
+.view.active .kpi-card:nth-child(2) { animation-delay: 0.10s; }
+.view.active .kpi-card:nth-child(3) { animation-delay: 0.15s; }
+.view.active .kpi-card:nth-child(4) { animation-delay: 0.20s; }
+
+.view.active .chart-card:nth-child(1) { animation-delay: 0.15s; }
+.view.active .chart-card:nth-child(2) { animation-delay: 0.25s; }
+.view.active .table-card { animation-delay: 0.2s; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes viewEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 
 /* ── ROLE TOGGLE ───────────────────────────────────── */
